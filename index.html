@@ -1093,11 +1093,22 @@
         </div>
       </div>
 
-      <!-- Tela de Login Restrito do Administrador -->
+      <!-- Tela de Login Restrito do Administrador (Supabase Auth) -->
       <form id="admin-login-form" class="p-5 space-y-3.5 text-xs">
         <p class="text-ml-muted leading-relaxed">
-          Acesso restrito ao administrador. Informe sua senha para editar textos, gerenciar produtos, categorias, imagens e links de pagamento.
+          Acesso restrito ao administrador. Informe seu e-mail e senha cadastrados no Supabase para editar textos, gerenciar produtos, categorias, imagens e links de pagamento.
         </p>
+        <div>
+          <label for="admin-email-input" class="block font-bold text-ml-text mb-1">E-mail do Administrador *</label>
+          <input
+            type="email"
+            id="admin-email-input"
+            required
+            autocomplete="email"
+            placeholder="admin@megashopbrasil.com"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm text-ml-text focus:outline-none focus:border-ml-blue"
+          />
+        </div>
         <div>
           <label for="admin-password-input" class="block font-bold text-ml-text mb-1">Senha do Administrador *</label>
           <input
@@ -1313,12 +1324,12 @@
                   class="hidden"
                 />
               </label>
+              <span id="admin-edit-file-status" class="text-[11px] font-semibold text-ml-muted">
+                Selecione uma nova foto para substituir (opcional)
+              </span>
               <input
-                type="text"
+                type="hidden"
                 id="admin-edit-image"
-                required
-                placeholder="URL da imagem ou arquivo enviado"
-                class="flex-1 min-w-[180px] px-3 py-2 rounded-xl border border-gray-300 text-ml-text focus:outline-none focus:border-ml-blue"
               />
             </div>
             <img
@@ -1430,12 +1441,12 @@
                   class="hidden"
                 />
               </label>
+              <span id="admin-new-file-status" class="text-[11px] font-semibold text-ml-muted">
+                Nenhuma foto selecionada
+              </span>
               <input
-                type="text"
+                type="hidden"
                 id="admin-new-image"
-                required
-                placeholder="Faça upload da foto ou cole a URL"
-                class="flex-1 min-w-[180px] px-3 py-2 rounded-xl border border-gray-300 text-ml-text focus:outline-none focus:border-ml-blue"
               />
             </div>
             <img
@@ -1840,7 +1851,7 @@
         selectedCategory: 'Todos',
         searchQuery: '',
         currentPage: 1,
-        isAdminAuthenticated: sessionStorage.getItem(ADMIN_SESSION_KEY) === 'true',
+        isAdminAuthenticated: false,
         isInlineEditMode: false,
         activeReviewProductId: null,
         selectedReviewRating: 5,
@@ -2574,6 +2585,10 @@
         document.getElementById('admin-edit-free-shipping').checked = Boolean(product.freeShipping);
 
         const preview = document.getElementById('admin-edit-preview');
+        const statusEl = document.getElementById('admin-edit-file-status');
+        if (statusEl) {
+          statusEl.textContent = product.image ? 'Foto atual carregada (clique em Upload para trocar)' : 'Selecione uma foto';
+        }
         if (preview && product.image) {
           preview.src = product.image;
           preview.classList.remove('hidden');
@@ -2996,33 +3011,76 @@
           }
         });
 
-        // Login do Administrador
-        document.getElementById('admin-login-form')?.addEventListener('submit', (e) => {
+        // Login do Administrador via Supabase Auth
+        document.getElementById('admin-login-form')?.addEventListener('submit', async (e) => {
           e.preventDefault();
+          const emailInput = document.getElementById('admin-email-input');
           const passInput = document.getElementById('admin-password-input');
           const msgEl = document.getElementById('admin-lockout-msg');
-          const entered = (passInput?.value || '').trim();
-          const expected = getStoredAdminPass();
+          const submitBtn = document.getElementById('admin-login-submit-btn');
+          const email = (emailInput?.value || '').trim();
+          const password = (passInput?.value || '').trim();
+          const client = getSupabaseClient();
 
-          if (entered === expected) {
-            state.isAdminAuthenticated = true;
-            sessionStorage.setItem(ADMIN_SESSION_KEY, 'true');
-            if (passInput) passInput.value = '';
-            if (msgEl) msgEl.classList.add('hidden');
-            updateAdminVisibility();
-            openAdminModal();
-            showToast('Acesso administrativo liberado!', 'success');
-          } else {
+          if (!client || !client.auth) {
             if (msgEl) {
-              msgEl.textContent = 'Senha incorreta. Verifique e tente novamente.';
+              msgEl.textContent = 'Cliente Supabase indisponível no momento.';
               msgEl.classList.remove('hidden');
             }
-            showToast('Senha do administrador incorreta.', 'danger');
+            showToast('Erro ao conectar com autenticação Supabase.', 'danger');
+            return;
+          }
+
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Autenticando...';
+          }
+
+          try {
+            const { data, error } = await client.auth.signInWithPassword({
+              email,
+              password,
+            });
+
+            if (!error && data?.session) {
+              state.isAdminAuthenticated = true;
+              sessionStorage.setItem(ADMIN_SESSION_KEY, 'true');
+              if (passInput) passInput.value = '';
+              if (msgEl) msgEl.classList.add('hidden');
+              updateAdminVisibility();
+              openAdminModal();
+              showToast('Acesso administrativo autenticado via Supabase!', 'success');
+            } else {
+              state.isAdminAuthenticated = false;
+              sessionStorage.removeItem(ADMIN_SESSION_KEY);
+              if (msgEl) {
+                msgEl.textContent = 'E-mail ou senha inválidos no Supabase Auth.';
+                msgEl.classList.remove('hidden');
+              }
+              showToast('Credenciais de administrador incorretas.', 'danger');
+            }
+          } catch (err) {
+            if (msgEl) {
+              msgEl.textContent = 'Falha de conexão ao autenticar no Supabase.';
+              msgEl.classList.remove('hidden');
+            }
+            showToast('Erro de rede ao tentar fazer login.', 'danger');
+          } finally {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Acessar Painel Administrativo';
+            }
           }
         });
 
-        // Logout do Administrador
-        document.getElementById('admin-logout-btn')?.addEventListener('click', () => {
+        // Logout do Administrador via Supabase Auth
+        document.getElementById('admin-logout-btn')?.addEventListener('click', async () => {
+          const client = getSupabaseClient();
+          if (client?.auth) {
+            try {
+              await client.auth.signOut();
+            } catch (e) {}
+          }
           state.isAdminAuthenticated = false;
           sessionStorage.removeItem(ADMIN_SESSION_KEY);
           if (state.isInlineEditMode) toggleInlineEditMode(false);
@@ -3031,8 +3089,8 @@
           showToast('Sessão administrativa encerrada.', 'info');
         });
 
-        // Alterar Senha do Administrador
-        document.getElementById('admin-change-password-form')?.addEventListener('submit', (e) => {
+        // Alterar Senha do Administrador diretamente no Supabase Auth
+        document.getElementById('admin-change-password-form')?.addEventListener('submit', async (e) => {
           e.preventDefault();
           const p1 = document.getElementById('admin-new-pass-input').value.trim();
           const p2 = document.getElementById('admin-confirm-pass-input').value.trim();
@@ -3044,9 +3102,18 @@
             showToast('As senhas digitadas não coincidem.', 'danger');
             return;
           }
-          localStorage.setItem(ADMIN_PASS_KEY, p1);
+          const client = getSupabaseClient();
+          if (!client?.auth) {
+            showToast('Cliente Supabase não disponível.', 'danger');
+            return;
+          }
+          const { error } = await client.auth.updateUser({ password: p1 });
+          if (error) {
+            showToast(`Erro ao atualizar senha no Supabase: ${error.message}`, 'danger');
+            return;
+          }
           e.target.reset();
-          showToast('Senha do administrador atualizada com sucesso!', 'success');
+          showToast('Senha do administrador atualizada no Supabase!', 'success');
         });
 
         // Edição de Textos no Painel e Direto na Tela
@@ -3081,8 +3148,13 @@
         });
 
         document.getElementById('admin-edit-file')?.addEventListener('change', (e) => {
-          readImageFileAsDataURL(e.target.files?.[0], (dataUrl) => {
+          const file = e.target.files?.[0];
+          readImageFileAsDataURL(file, (dataUrl) => {
             document.getElementById('admin-edit-image').value = dataUrl;
+            const statusEl = document.getElementById('admin-edit-file-status');
+            if (statusEl && file) {
+              statusEl.textContent = `Nova foto selecionada: ${file.name}`;
+            }
             const prev = document.getElementById('admin-edit-preview');
             if (prev) {
               prev.src = dataUrl;
@@ -3092,8 +3164,13 @@
         });
 
         document.getElementById('admin-new-file')?.addEventListener('change', (e) => {
-          readImageFileAsDataURL(e.target.files?.[0], (dataUrl) => {
+          const file = e.target.files?.[0];
+          readImageFileAsDataURL(file, (dataUrl) => {
             document.getElementById('admin-new-image').value = dataUrl;
+            const statusEl = document.getElementById('admin-new-file-status');
+            if (statusEl && file) {
+              statusEl.textContent = `Foto selecionada: ${file.name}`;
+            }
             const prev = document.getElementById('admin-new-preview');
             if (prev) {
               prev.src = dataUrl;
@@ -3108,6 +3185,12 @@
           const product = state.products.find((p) => p.id === id);
           if (!product) return;
 
+          const updatedImage = document.getElementById('admin-edit-image').value.trim() || product.image;
+          if (!updatedImage) {
+            showToast('Faça o upload da foto do produto antes de salvar.', 'warning');
+            return;
+          }
+
           product.name = document.getElementById('admin-edit-name').value.trim();
           product.category = document.getElementById('admin-edit-category').value;
           product.price = parseFloat(document.getElementById('admin-edit-price').value) || 0;
@@ -3115,7 +3198,7 @@
           product.oldPrice = !Number.isNaN(oldVal) && oldVal > 0 ? oldVal : null;
           product.paymentLink = document.getElementById('admin-edit-payment-link').value.trim();
           product.description = document.getElementById('admin-edit-description').value.trim();
-          product.image = document.getElementById('admin-edit-image').value.trim();
+          product.image = updatedImage;
           product.freeShipping = document.getElementById('admin-edit-free-shipping').checked;
 
           saveState();
@@ -3144,6 +3227,12 @@
 
         document.getElementById('admin-create-product-form')?.addEventListener('submit', (e) => {
           e.preventDefault();
+          const uploadedImage = document.getElementById('admin-new-image').value.trim();
+          if (!uploadedImage) {
+            showToast('Selecione uma foto pelo botão "Upload de Foto" antes de cadastrar.', 'warning');
+            return;
+          }
+
           const oldVal = parseFloat(document.getElementById('admin-new-old-price').value);
           const newProduct = {
             id: `prod-${Date.now()}`,
@@ -3156,7 +3245,7 @@
             freeShipping: document.getElementById('admin-new-free-shipping').checked,
             paymentLink: document.getElementById('admin-new-payment-link').value.trim(),
             description: document.getElementById('admin-new-description').value.trim(),
-            image: document.getElementById('admin-new-image').value.trim(),
+            image: uploadedImage,
             comments: [],
           };
 
@@ -3167,6 +3256,9 @@
           renderProducts();
           populateAdminPanel();
           e.target.reset();
+          document.getElementById('admin-new-image').value = '';
+          const statusEl = document.getElementById('admin-new-file-status');
+          if (statusEl) statusEl.textContent = 'Nenhuma foto selecionada';
           document.getElementById('admin-new-preview')?.classList.add('hidden');
           showToast('Novo produto cadastrado na vitrine!', 'success');
         });
@@ -3382,6 +3474,22 @@
         }
       }
 
+      async function restoreSupabaseAdminSession() {
+        const client = getSupabaseClient();
+        if (!client?.auth) return;
+        try {
+          const { data } = await client.auth.getSession();
+          const hasSession = Boolean(data?.session);
+          state.isAdminAuthenticated = hasSession;
+          if (hasSession) {
+            sessionStorage.setItem(ADMIN_SESSION_KEY, 'true');
+          } else {
+            sessionStorage.removeItem(ADMIN_SESSION_KEY);
+          }
+          updateAdminVisibility();
+        } catch (e) {}
+      }
+
       // Inicialização completa da página
       applySiteTexts();
       renderLiveShoppers();
@@ -3391,6 +3499,7 @@
       updateCustomerUI();
       updateAdminVisibility();
       bindEvents();
+      restoreSupabaseAdminSession();
       syncWithSupabase(false);
     })();
   </script>
