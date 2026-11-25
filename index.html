@@ -403,6 +403,35 @@
       <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
         <span data-editable-key="footer_brand_line"><strong>Mega Shop Brasil</strong> — Atacado e Varejo</span>
         <div class="flex items-center gap-2">
+          <button
+  type="button"
+  onclick="document.getElementById('privacy-policy-modal').classList.remove('hidden')"
+  class="text-[11px] font-bold text-ml-blue hover:underline"
+>
+  Política de Privacidade
+</button>
+
+<div id="privacy-policy-modal" class="hidden fixed inset-0 z-[90] bg-black/50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl max-w-lg w-full max-h-[80vh] flex flex-col shadow-xl border border-gray-200">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-200">
+      <h3 class="font-display font-extrabold text-sm text-ml-text">Política de Privacidade</h3>
+      <button
+        type="button"
+        onclick="document.getElementById('privacy-policy-modal').classList.add('hidden')"
+        class="w-8 h-8 rounded-lg text-gray-500 hover:bg-gray-100"
+      >
+        ✕
+      </button>
+    </div>
+    <div
+      data-editable-key="politica_privacidade"
+      class="p-5 overflow-y-auto text-xs text-ml-text whitespace-pre-line leading-relaxed"
+    >
+      Política de Privacidade – Mega Shop Brasil
+    </div>
+  </div>
+</div>
+          
           <span data-editable-key="footer_area_line">Área exclusiva de cadastro e acesso do cliente</span>
           <button
             type="button"
