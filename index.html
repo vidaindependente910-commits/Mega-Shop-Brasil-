@@ -4,25 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mega Shop Brasil — Atacado e Varejo</title>
-
-  <!-- Prévia ao compartilhar link (WhatsApp, Instagram, Facebook, Telegram) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://vidaindependente910-commits.github.io/Mega-Shop-Brasil-/" />
-  <meta property="og:title" content="Mega Shop Brasil — MSB Atacado" />
-  <meta property="og:description" content="Atacado e Varejo, pensou em comprar, pensou Mega. Os melhores fornecedores do Brasil com entrega em até 10 dias úteis." />
-  <meta property="og:image" content="https://vidaindependente910-commits.github.io/Mega-Shop-Brasil-/banner-compartilhamento-og.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mega Shop Brasil — MSB Atacado" />
-  <meta name="twitter:description" content="Atacado e Varejo, pensou em comprar, pensou Mega." />
-  <meta name="twitter:image" content="https://vidaindependente910-commits.github.io/Mega-Shop-Brasil-/banner-compartilhamento-og.jpg" />
-
-  <!-- Ícone da aba do navegador -->
-  <link rel="icon" type="image/png" href="logo-msb.png" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
@@ -94,18 +75,11 @@
       background-color: rgba(52, 131, 250, 0.08);
       cursor: text;
     }
-    @keyframes surgir-banner-logo {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .banner-fixo-logo-anim {
-      animation: surgir-banner-logo 0.45s ease-out;
+    .yellow-logo-footer-bg {
+      background-color: #FFE600;
+      background-image:
+        radial-gradient(circle at 12% 20%, rgba(17, 24, 39, 0.08) 0, rgba(17, 24, 39, 0.08) 2px, transparent 2px),
+        linear-gradient(135deg, rgba(255, 230, 0, 0.96) 0%, rgba(245, 220, 0, 0.96) 100%);
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -128,67 +102,29 @@
     </button>
   </div>
 
-  <!-- Banner fixo da logo que aparece sempre ao abrir qualquer página do site -->
-  <div
-    id="page-open-logo-banner"
-    role="region"
-    aria-label="Banner da logo MSB Atacado"
-    class="banner-fixo-logo-anim fixed bottom-20 left-4 z-[68] bg-gray-950 text-white border-2 border-ml-yellow rounded-2xl px-3 py-2 shadow-2xl flex items-center gap-2.5 max-w-[260px]"
-  >
-    <a href="index.html" class="flex items-center gap-2.5 min-w-0" title="Ir para a página inicial">
-      <img
-        src="logo-msb.png"
-        alt="MSB Atacado"
-        onerror="this.style.display='none'"
-        class="h-9 w-auto rounded-lg shrink-0 object-contain"
-      />
-      <div class="leading-tight min-w-0">
-        <span class="block text-[11px] font-extrabold text-ml-yellow truncate">MSB Atacado</span>
-        <span class="block text-[10px] text-gray-200 truncate">Mega Shop Brasil • Início</span>
-      </div>
-    </a>
-    <button
-      type="button"
-      onclick="document.getElementById('page-open-logo-banner').classList.add('hidden')"
-      aria-label="Fechar banner da logo"
-      class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white flex items-center justify-center text-xs font-bold cursor-pointer shrink-0"
-    >
-      &times;
-    </button>
-  </div>
-
   <!-- Cabeçalho -->
   <header class="bg-ml-yellow sticky top-0 z-40 shadow-sm border-b border-yellow-400">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3">
-      <!-- Logotipo MSB Atacado clicável centralizado acima de Mega Shop Brasil -->
+      <!-- Logotipo MSB Atacado centralizado acima de Mega Shop Brasil -->
       <div class="flex flex-col items-center justify-center mb-2.5">
         <a
-          href="index.html"
+          href="#vitrine"
           id="msb-logo-link"
-          aria-label="Logotipo MSB Atacado — Página Inicial"
-          title="Voltar para a página inicial"
-          class="group inline-flex flex-col items-center justify-center px-4 py-1.5 rounded-2xl bg-gray-950 text-white border border-yellow-300/70 shadow-md hover:shadow-lg hover:scale-[1.03] transition-all duration-200 select-none"
+          aria-label="Logotipo MSB Atacado"
+          class="group inline-flex flex-col items-center justify-center px-5 py-1.5 rounded-2xl bg-gray-950 text-white border border-yellow-300/70 shadow-md hover:shadow-lg transition-all duration-200 select-none"
         >
-          <img
-            src="logo-msb.png"
-            alt="MSB Atacado"
-            onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
-            class="h-9 sm:h-11 w-auto object-contain rounded-lg"
-          />
-          <span class="hidden flex-col items-center">
-            <span class="font-display font-extrabold text-lg sm:text-xl tracking-[0.22em] leading-none bg-gradient-to-r from-ml-yellow via-amber-200 to-orange-400 bg-clip-text text-transparent">
-              MSB
-            </span>
-            <span class="w-8 h-px bg-gradient-to-r from-transparent via-ml-yellow/80 to-transparent my-1"></span>
-            <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.28em] text-amber-100 leading-none">
-              Atacado
-            </span>
+          <span class="font-display font-extrabold text-lg sm:text-xl tracking-[0.22em] leading-none bg-gradient-to-r from-ml-yellow via-amber-200 to-orange-400 bg-clip-text text-transparent">
+            MSB
+          </span>
+          <span class="w-8 h-px bg-gradient-to-r from-transparent via-ml-yellow/80 to-transparent my-1"></span>
+          <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.28em] text-amber-100 leading-none">
+            Atacado
           </span>
         </a>
       </div>
 
       <div class="flex flex-wrap items-center justify-between gap-2.5">
-        <a href="index.html" id="logo-reset" class="flex items-center gap-2 shrink-0" title="Página Inicial — Mega Shop Brasil">
+        <a href="#vitrine" id="logo-reset" class="flex items-center gap-2 shrink-0">
           <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-shopee-orange text-white flex items-center justify-center shadow-sm">
             <i class="fa-solid fa-bag-shopping text-base sm:text-lg"></i>
           </div>
@@ -223,8 +159,18 @@
           </div>
         </div>
 
-        <!-- Favoritos, Sacola e Entrar/Cadastrar Cliente -->
+        <!-- Meus Pedidos, Favoritos, Sacola e Entrar/Cadastrar Cliente -->
         <div class="order-2 md:order-3 flex items-center justify-end gap-1.5 ml-auto shrink-0">
+          <button
+            type="button"
+            id="open-my-orders-btn"
+            class="px-2 sm:px-2.5 py-1.5 rounded-xl bg-amber-100 hover:bg-amber-200 text-gray-950 text-[11px] font-extrabold flex items-center gap-1 shadow-2xs border border-amber-400 cursor-pointer transition shrink-0"
+          >
+            <i class="fa-solid fa-box-open text-shopee-orange"></i>
+            <span class="hidden lg:inline">Meus Pedidos</span>
+            <span id="orders-badge" class="px-1.5 py-0.5 rounded-full bg-gray-950 text-ml-yellow text-[10px] font-extrabold">0</span>
+          </button>
+
           <button
             type="button"
             id="open-favorites-btn"
@@ -268,6 +214,32 @@
     </div>
   </header>
 
+  <!-- Banner fixo da logo MSB Atacado exibido ao abrir cada página/visualização -->
+  <section aria-label="Banner institucional do logotipo MSB Atacado" class="max-w-7xl w-full mx-auto px-3 sm:px-6 pt-3">
+    <div id="msb-page-logo-banner" class="rounded-2xl bg-gradient-to-r from-gray-950 via-gray-900 to-gray-950 text-white border border-ml-yellow/60 px-4 py-2.5 shadow-sm flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-xl bg-ml-yellow text-gray-950 font-display font-extrabold flex flex-col items-center justify-center leading-none shadow-2xs shrink-0">
+          <span class="text-xs tracking-wider">MSB</span>
+          <span class="text-[8px] font-black uppercase tracking-widest mt-0.5">ATACADO</span>
+        </div>
+        <div>
+          <p class="font-display font-extrabold text-xs sm:text-sm text-ml-yellow">
+            MSB Atacado • Mega Shop Brasil
+          </p>
+          <p class="text-[11px] text-gray-300">
+            Atacado e Varejo • Os melhores fornecedores do Brasil com entrega em até 10 dias úteis.
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-[10px] font-extrabold">
+        <span class="px-2.5 py-1 rounded-full bg-white/10 border border-white/15 text-amber-200">
+          <i class="fa-solid fa-shield-halved text-ml-yellow mr-1"></i>
+          Logo Oficial MSB
+        </span>
+      </div>
+    </div>
+  </section>
+
   <!-- Banner deslizante lento de clientes comprando -->
   <section
     aria-label="Clientes comprando agora em várias cidades do Brasil"
@@ -310,7 +282,10 @@
 
   <!-- Destaque de fornecedores e prazo de entrega acima de Ofertas em Destaque -->
   <section aria-label="Fornecedores e prazo de entrega" class="max-w-7xl w-full mx-auto px-3 sm:px-6 pt-4">
-    <div class="rounded-2xl bg-white border border-yellow-400/70 px-4 py-3.5 shadow-2xs text-center">
+    <div class="relative rounded-2xl bg-white border border-yellow-400/70 px-4 py-3.5 shadow-2xs text-center overflow-hidden">
+      <span class="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-ml-yellow text-gray-950 font-display font-black text-[10px] tracking-wider uppercase mb-1">
+        MSB ATACADO
+      </span>
       <p data-editable-key="suppliers_banner_text" class="font-display font-extrabold text-base sm:text-xl md:text-2xl text-ml-text leading-snug">
         Os melhores fornecedores do Brasil você só encontra aqui <span class="text-shopee-orange">com entrega em até 10 dias úteis.</span>
       </p>
@@ -320,9 +295,14 @@
   <!-- Vitrine principal -->
   <main id="vitrine" class="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 py-4">
     <div class="flex items-center justify-between gap-2 mb-3.5">
-      <h1 id="vitrine-heading" data-editable-key="vitrine_heading" class="font-display font-extrabold text-lg sm:text-xl text-ml-text">
-        Ofertas em Destaque
-      </h1>
+      <div class="flex items-center gap-2">
+        <h1 id="vitrine-heading" data-editable-key="vitrine_heading" class="font-display font-extrabold text-lg sm:text-xl text-ml-text">
+          Ofertas em Destaque
+        </h1>
+        <span class="px-2 py-0.5 rounded-md bg-gray-950 text-ml-yellow font-display font-extrabold text-[10px] tracking-wider">
+          MSB ATACADO
+        </span>
+      </div>
       <span id="vitrine-count" class="px-2.5 py-1 rounded-full bg-white border border-gray-200 text-xs font-bold text-ml-muted">
         0 produtos
       </span>
@@ -350,40 +330,38 @@
     </div>
   </main>
 
-  <!-- Rodapé -->
-  <footer class="bg-white border-t border-gray-200 mt-8 py-6 px-3 sm:px-6 text-xs text-ml-muted">
-    <div class="max-w-7xl mx-auto space-y-5">
-      <!-- Logo de fundo transparente no rodapé -->
-      <div class="flex flex-col items-center justify-center pb-2 border-b border-gray-100">
-        <a href="index.html" title="Voltar para a Página Inicial — Mega Shop Brasil" class="inline-block hover:opacity-90 transition">
-          <img
-            src="logo-msb-transparente.png"
-            alt="MSB Atacado — Logo Transparente"
-            onerror="this.style.display='none'"
-            class="h-16 sm:h-20 w-auto object-contain mx-auto"
-          />
-        </a>
-        <p class="text-[11px] text-ml-muted mt-1">MSB Atacado • Mega Shop Brasil</p>
-      </div>
+  <!-- Rodapé com logotipo amarelo de fundo e marcações adicionais MSB Atacado -->
+  <footer class="yellow-logo-footer-bg border-t-2 border-yellow-500 mt-8 py-6 px-3 sm:px-6 text-xs text-gray-900 relative overflow-hidden">
+    <!-- Logotipo decorativo em posição superior direita do rodapé -->
+    <div class="pointer-events-none select-none hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gray-950/90 text-ml-yellow border border-yellow-300/60 shadow-sm float-right mb-2">
+      <span class="font-display font-black text-xs tracking-widest">MSB</span>
+      <span class="text-[9px] font-bold uppercase tracking-widest text-amber-100">Atacado</span>
+    </div>
 
+    <div class="max-w-7xl mx-auto space-y-5 relative z-10">
       <!-- Perguntas Frequentes (FAQ) -->
-      <section aria-labelledby="faq-heading" class="rounded-2xl bg-gray-50 border border-gray-200 p-4 sm:p-6 space-y-3">
-        <div class="flex items-center gap-2">
-          <span class="w-8 h-8 rounded-lg bg-ml-blue text-white flex items-center justify-center shrink-0">
-            <i class="fa-solid fa-circle-question text-sm"></i>
-          </span>
-          <div>
-            <h2 id="faq-heading" data-editable-key="faq_title" class="font-display font-extrabold text-sm sm:text-base text-ml-text">
-              Perguntas Frequentes (FAQ)
-            </h2>
-            <p data-editable-key="faq_subtitle" class="text-[11px] text-ml-muted font-medium">
-              Tire suas dúvidas sobre fretes, prazos de entrega, trocas e logística de troca com fornecedores
-            </p>
+      <section aria-labelledby="faq-heading" class="rounded-2xl bg-white/95 backdrop-blur-2xs border border-yellow-500/50 p-4 sm:p-6 space-y-3 shadow-2xs">
+        <div class="flex items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-8 h-8 rounded-lg bg-ml-blue text-white flex items-center justify-center shrink-0">
+              <i class="fa-solid fa-circle-question text-sm"></i>
+            </span>
+            <div>
+              <h2 id="faq-heading" data-editable-key="faq_title" class="font-display font-extrabold text-sm sm:text-base text-ml-text">
+                Perguntas Frequentes (FAQ)
+              </h2>
+              <p data-editable-key="faq_subtitle" class="text-[11px] text-ml-muted font-medium">
+                Tire suas dúvidas sobre fretes, prazos de entrega, trocas e logística de troca com fornecedores
+              </p>
+            </div>
           </div>
+          <span class="hidden sm:inline-block px-2.5 py-1 rounded-lg bg-ml-yellow text-gray-950 font-display font-black text-[10px] tracking-wider">
+            MSB ATACADO
+          </span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
-          <details class="group rounded-xl bg-white border border-gray-200 p-3.5" open>
+          <details class="group rounded-xl bg-gray-50 border border-gray-200 p-3.5" open>
             <summary class="font-bold text-xs sm:text-sm text-ml-text cursor-pointer list-none flex items-center justify-between gap-2">
               <span data-editable-key="faq_q1">Como funcionam os fretes na loja?</span>
               <i class="fa-solid fa-chevron-down text-[11px] text-ml-muted group-open:rotate-180 transition-transform shrink-0"></i>
@@ -393,7 +371,7 @@
             </p>
           </details>
 
-          <details class="group rounded-xl bg-white border border-gray-200 p-3.5" open>
+          <details class="group rounded-xl bg-gray-50 border border-gray-200 p-3.5" open>
             <summary class="font-bold text-xs sm:text-sm text-ml-text cursor-pointer list-none flex items-center justify-between gap-2">
               <span data-editable-key="faq_q2">Qual é o prazo de entrega dos pedidos?</span>
               <i class="fa-solid fa-chevron-down text-[11px] text-ml-muted group-open:rotate-180 transition-transform shrink-0"></i>
@@ -403,8 +381,3829 @@
             </p>
           </details>
 
-          <details class="group rounded-xl bg-white border border-gray-200 p-3.5">
+          <details class="group rounded-xl bg-gray-50 border border-gray-200 p-3.5">
             <summary class="font-bold text-xs sm:text-sm text-ml-text cursor-pointer list-none flex items-center justify-between gap-2">
               <span data-editable-key="faq_q3">Como funciona a solicitação de trocas?</span>
               <i class="fa-solid fa-chevron-down text-[11px] text-ml-muted group-open:rotate-180 transition-transform shrink-0"></i>
-            </
+            </summary>
+            <p data-editable-key="faq_a3" class="mt-2 text-xs text-ml-muted leading-relaxed">
+              Caso precise trocar um produto por defeito, divergência ou tamanho/modelo, você pode acionar nosso atendimento virtual ou falar com nossa equipe humana informando o pedido. O item deve estar sem sinais de mau uso e com seus acessórios originais.
+            </p>
+          </details>
+
+          <details class="group rounded-xl bg-gray-50 border border-gray-200 p-3.5">
+            <summary class="font-bold text-xs sm:text-sm text-ml-text cursor-pointer list-none flex items-center justify-between gap-2">
+              <span data-editable-key="faq_q4">Como ocorre a entrega de trocas com o fornecedor?</span>
+              <i class="fa-solid fa-chevron-down text-[11px] text-ml-muted group-open:rotate-180 transition-transform shrink-0"></i>
+            </summary>
+            <p data-editable-key="faq_a4" class="mt-2 text-xs text-ml-muted leading-relaxed">
+              Na etapa de troca com o fornecedor, nossa equipe orienta o procedimento de postagem ou coleta de retorno do item para conferência junto ao fornecedor parceiro. Após a validação e o despacho da reposição, o novo produto segue para o seu endereço dentro do prazo logístico informado (até 10 dias úteis).
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Biografia e SEO Institucional da Empresa -->
+      <section aria-labelledby="sobre-empresa-heading" class="rounded-2xl bg-white/95 backdrop-blur-2xs border border-yellow-500/50 p-4 sm:p-6 space-y-3 shadow-2xs">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-8 h-8 rounded-lg bg-shopee-orange text-white flex items-center justify-center">
+              <i class="fa-solid fa-building-shield text-sm"></i>
+            </span>
+            <div>
+              <h2 id="sobre-empresa-heading" data-editable-key="about_title" class="font-display font-extrabold text-sm sm:text-base text-ml-text">
+                Sobre a Mega Shop Brasil — Atacado e Varejo com Credibilidade Nacional
+              </h2>
+              <p data-editable-key="about_subtitle" class="text-[11px] text-ml-muted font-medium">
+                Compromisso com transparência, curadoria de qualidade e logística ágil em todo o Brasil
+              </p>
+            </div>
+          </div>
+          <span data-editable-key="about_badge" class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-extrabold uppercase tracking-wide">
+            Empresa Comprometida
+          </span>
+        </div>
+
+        <p data-editable-key="about_description" class="text-xs sm:text-sm text-ml-text leading-relaxed">
+          A <strong>Mega Shop Brasil</strong> nasceu com o propósito de conectar consumidores, lojistas e empreendedores de todo o país aos melhores fornecedores e às melhores condições de <strong>atacado e varejo</strong>. Nossa biografia é construída sobre pilares sólidos de seriedade comercial, atendimento respeitoso, seleção criteriosa de produtos e entregas estruturadas para alcançar desde grandes capitais até cidades do interior, como Vitória do Mearim (MA), Marabá (PA), São Paulo (SP) e Rio de Janeiro (RJ).
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1 text-[11px] sm:text-xs">
+          <div class="p-3 rounded-xl bg-gray-50 border border-gray-200/80">
+            <strong data-editable-key="pillar_1_title" class="text-ml-text block mb-0.5">Seriedade e Confiança</strong>
+            <span data-editable-key="pillar_1_desc" class="text-ml-muted">Informações claras, catálogo atualizado e foco total na satisfação do cliente.</span>
+          </div>
+          <div class="p-3 rounded-xl bg-gray-50 border border-gray-200/80">
+            <strong data-editable-key="pillar_2_title" class="text-ml-text block mb-0.5">Fornecedores Selecionados</strong>
+            <span data-editable-key="pillar_2_desc" class="text-ml-muted">Parcerias estratégicas para oferecer preços competitivos e variedade real.</span>
+          </div>
+          <div class="p-3 rounded-xl bg-gray-50 border border-gray-200/80">
+            <strong data-editable-key="pillar_3_title" class="text-ml-text block mb-0.5">Alcance em Todo o Brasil</strong>
+            <span data-editable-key="pillar_3_desc" class="text-ml-muted">Experiência de compra rápida e acessível para clientes e revendedores.</span>
+          </div>
+        </div>
+
+        <!-- Botão Trabalhe Conosco -->
+        <div class="pt-2 border-t border-gray-200/80 flex flex-wrap items-center justify-between gap-3">
+          <span class="text-[11px] text-ml-muted">
+            Quer fazer parte do nosso time? Envie seu nome, endereço e currículo em PDF.
+          </span>
+          <button
+            type="button"
+            id="open-work-with-us-btn"
+            class="py-2.5 px-4 rounded-xl bg-ml-blue hover:bg-ml-blueDark text-white text-xs font-extrabold inline-flex items-center gap-2 shadow-2xs cursor-pointer transition"
+          >
+            <i class="fa-solid fa-briefcase"></i>
+            <span>Trabalhe Conosco</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Linha do rodapé com logotipo em destaque, Política de Privacidade e botão discreto de administrador -->
+      <div class="rounded-2xl bg-gray-950 text-white px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-sm">
+        <div class="flex items-center gap-2.5">
+          <span class="px-2.5 py-1 rounded-lg bg-ml-yellow text-gray-950 font-display font-black text-xs tracking-wider">
+            MSB ATACADO
+          </span>
+          <span data-editable-key="footer_brand_line"><strong>Mega Shop Brasil</strong> — Atacado e Varejo</span>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            id="open-privacy-policy-btn"
+            class="text-[11px] font-extrabold text-ml-yellow hover:underline cursor-pointer"
+          >
+            Política de Privacidade
+          </button>
+
+          <span data-editable-key="footer_area_line" class="text-gray-300">Área exclusiva de cadastro e acesso do cliente</span>
+
+          <button
+            type="button"
+            id="footer-admin-btn"
+            aria-label="Acesso administrativo"
+            title="Acesso restrito do administrador"
+            class="inline-flex items-center justify-center w-8 h-8 rounded-lg text-gray-300 hover:text-ml-yellow hover:bg-white/10 cursor-pointer transition select-none"
+          >
+            <i class="fa-solid fa-lock text-xs"></i>
+            <span id="footer-admin-label" class="sr-only">Admin</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal de Política de Privacidade -->
+      <div id="privacy-policy-modal" class="hidden fixed inset-0 z-[90] bg-black/50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full max-h-[82vh] flex flex-col shadow-xl border border-gray-200">
+          <div class="flex items-center justify-between px-5 py-4 border-b border-gray-200">
+            <h3 class="font-display font-extrabold text-sm text-ml-text">Política de Privacidade e Responsabilidades</h3>
+            <button
+              type="button"
+              id="close-privacy-policy-btn"
+              class="w-8 h-8 rounded-lg text-gray-500 hover:bg-gray-100 cursor-pointer"
+            >
+              ✕
+            </button>
+          </div>
+          <div
+            data-editable-key="politica_privacidade"
+            class="p-5 overflow-y-auto text-xs text-ml-text whitespace-pre-line leading-relaxed space-y-2"
+          >
+            <strong>Política de Privacidade – Mega Shop Brasil</strong>
+
+            A Mega Shop Brasil respeita a privacidade e a segurança dos dados informados por clientes e visitantes durante a navegação, cadastro, solicitação de pedidos e atendimento.
+
+            <strong>Responsabilidade sobre Trocas, Defeitos, Danos e Pós-Venda:</strong>
+            • A Mega Shop Brasil não responde por trocas de produtos com defeito, rasurados ou quebrados.
+            • A questão de produto quebrado é de responsabilidade do cliente.
+            • Em caso de defeito de fábrica ou outros danos aplicáveis, o fornecedor é responsabilizado totalmente pelas trocas, pelos envios e demais detalhes operacionais.
+            • Em relação a vendas, a Mega Shop Brasil dará suporte para determinados procedimentos, mas o pós-venda é com o fornecedor.
+          </div>
+        </div>
+      </div>
+
+      <!-- Formas de Pagamento 2026, Pix e Selos de Credibilidade -->
+      <section
+        aria-label="Formas de pagamento e selos de segurança"
+        class="pt-4 border-t border-yellow-500/50 grid grid-cols-1 lg:grid-cols-12 gap-4 items-center bg-white/95 rounded-2xl p-4 shadow-2xs"
+      >
+        <div class="lg:col-span-7 space-y-2">
+          <div class="flex items-center justify-between gap-2">
+            <h3 class="font-display font-extrabold text-xs sm:text-sm text-ml-text flex items-center gap-1.5">
+              <i class="fa-solid fa-credit-card text-ml-blue"></i>
+              <span>Formas de Pagamento (2026)</span>
+            </h3>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
+              Aprovação Ágil &amp; Parcelamento
+            </span>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-50 border border-teal-300 text-teal-900 text-[11px] font-extrabold shadow-2xs">
+              <svg class="w-4 h-4 text-teal-600 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M15.45 16.52c-.93 0-1.8-.36-2.46-1.02l-2.61-2.61c-.2-.2-.54-.2-.74 0l-2.62 2.62c-.66.66-1.53 1.02-2.46 1.02h-.52l3.31 3.31c1.46 1.46 3.84 1.46 5.3 0l3.32-3.32h-.52zm-10.89-9.04c.93 0 1.8.36 2.46 1.02l2.62 2.62c.2.2.54.2.74 0l2.61-2.61c.66-.66 1.53-1.02 2.46-1.02h.52l-3.32-3.32c-1.46-1.46-3.84-1.46-5.3 0L4.04 7.48h.52zm15.28 2.26l-2.01-2.01h-1.38c-.58 0-1.13.23-1.54.64l-2.61 2.61c-.68.68-1.8.68-2.48 0L7.2 8.37c-.41-.41-.96-.64-1.54-.64H4.28l-2.01 2.01c-1.46 1.46-1.46 3.84 0 5.3l2.01 2.01h1.38c.58 0 1.13-.23 1.54-.64l2.62-2.62c.68-.68 1.8-.68 2.48 0l2.61 2.61c.41.41.96.64 1.54.64h1.38l2.01-2.01c1.46-1.46 1.46-3.84 0-5.3z" />
+              </svg>
+              <span>Pagamento Pix</span>
+            </span>
+
+            <span class="inline-flex items-center px-3 py-1.5 rounded-xl bg-white border border-gray-300 text-blue-900 text-[11px] font-black italic tracking-tight shadow-2xs">
+              VISA
+            </span>
+
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-gray-300 text-gray-800 text-[11px] font-extrabold shadow-2xs">
+              <span class="inline-flex items-center">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-600 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-400 -ml-1 inline-block opacity-90"></span>
+              </span>
+              <span>Mastercard</span>
+            </span>
+
+            <span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-gray-900 border border-gray-800 text-white text-[11px] font-extrabold shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
+              <span>Elo</span>
+            </span>
+
+            <span class="inline-flex items-center px-3 py-1.5 rounded-xl bg-sky-700 border border-sky-800 text-white text-[11px] font-extrabold shadow-2xs">
+              AMEX
+            </span>
+
+            <span class="inline-flex items-center px-3 py-1.5 rounded-xl bg-red-700 border border-red-800 text-white text-[11px] font-extrabold shadow-2xs">
+              Hipercard
+            </span>
+
+            <span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-gray-100 border border-gray-300 text-gray-900 text-[11px] font-extrabold shadow-2xs">
+              <i class="fa-solid fa-wallet text-ml-blue"></i>
+              <span>Apple Pay / Google Pay</span>
+            </span>
+
+            <span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-white border border-gray-300 text-gray-800 text-[11px] font-bold shadow-2xs">
+              <i class="fa-solid fa-barcode text-gray-600"></i>
+              <span>Boleto</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-2">
+          <h3 class="font-display font-extrabold text-xs sm:text-sm text-ml-text flex items-center gap-1.5">
+            <i class="fa-solid fa-shield-halved text-emerald-600"></i>
+            <span>Segurança e Credibilidade</span>
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center gap-2">
+              <i class="fa-solid fa-lock text-emerald-700 text-sm shrink-0"></i>
+              <div class="leading-tight">
+                <strong class="block text-[11px] font-extrabold text-emerald-950">Pagamento Seguro SSL</strong>
+                <span class="text-[10px] text-emerald-800">Dados criptografados</span>
+              </div>
+            </div>
+
+            <div class="p-2.5 rounded-xl bg-blue-50 border border-blue-200 flex items-center gap-2">
+              <i class="fa-solid fa-user-shield text-ml-blue text-sm shrink-0"></i>
+              <div class="leading-tight">
+                <strong class="block text-[11px] font-extrabold text-blue-950">Proteção ao Cliente</strong>
+                <span class="text-[10px] text-blue-800">Transação verificada</span>
+              </div>
+            </div>
+
+            <div class="p-2.5 rounded-xl bg-amber-50 border border-amber-200 flex items-center gap-2">
+              <i class="fa-solid fa-award text-amber-600 text-sm shrink-0"></i>
+              <div class="leading-tight">
+                <strong class="block text-[11px] font-extrabold text-amber-950">Loja Verificada</strong>
+                <span class="text-[10px] text-amber-800">Atacado e varejo sério</span>
+              </div>
+            </div>
+
+            <div class="p-2.5 rounded-xl bg-gray-100 border border-gray-200 flex items-center gap-2">
+              <i class="fa-solid fa-truck-fast text-shopee-orange text-sm shrink-0"></i>
+              <div class="leading-tight">
+                <strong class="block text-[11px] font-extrabold text-ml-text">Entrega em Todo o Brasil</strong>
+                <span class="text-[10px] text-ml-muted">Suporte comprometido</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante e Janela de Suporte Online -->
+  <div id="robot-chat-widget" class="fixed bottom-4 right-4 z-[70] flex flex-col items-end gap-2.5">
+    <div
+      id="robot-chat-window"
+      role="dialog"
+      aria-label="Suporte Online com assistente virtual e encaminhamento humano"
+      class="hidden w-[calc(100vw-2rem)] max-w-sm rounded-2xl bg-white border border-gray-200 shadow-2xl overflow-hidden text-xs"
+    >
+      <div class="px-4 py-3 bg-gray-900 text-white flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <div class="w-9 h-9 rounded-full bg-amber-100 border border-ml-yellow/80 flex items-center justify-center shrink-0 overflow-hidden shadow-2xs">
+            <svg class="w-8 h-8" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="24" cy="24" r="24" fill="#FEF3C7" />
+              <path d="M11 23C11 14.5 16.5 9.5 24 9.5C31.5 9.5 37 14.5 37 23V31C37 33 35.5 34.5 33.5 34.5H14.5C12.5 34.5 11 33 11 31V23Z" fill="#5C2D16" />
+              <path d="M11 45C11.8 39.2 17.2 35.5 24 35.5C30.8 35.5 36.2 39.2 37 45H11Z" fill="#3483FA" />
+              <path d="M20.5 35.5L24 41L27.5 35.5" fill="#FFFFFF" />
+              <rect x="21.5" y="31.5" width="5" height="5" rx="2" fill="#F2B89A" />
+              <rect x="15.5" y="15.5" width="17" height="17.5" rx="8.5" fill="#F8C8AE" />
+              <path d="M14.5 20C15.5 13.5 20 11 24.5 11C29.5 11 33.5 14 33.5 20C30.5 17.5 27.5 16.5 24 16.5C20 16.5 17 18 14.5 20Z" fill="#5C2D16" />
+              <circle cx="20.5" cy="23.5" r="1.4" fill="#2B1810" />
+              <circle cx="27.5" cy="23.5" r="1.4" fill="#2B1810" />
+              <circle cx="21" cy="23" r="0.45" fill="#FFFFFF" />
+              <circle cx="28" cy="23" r="0.45" fill="#FFFFFF" />
+              <circle cx="18.8" cy="26" r="1.6" fill="#F472B6" fill-opacity="0.45" />
+              <circle cx="29.2" cy="26" r="1.6" fill="#F472B6" fill-opacity="0.45" />
+              <path d="M21 28.2C22.2 29.7 25.8 29.7 27 28.2" stroke="#B91C1C" stroke-width="1.6" stroke-linecap="round" />
+              <path d="M14.5 22.5V25.5" stroke="#111827" stroke-width="2.4" stroke-linecap="round" />
+              <path d="M33.5 22.5V25.5" stroke="#111827" stroke-width="2.4" stroke-linecap="round" />
+              <path d="M15 22C15 16.5 19 13 24 13C29 13 33 16.5 33 22" stroke="#111827" stroke-width="1.6" stroke-linecap="round" />
+              <path d="M15.7 25.5L18.5 27.2" stroke="#111827" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="min-w-0">
+            <p id="chat-header-title" class="font-display font-extrabold text-xs sm:text-sm leading-tight truncate">
+              Suporte Online
+            </p>
+            <span id="chat-header-status" class="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+              <span>Assistente online • Resposta imediata</span>
+            </span>
+          </div>
+        </div>
+        <button
+          type="button"
+          id="close-robot-chat-btn"
+          aria-label="Fechar aba de suporte online"
+          title="Fechar suporte"
+          class="w-7 h-7 rounded-full bg-white/15 hover:bg-red-500 text-white flex items-center justify-center cursor-pointer shrink-0 transition text-sm font-extrabold"
+        >
+          &times;
+        </button>
+      </div>
+
+      <div class="px-3 py-2 bg-gray-50 border-b border-gray-200 flex items-center gap-1.5 overflow-x-auto">
+        <button
+          type="button"
+          data-bot-topic="frete"
+          class="bot-quick-btn px-2.5 py-1 rounded-full bg-white hover:bg-blue-50 border border-gray-200 text-ml-text font-bold text-[10px] whitespace-nowrap cursor-pointer shrink-0"
+        >
+          Fretes
+        </button>
+        <button
+          type="button"
+          data-bot-topic="entrega"
+          class="bot-quick-btn px-2.5 py-1 rounded-full bg-white hover:bg-blue-50 border border-gray-200 text-ml-text font-bold text-[10px] whitespace-nowrap cursor-pointer shrink-0"
+        >
+          Entregas
+        </button>
+        <button
+          type="button"
+          data-bot-topic="troca"
+          class="bot-quick-btn px-2.5 py-1 rounded-full bg-white hover:bg-blue-50 border border-gray-200 text-ml-text font-bold text-[10px] whitespace-nowrap cursor-pointer shrink-0"
+        >
+          Trocas e Fornecedor
+        </button>
+        <button
+          type="button"
+          id="transfer-to-human-btn"
+          class="px-2.5 py-1 rounded-full bg-shopee-orange hover:bg-shopee-orangeDark text-white font-extrabold text-[10px] whitespace-nowrap cursor-pointer shrink-0 flex items-center gap-1"
+        >
+          <i class="fa-solid fa-headset"></i>
+          <span>Atendente Humano</span>
+        </button>
+      </div>
+
+      <div id="robot-chat-messages" class="p-3.5 h-64 overflow-y-auto space-y-2.5 bg-gray-50/50"></div>
+
+      <form id="robot-chat-form" class="p-2.5 bg-white border-t border-gray-200 flex items-center gap-2">
+        <input
+          type="text"
+          id="robot-chat-input"
+          placeholder="Digite sua dúvida ou peça atendente humano..."
+          aria-label="Mensagem para o suporte"
+          class="flex-1 px-3 py-2 rounded-xl border border-gray-300 text-xs text-ml-text focus:outline-none focus:border-ml-blue"
+        />
+        <button
+          type="submit"
+          aria-label="Enviar mensagem"
+          class="px-3 py-2 rounded-xl bg-ml-blue hover:bg-ml-blueDark text-white font-bold text-xs cursor-pointer shrink-0 transition"
+        >
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+
+    <button
+      type="button"
+      id="toggle-robot-chat-btn"
+      aria-label="Abrir chat de suporte online"
+      class="px-4 py-2.5 rounded-full bg-ml-blue hover:bg-ml-blueDark text-white font-extrabold text-xs sm:text-sm shadow-xl flex items-center gap-2.5 cursor-pointer transition hover:scale-105"
+    >
+      <span class="w-7 h-7 rounded-full bg-amber-100 border border-ml-yellow flex items-center justify-center overflow-hidden shrink-0">
+        <svg class="w-6 h-6" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="24" cy="24" r="24" fill="#FEF3C7" />
+          <path d="M11 23C11 14.5 16.5 9.5 24 9.5C31.5 9.5 37 14.5 37 23V31C37 33 35.5 34.5 33.5 34.5H14.5C12.5 34.5 11 33 11 31V23Z" fill="#5C2D16" />
+          <path d="M11 45C11.8 39.2 17.2 35.5 24 35.5C30.8 35.5 36.2 39.2 37 45H11Z" fill="#3483FA" />
+          <path d="M20.5 35.5L24 41L27.5 35.5" fill="#FFFFFF" />
+          <rect x="21.5" y="31.5" width="5" height="5" rx="2" fill="#F2B89A" />
+          <rect x="15.5" y="15.5" width="17" height="17.5" rx="8.5" fill="#F8C8AE" />
+          <path d="M14.5 20C15.5 13.5 20 11 24.5 11C29.5 11 33.5 14 33.5 20C30.5 17.5 27.5 16.5 24 16.5C20 16.5 17 18 14.5 20Z" fill="#5C2D16" />
+          <circle cx="20.5" cy="23.5" r="1.4" fill="#2B1810" />
+          <circle cx="27.5" cy="23.5" r="1.4" fill="#2B1810" />
+          <circle cx="21" cy="23" r="0.45" fill="#FFFFFF" />
+          <circle cx="28" cy="23" r="0.45" fill="#FFFFFF" />
+          <circle cx="18.8" cy="26" r="1.6" fill="#F472B6" fill-opacity="0.45" />
+          <circle cx="29.2" cy="26" r="1.6" fill="#F472B6" fill-opacity="0.45" />
+          <path d="M21 28.2C22.2 29.7 25.8 29.7 27 28.2" stroke="#B91C1C" stroke-width="1.6" stroke-linecap="round" />
+          <path d="M14.5 22.5V25.5" stroke="#111827" stroke-width="2.4" stroke-linecap="round" />
+          <path d="M33.5 22.5V25.5" stroke="#111827" stroke-width="2.4" stroke-linecap="round" />
+          <path d="M15 22C15 16.5 19 13 24 13C29 13 33 16.5 33 22" stroke="#111827" stroke-width="1.6" stroke-linecap="round" />
+          <path d="M15.7 25.5L18.5 27.2" stroke="#111827" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+      </span>
+      <span>Suporte Online</span>
+    </button>
+  </div>
+
+  <!-- Modal: Meus Pedidos, Retorno de Link Externo, Confirmação de Pagamento e Comprovante -->
+  <div
+    id="my-orders-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="my-orders-modal-title"
+    class="hidden fixed inset-0 z-[78] bg-black/60 backdrop-blur-2xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto"
+  >
+    <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full overflow-hidden border border-gray-200 my-auto">
+      <div class="px-5 py-3.5 bg-gray-950 text-white border-b border-gray-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-box-open text-ml-yellow"></i>
+          <h3 id="my-orders-modal-title" class="font-display font-extrabold text-sm sm:text-base">
+            Meus Pedidos, Confirmação e Pagamentos Aprovados
+          </h3>
+        </div>
+        <button
+          type="button"
+          id="close-my-orders-btn"
+          aria-label="Fechar janela Meus Pedidos"
+          class="w-8 h-8 rounded-lg hover:bg-white/10 text-gray-200 flex items-center justify-center cursor-pointer"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div id="my-orders-modal-body" class="p-4 sm:p-5 max-h-[80vh] overflow-y-auto space-y-4 text-xs"></div>
+    </div>
+  </div>
+
+  <!-- Modal: Trabalhe Conosco -->
+  <div
+    id="work-with-us-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="work-modal-title"
+    class="hidden fixed inset-0 z-[82] bg-black/60 backdrop-blur-2xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto"
+  >
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border border-gray-200 my-auto">
+      <div class="px-5 py-3.5 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-briefcase text-ml-blue"></i>
+          <h3 id="work-modal-title" class="font-display font-extrabold text-sm sm:text-base text-ml-text">
+            Trabalhe Conosco
+          </h3>
+        </div>
+        <button
+          type="button"
+          id="close-work-modal-btn"
+          aria-label="Fechar janela Trabalhe Conosco"
+          class="w-8 h-8 rounded-lg hover:bg-gray-200 text-gray-600 flex items-center justify-center cursor-pointer"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="work-with-us-form" class="p-5 space-y-3.5 text-xs">
+        <p class="text-ml-muted leading-relaxed">
+          Preencha seu nome completo, seus dados de endereço e faça o upload do seu currículo em <strong>PDF</strong>.
+        </p>
+
+        <div>
+          <label for="candidate-name" class="block font-bold text-ml-text mb-1">Nome completo *</label>
+          <input
+            type="text"
+            id="candidate-name"
+            required
+            placeholder="Digite seu nome completo"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm text-ml-text focus:outline-none focus:border-ml-blue"
+          />
+        </div>
+
+        <div>
+          <label for="candidate-address" class="block font-bold text-ml-text mb-1">Dados de endereço *</label>
+          <input
+            type="text"
+            id="candidate-address"
+            required
+            placeholder="Rua, número, complemento, bairro, CEP, cidade - UF"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm text-ml-text focus:outline-none focus:border-ml-blue"
+          />
+        </div>
+
+        <div class="p-3 rounded-xl bg-gray-50 border border-dashed border-gray-300 space-y-2">
+          <label class="block font-bold text-ml-text">Currículo em PDF *</label>
+          <div class="flex flex-wrap items-center gap-2">
+            <label class="px-3.5 py-2 rounded-xl bg-shopee-orange hover:bg-shopee-orangeDark text-white font-bold cursor-pointer inline-flex items-center gap-1.5 shrink-0 transition">
+              <i class="fa-solid fa-file-pdf"></i>
+              <span>Upload PDF</span>
+              <input
+                type="file"
+                id="candidate-resume-file"
+                accept="application/pdf,.pdf"
+                class="hidden"
+              />
+            </label>
+            <span id="candidate-resume-filename" class="text-[11px] text-gray-500 truncate max-w-[210px]">
+              Nenhum PDF selecionado
+            </span>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full py-2.5 px-4 rounded-xl bg-ml-blue hover:bg-ml-blueDark text-white text-xs sm:text-sm font-extrabold cursor-pointer transition"
+        >
+          Enviar Candidatura e Currículo
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Meus Favoritos -->
+  <div
+    id="favorites-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="favorites-modal-title"
+    class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-2xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto"
+  >
+    <div class="bg-white rounded-2xl shadow-2xl max-w-xl w-full overflow-hidden border border-gray-200 my-auto">
+      <div class="px-5 py-3.5 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-heart text-shopee-orange"></i>
+          <h3 id="favorites-modal-title" class="font-display font-extrabold text-sm sm:text-base text-ml-text">
+            Meus Favoritos
+          </h3>
+          <span id="modal-fav-count" class="px-2 py-0.5 rounded-full bg-orange-100 text-shopee-orange text-[11px] font-extrabold">
+            0
+          </span>
+        </div>
+        <button
+          type="button"
+          id="close-favorites-btn"
+          aria-label="Fechar modal de favoritos"
+          class="w-8 h-8 rounded-lg hover:bg-gray-200 text-gray-600 flex items-center justify-center cursor-pointer"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="favorites-modal-body" class="p-4 sm:p-5 max-h-[75vh] overflow-y-auto space-y-3"></div>
+    </div>
+  </div>
+
+  <!-- Modal: Compra do Produto -->
+  <div
+    id="purchase-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="purchase-modal-title"
+    class="hidden fixed inset-0 z-[60] bg-black/60 backdrop-blur-2xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto"
+  >
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border border-gray-200 my-auto">
+      <div class="px-5 py-3.5 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+        <h3 id="purchase-modal-title" class="font-display font-extrabold text-sm sm:text-base text-ml-text">
+          Comprar
+        </h3>
+        <button
+          type="button"
+          id="close-purchase-btn"
+          aria-label="Fechar janela de compra"
+          class="w-8 h-8 rounded-lg hover:bg-gray-200 text-gray-600 flex items-center justify-center cursor-pointer"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="purchase-modal-body" class="p-5 space-y-4"></div>
+    </div>
+  </div>
+
+  <!-- Modal: Comentar e Dar Nota no Produto -->
+  <div
+    id="review-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="review-modal-title"
+    class="hidden fixed inset-0 z-[75] bg-black/60 backdrop-blur-2xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto"
+  >
+    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden border border-gray-200 my-auto">
+      <div class="px-5 py-3.5 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+        <div class="flex items-center gap-2 min-w-0">
+          <i class="fa-solid fa-star text-amber-400 shrink-0"></i>
+          <h3 id="review-modal-title" class="font-display font-extrabold text-sm sm:text-base text-ml-text truncate">
+            Avaliar e Comentar Produto
+          </h3>
+        </div>
+        <button
+          type="button"
+          id="close-review-modal-btn"
+          aria-label="Fechar janela de avaliação e comentários"
+          class="w-8 h-8 rounded-lg hover:bg-gray-200 text-gray-600 flex items-center justify-center cursor-pointer shrink-0"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="p-5 space-y-4 text-xs max-h-[82vh] overflow-y-auto">
+        <div id="review-product-header" class="flex items-center gap-3 p-3 rounded-xl bg-gray-50 border border-gray-200"></div>
+
+        <form id="review-submit-form" class="space-y-3 p-3.5 rounded-xl bg-amber-50/50 border border-amber-200/80">
+          <div>
+            <label class="block font-bold text-ml-text mb-1.5">Sua nota (1 a 5 estrelas) *</label>
+            <div id="review-stars-selector" class="flex items-center gap-1.5" role="radiogroup" aria-label="Escolha uma nota de 1 a 5 estrelas">
+              <button type="button" data-rating-value="1" class="star-choice-btn w-9 h-9 rounded-xl bg-white border border-gray-300 text-amber-400 hover:bg-amber-50 flex items-center justify-center cursor-pointer transition text-sm" aria-label="1 estrela">
+                <i class="fa-solid fa-star"></i>
+              </button>
+              <button type="button" data-rating-value="2" class="star-choice-btn w-9 h-9 rounded-xl bg-white border border-gray-300 text-amber-400 hover:bg-amber-50 flex items-center justify-center cursor-pointer transition text-sm" aria-label="2 estrelas">
+                <i class="fa-solid fa-star"></i>
+              </button>
+              <button type="button" data-rating-value="3" class="star-choice-btn w-9 h-9 rounded-xl bg-white border border-gray-300 text-amber-400 hover:bg-amber-50 flex items-center justify-center cursor-pointer transition text-sm" aria-label="3 estrelas">
+                <i class="fa-solid fa-star"></i>
+              </button>
+              <button type="button" data-rating-value="4" class="star-choice-btn w-9 h-9 rounded-xl bg-white border border-gray-300 text-amber-400 hover:bg-amber-50 flex items-center justify-center cursor-pointer transition text-sm" aria-label="4 estrelas">
+                <i class="fa-solid fa-star"></i>
+              </button>
+              <button type="button" data-rating-value="5" class="star-choice-btn w-9 h-9 rounded-xl bg-white border border-gray-300 text-amber-400 hover:bg-amber-50 flex items-center justify-center cursor-pointer transition text-sm" aria-label="5 estrelas">
+                <i class="fa-solid fa-star"></i>
+              </button>
+              <span id="review-rating-label" class="ml-1.5 font-extrabold text-ml-text">Nota: 5.0 / 5</span>
+            </div>
+          </div>
+
+          <div>
+            <label for="review-author-input" class="block font-bold text-ml-text mb-1">Seu nome *</label>
+            <input
+              type="text"
+              id="review-author-input"
+              required
+              placeholder="Digite seu nome"
+              class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-xs sm:text-sm text-ml-text focus:outline-none focus:border-ml-blue"
+            />
+          </div>
+
+          <div>
+            <label for="review-comment-input" class="block font-bold text-ml-text mb-1">Seu comentário *</label>
+            <textarea
+              id="review-comment-input"
+              rows="3"
+              required
+              placeholder="Escreva sua opinião sobre o produto..."
+              class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-xs sm:text-sm text-ml-text focus:outline-none focus:border-ml-blue resize-y"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full py-2.5 px-4 rounded-xl bg-ml-blue hover:bg-ml-blueDark text-white text-xs sm:text-sm font-extrabold cursor-pointer transition"
+          >
+            Enviar Nota e Comentário
+          </button>
+        </form>
+
+        <div class="space-y-2">
+          <h4 class="font-display font-extrabold text-xs sm:text-sm text-ml-text">
+            Comentários do Produto
+          </h4>
+          <div id="review-comments-list" class="space-y-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Entrar / Cadastrar Cliente -->
+  <div
+    id="customer-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="customer-modal-title"
+    class="hidden fixed inset-0 z-[80] bg-black/60 backdrop-blur-2xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto"
+  >
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border border-gray-200 my-auto">
+      <div class="px-5 py-3.5 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-user-check text-ml-blue"></i>
+          <h3 id="customer-modal-title" class="font-display font-extrabold text-sm sm:text-base text-ml-text">
+            Entrar / Cadastrar Cliente
+          </h3>
+        </div>
+        <button
+          type="button"
+          id="close-customer-btn"
+          aria-label="Fechar janela de cadastro do cliente"
+          class="w-8 h-8 rounded-lg hover:bg-gray-200 text-gray-600 flex items-center justify-center cursor-pointer"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="customer-auth-form" class="p-5 space-y-3.5 text-xs">
+        <div id="customer-active-summary" class="hidden p-3 rounded-xl bg-blue-50 border border-blue-200 text-ml-text space-y-1">
+          <p class="font-extrabold text-ml-blue">Cliente conectado</p>
+          <p id="summary-customer-name" class="font-semibold"></p>
+          <p id="summary-customer-email" class="text-ml-muted"></p>
+          <p id="summary-customer-location" class="text-ml-muted"></p>
+        </div>
+
+        <div>
+          <label for="customer-full-name" class="block font-bold text-ml-text mb-1">Nome completo *</label>
+          <input
+            type="text"
+            id="customer-full-name"
+            required
+            placeholder="Digite seu nome completo"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm text-ml-text focus:outline-none focus:border-ml-blue"
+          />
+        </div>
+
+        <div>
+          <label for="customer-email" class="block font-bold text-ml-text mb-1">E-mail *</label>
+          <input
+            type="email"
+            id="customer-email"
+            required
+            placeholder="seuemail@exemplo.com"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm text-ml-text focus:outline-none focus:border-ml-blue"
+          />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+          <div class="sm:col-span-2">
+            <label for="customer-city" class="block font-bold text-ml-text mb-1">Cidade *</label>
+            <input
+              type="text"
+              id="customer-city"
+              required
+              placeholder="Sua cidade"
+              class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm text-ml-text focus:outline-none focus:border-ml-blue"
+            />
+          </div>
+          <div>
+            <label for="customer-state" class="block font-bold text-ml-text mb-1">Estado *</label>
+            <select
+              id="customer-state"
+              required
+              class="w-full px-3 py-2.5 rounded-xl border border-gray-300 bg-white text-xs sm:text-sm text-ml-text focus:outline-none focus:border-ml-blue"
+            >
+              <option value="">UF</option>
+              <option value="AC">AC</option>
+              <option value="AL">AL</option>
+              <option value="AP">AP</option>
+              <option value="AM">AM</option>
+              <option value="BA">BA</option>
+              <option value="CE">CE</option>
+              <option value="DF">DF</option>
+              <option value="ES">ES</option>
+              <option value="GO">GO</option>
+              <option value="MA">MA</option>
+              <option value="MT">MT</option>
+              <option value="MS">MS</option>
+              <option value="MG">MG</option>
+              <option value="PA">PA</option>
+              <option value="PB">PB</option>
+              <option value="PR">PR</option>
+              <option value="PE">PE</option>
+              <option value="PI">PI</option>
+              <option value="RJ">RJ</option>
+              <option value="RN">RN</option>
+              <option value="RS">RS</option>
+              <option value="RO">RO</option>
+              <option value="RR">RR</option>
+              <option value="SC">SC</option>
+              <option value="SP">SP</option>
+              <option value="SE">SE</option>
+              <option value="TO">TO</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="customer-password" class="block font-bold text-ml-text mb-1">Senha de acesso *</label>
+          <input
+            type="password"
+            id="customer-password"
+            required
+            minlength="4"
+            autocomplete="current-password"
+            placeholder="Crie ou digite sua senha de acesso"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm text-ml-text focus:outline-none focus:border-ml-blue"
+          />
+        </div>
+
+        <div class="pt-1 flex items-center gap-2">
+          <button
+            type="submit"
+            class="flex-1 py-2.5 px-4 rounded-xl bg-ml-blue hover:bg-ml-blueDark text-white text-xs sm:text-sm font-extrabold cursor-pointer transition"
+          >
+            Entrar / Cadastrar
+          </button>
+          <button
+            type="button"
+            id="customer-logout-btn"
+            class="hidden py-2.5 px-3.5 rounded-xl bg-gray-100 hover:bg-red-50 text-red-600 border border-gray-200 text-xs font-bold cursor-pointer transition"
+          >
+            Sair
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Login e Painel do Administrador -->
+  <div
+    id="admin-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="admin-modal-title"
+    class="hidden fixed inset-0 z-[85] bg-black/65 backdrop-blur-2xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto"
+  >
+    <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full overflow-hidden border border-gray-200 my-auto">
+      <div class="px-5 py-3.5 bg-gray-900 text-white border-b border-gray-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-shield-halved text-ml-yellow"></i>
+          <h3 id="admin-modal-title" class="font-display font-extrabold text-sm sm:text-base">
+            Área do Administrador
+          </h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            id="admin-logout-btn"
+            class="hidden px-2.5 py-1 rounded-lg bg-red-600 hover:bg-red-700 text-white text-[11px] font-bold cursor-pointer"
+          >
+            Sair
+          </button>
+          <button
+            type="button"
+            id="close-admin-btn"
+            aria-label="Fechar área do administrador"
+            class="w-8 h-8 rounded-lg hover:bg-white/10 text-gray-200 flex items-center justify-center cursor-pointer"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tela de Login Restrito do Administrador (Supabase Auth) -->
+      <form id="admin-login-form" class="p-5 space-y-3.5 text-xs">
+        <p class="text-ml-muted leading-relaxed">
+          Acesso restrito ao administrador. Informe seu e-mail e senha cadastrados no Supabase para editar textos, gerenciar produtos, afiliados, tipos de pagamento, notificações e aprovar pagamentos.
+        </p>
+        <div>
+          <label for="admin-email-input" class="block font-bold text-ml-text mb-1">E-mail do Administrador *</label>
+          <input
+            type="email"
+            id="admin-email-input"
+            required
+            autocomplete="email"
+            placeholder="admin@megashopbrasil.com"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm text-ml-text focus:outline-none focus:border-ml-blue"
+          />
+        </div>
+        <div>
+          <label for="admin-password-input" class="block font-bold text-ml-text mb-1">Senha do Administrador *</label>
+          <input
+            type="password"
+            id="admin-password-input"
+            required
+            autocomplete="current-password"
+            placeholder="Digite a senha do administrador"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm text-ml-text focus:outline-none focus:border-ml-blue"
+          />
+        </div>
+        <p id="admin-lockout-msg" class="hidden text-[11px] font-bold text-red-600"></p>
+        <button
+          type="submit"
+          id="admin-login-submit-btn"
+          class="w-full py-2.5 px-4 rounded-xl bg-ml-text hover:bg-black text-white text-xs sm:text-sm font-extrabold cursor-pointer transition"
+        >
+          Acessar Painel Administrativo
+        </button>
+      </form>
+
+      <!-- Painel Completo do Administrador -->
+      <div id="admin-panel-content" class="hidden p-4 sm:p-5 max-h-[82vh] overflow-y-auto space-y-6 text-xs">
+        <!-- Central Exclusiva do Administrador: Notificações de Pedidos, Pagamentos por Tipo e Botão Exclusivo de Aprovação -->
+        <div class="p-4 rounded-2xl bg-amber-50 border border-amber-300 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h4 class="font-display font-extrabold text-sm text-gray-950 flex items-center gap-1.5">
+                <i class="fa-solid fa-bell text-shopee-orange"></i> Notificações de Pedidos, Pagamentos por Tipo e Aprovação Exclusiva
+              </h4>
+              <p class="text-[11px] text-gray-700">
+                Cada novo pedido gera notificação geral e notificação específica por tipo de pagamento. Use o botão exclusivo para aprovar o pagamento.
+              </p>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <select
+                id="admin-filter-payment-type"
+                class="px-2.5 py-1.5 rounded-xl border border-amber-400 bg-white font-bold text-[11px] text-gray-900"
+              >
+                <option value="Todos">Todos os tipos de pagamento</option>
+                <option value="Mercado Pago">Mercado Pago</option>
+                <option value="PicPay">PicPay</option>
+                <option value="PagBank / Pagando">PagBank / Pagando</option>
+                <option value="Nubank">Nubank</option>
+                <option value="Outro Banco">Outro Banco</option>
+                <option value="Link Normal">Link Normal</option>
+                <option value="Link Externo">Link Externo</option>
+              </select>
+              <button
+                type="button"
+                id="admin-clear-notifications-btn"
+                class="px-2.5 py-1.5 rounded-xl bg-white hover:bg-red-50 text-red-700 border border-red-200 font-bold text-[11px] cursor-pointer"
+              >
+                Limpar Avisos
+              </button>
+            </div>
+          </div>
+
+          <div id="admin-notifications-feed" class="space-y-2 max-h-40 overflow-y-auto"></div>
+
+          <div class="pt-2 border-t border-amber-200 space-y-2">
+            <h5 class="font-extrabold text-xs text-gray-950">Pedidos e Confirmações de Pagamento (Botão Exclusivo de Aprovação)</h5>
+            <div id="admin-orders-approval-list" class="space-y-2.5 max-h-64 overflow-y-auto"></div>
+          </div>
+        </div>
+
+        <!-- Editor Global de Todos os Textos do Site -->
+        <div class="p-4 rounded-2xl bg-blue-50/70 border border-blue-200 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h4 class="font-display font-extrabold text-sm text-ml-text flex items-center gap-1.5">
+                <i class="fa-solid fa-font text-ml-blue"></i> Editar Todos os Textos do Site
+              </h4>
+              <p class="text-[11px] text-ml-muted">
+                Altere slogans, avisos de frete, títulos, perguntas frequentes, biografia, política de privacidade ou clique diretamente nos textos da página.
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5">
+              <button
+                type="button"
+                id="admin-toggle-inline-edit-btn"
+                class="px-3 py-1.5 rounded-xl bg-ml-blue hover:bg-ml-blueDark text-white font-extrabold text-[11px] cursor-pointer transition flex items-center gap-1.5"
+              >
+                <i class="fa-solid fa-pen-nib"></i>
+                <span id="inline-edit-btn-label">Editar Direto na Tela</span>
+              </button>
+              <button
+                type="button"
+                id="admin-reset-texts-btn"
+                class="px-2.5 py-1.5 rounded-xl bg-white hover:bg-red-50 text-red-600 border border-gray-200 font-bold text-[11px] cursor-pointer transition"
+              >
+                Restaurar Padrão
+              </button>
+            </div>
+          </div>
+
+          <div id="admin-site-texts-fields" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-64 overflow-y-auto pr-1"></div>
+
+          <button
+            type="button"
+            id="admin-save-all-texts-btn"
+            class="w-full py-2.5 px-4 rounded-xl bg-ml-blue hover:bg-ml-blueDark text-white font-extrabold text-xs cursor-pointer transition"
+          >
+            Salvar Todos os Textos Alterados
+          </button>
+        </div>
+
+        <!-- Segurança e Troca de Senha do Administrador -->
+        <form id="admin-change-password-form" class="p-4 rounded-2xl bg-slate-900 text-white border border-slate-700 space-y-3">
+          <div class="flex items-center justify-between gap-2">
+            <h4 class="font-display font-extrabold text-sm flex items-center gap-1.5 text-ml-yellow">
+              <i class="fa-solid fa-key"></i> Alterar Senha do Administrador
+            </h4>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold">
+              Segurança Ativa
+            </span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <input
+              type="password"
+              id="admin-new-pass-input"
+              minlength="6"
+              required
+              autocomplete="new-password"
+              placeholder="Nova senha (mín. 6 caracteres)"
+              class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ml-yellow"
+            />
+            <input
+              type="password"
+              id="admin-confirm-pass-input"
+              minlength="6"
+              required
+              autocomplete="new-password"
+              placeholder="Confirmar nova senha"
+              class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ml-yellow"
+            />
+          </div>
+          <button
+            type="submit"
+            class="py-2 px-4 rounded-xl bg-ml-yellow hover:bg-ml-yellowDark text-gray-950 font-extrabold text-xs cursor-pointer transition"
+          >
+            Atualizar Senha de Acesso
+          </button>
+        </form>
+
+        <!-- Lista de Produtos Existentes e Novos -->
+        <div class="p-4 rounded-2xl bg-white border border-gray-200 space-y-3">
+          <div class="flex items-center justify-between gap-2">
+            <h4 class="font-display font-extrabold text-sm text-ml-text flex items-center gap-1.5">
+              <i class="fa-solid fa-list-check text-ml-blue"></i> Produtos Cadastrados (Existentes e Novos)
+            </h4>
+            <span id="admin-products-total-badge" class="px-2.5 py-0.5 rounded-full bg-gray-100 text-ml-text font-bold text-[11px]">
+              0 produtos
+            </span>
+          </div>
+          <div id="admin-products-list" class="max-h-60 overflow-y-auto divide-y divide-gray-100 border border-gray-100 rounded-xl"></div>
+        </div>
+
+        <!-- Alterar Produto Existente -->
+        <form id="admin-edit-product-form" class="p-4 rounded-2xl bg-gray-50 border border-gray-200 space-y-3">
+          <div class="flex items-center justify-between gap-2">
+            <h4 class="font-display font-extrabold text-sm text-ml-text flex items-center gap-1.5">
+              <i class="fa-solid fa-pen-to-square text-ml-blue"></i> Alterar Produto Existente
+            </h4>
+            <button
+              type="button"
+              id="admin-delete-product-btn"
+              class="px-2.5 py-1 rounded-lg bg-red-100 hover:bg-red-200 text-red-700 font-bold cursor-pointer transition"
+            >
+              Excluir Produto
+            </button>
+          </div>
+
+          <div>
+            <label for="admin-edit-select" class="block font-bold text-ml-text mb-1">Selecione o Produto</label>
+            <select
+              id="admin-edit-select"
+              class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white font-semibold text-ml-text focus:outline-none focus:border-ml-blue"
+            ></select>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label for="admin-edit-name" class="block font-bold text-ml-text mb-1">Nome do Produto *</label>
+              <input
+                type="text"
+                id="admin-edit-name"
+                required
+                class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+              />
+            </div>
+            <div>
+              <label for="admin-edit-category" class="block font-bold text-ml-text mb-1">Categoria *</label>
+              <select
+                id="admin-edit-category"
+                class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+              ></select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div>
+              <label for="admin-edit-price" class="block font-bold text-ml-text mb-1">Preço (R$) *</label>
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                id="admin-edit-price"
+                required
+                class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+              />
+            </div>
+            <div>
+              <label for="admin-edit-old-price" class="block font-bold text-ml-text mb-1">Preço Antigo (R$)</label>
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                id="admin-edit-old-price"
+                class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+              />
+            </div>
+            <div>
+              <label for="admin-edit-product-origin" class="block font-bold text-ml-text mb-1">Tipo de Produto (Exclusivo Admin)</label>
+              <select
+                id="admin-edit-product-origin"
+                class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+              >
+                <option value="normal">Produto Normal</option>
+                <option value="afiliado">Produto Afiliado</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label for="admin-edit-payment-type" class="block font-bold text-ml-text mb-1">Tipo de Pagamento do Produto</label>
+              <select
+                id="admin-edit-payment-type"
+                class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+              >
+                <option value="Mercado Pago">Mercado Pago</option>
+                <option value="PicPay">PicPay</option>
+                <option value="PagBank / Pagando">PagBank / Pagando</option>
+                <option value="Nubank">Nubank</option>
+                <option value="Outro Banco">Outro Banco</option>
+                <option value="Link Normal">Link Normal (Direcionamento)</option>
+              </select>
+            </div>
+            <div>
+              <label for="admin-edit-link-mode" class="block font-bold text-ml-text mb-1">Tipo de Link no Cadastro</label>
+              <select
+                id="admin-edit-link-mode"
+                class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+              >
+                <option value="normal">Link Normal</option>
+                <option value="externo">Link Externo</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="admin-edit-payment-link" class="block font-bold text-ml-text mb-1">
+              Link de Pagamento (Conta Mercado Pago / PicPay / Banco ou Link Externo)
+            </label>
+            <input
+              type="url"
+              id="admin-edit-payment-link"
+              placeholder="https://mpago.la/seu-link ou https://pagamento.exemplo.com/produto"
+              class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+            />
+          </div>
+
+          <div>
+            <label for="admin-edit-description" class="block font-bold text-ml-text mb-1">Descrição do Produto</label>
+            <textarea
+              id="admin-edit-description"
+              rows="3"
+              class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue resize-y"
+            ></textarea>
+          </div>
+
+          <div class="p-3 rounded-xl bg-white border border-gray-200 space-y-2">
+            <label class="block font-bold text-ml-text">Foto / Imagem do Produto</label>
+            <div class="flex flex-wrap items-center gap-2">
+              <label class="px-3 py-2 rounded-xl bg-ml-blue hover:bg-ml-blueDark text-white font-bold cursor-pointer inline-flex items-center gap-1.5 shrink-0 transition">
+                <i class="fa-solid fa-upload"></i>
+                <span>Upload de Foto</span>
+                <input
+                  type="file"
+                  id="admin-edit-file"
+                  accept="image/*"
+                  class="hidden"
+                />
+              </label>
+              <span id="admin-edit-file-status" class="text-[11px] font-semibold text-ml-muted">
+                Selecione uma nova foto para substituir (opcional)
+              </span>
+              <input
+                type="hidden"
+                id="admin-edit-image"
+              />
+            </div>
+            <img
+              id="admin-edit-preview"
+              src=""
+              alt="Pré-visualização do produto"
+              class="hidden w-20 h-20 rounded-xl object-cover border border-gray-200"
+            />
+          </div>
+
+          <label class="flex items-center gap-2 font-semibold text-ml-text cursor-pointer">
+            <input type="checkbox" id="admin-edit-free-shipping" class="rounded" />
+            <span>Produto Original / Destaque</span>
+          </label>
+
+          <button
+            type="submit"
+            class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-extrabold cursor-pointer transition"
+          >
+            Salvar Alterações do Produto
+          </button>
+        </form>
+
+        <!-- Criar Novo Produto -->
+        <form id="admin-create-product-form" class="p-4 rounded-2xl bg-orange-50/50 border border-orange-200 space-y-3">
+          <h4 class="font-display font-extrabold text-sm text-ml-text flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-plus text-shopee-orange"></i> Cadastrar Novo Produto
+          </h4>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label for="admin-new-name" class="block font-bold text-ml-text mb-1">Nome do Novo Produto *</label>
+              <input
+                type="text"
+                id="admin-new-name"
+                required
+                placeholder="Ex: Cafeteira Elétrica Inox 110V"
+                class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+              />
+            </div>
+            <div>
+              <label for="admin-new-category" class="block font-bold text-ml-text mb-1">Categoria *</label>
+              <select
+                id="admin-new-category"
+                class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+              ></select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div>
+              <label for="admin-new-price" class="block font-bold text-ml-text mb-1">Preço (R$) *</label>
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                id="admin-new-price"
+                required
+                placeholder="149.90"
+                class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+              />
+            </div>
+            <div>
+              <label for="admin-new-old-price" class="block font-bold text-ml-text mb-1">Preço Antigo (R$)</label>
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                id="admin-new-old-price"
+                placeholder="199.90"
+                class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+              />
+            </div>
+            <div>
+              <label for="admin-new-product-origin" class="block font-bold text-ml-text mb-1">Tipo de Produto (Exclusivo Admin)</label>
+              <select
+                id="admin-new-product-origin"
+                class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+              >
+                <option value="normal">Produto Normal</option>
+                <option value="afiliado">Produto Afiliado</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label for="admin-new-payment-type" class="block font-bold text-ml-text mb-1">Tipo de Pagamento do Produto *</label>
+              <select
+                id="admin-new-payment-type"
+                class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+              >
+                <option value="Mercado Pago">Mercado Pago</option>
+                <option value="PicPay">PicPay</option>
+                <option value="PagBank / Pagando">PagBank / Pagando</option>
+                <option value="Nubank">Nubank</option>
+                <option value="Outro Banco">Outro Banco</option>
+                <option value="Link Normal">Link Normal (Direcionamento)</option>
+              </select>
+            </div>
+            <div>
+              <label for="admin-new-link-mode" class="block font-bold text-ml-text mb-1">Tipo de Link no Cadastro *</label>
+              <select
+                id="admin-new-link-mode"
+                class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+              >
+                <option value="normal">Link Normal</option>
+                <option value="externo">Link Externo</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="admin-new-payment-link" class="block font-bold text-ml-text mb-1">
+              Link de Pagamento (Conta Mercado Pago / PicPay / Banco ou Link Externo)
+            </label>
+            <input
+              type="url"
+              id="admin-new-payment-link"
+              placeholder="https://mpago.la/seu-link ou https://pagamento.exemplo.com/novo-produto"
+              class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue"
+            />
+          </div>
+
+          <div>
+            <label for="admin-new-description" class="block font-bold text-ml-text mb-1">Descrição do Produto *</label>
+            <textarea
+              id="admin-new-description"
+              rows="3"
+              required
+              placeholder="Descreva os detalhes, especificações e benefícios do produto..."
+              class="w-full px-3 py-2 rounded-xl border border-gray-300 bg-white text-ml-text focus:outline-none focus:border-ml-blue resize-y"
+            ></textarea>
+          </div>
+
+          <div class="p-3 rounded-xl bg-white border border-gray-200 space-y-2">
+            <label class="block font-bold text-ml-text">Foto / Imagem do Novo Produto *</label>
+            <div class="flex flex-wrap items-center gap-2">
+              <label class="px-3 py-2 rounded-xl bg-ml-blue hover:bg-ml-blueDark text-white font-bold cursor-pointer inline-flex items-center gap-1.5 shrink-0 transition">
+                <i class="fa-solid fa-upload"></i>
+                <span>Upload de Foto</span>
+                <input
+                  type="file"
+                  id="admin-new-file"
+                  accept="image/*"
+                  class="hidden"
+                />
+              </label>
+              <span id="admin-new-file-status" class="text-[11px] font-semibold text-ml-muted">
+                Nenhuma foto selecionada
+              </span>
+              <input
+                type="hidden"
+                id="admin-new-image"
+              />
+            </div>
+            <img
+              id="admin-new-preview"
+              src=""
+              alt="Pré-visualização do novo produto"
+              class="hidden w-20 h-20 rounded-xl object-cover border border-gray-200"
+            />
+          </div>
+
+          <label class="flex items-center gap-2 font-semibold text-ml-text cursor-pointer">
+            <input type="checkbox" id="admin-new-free-shipping" checked class="rounded" />
+            <span>Produto Original / Destaque</span>
+          </label>
+
+          <button
+            type="submit"
+            class="w-full py-2.5 px-4 rounded-xl bg-shopee-orange hover:bg-shopee-orangeDark text-white text-xs sm:text-sm font-extrabold cursor-pointer transition"
+          >
+            Cadastrar Novo Produto na Loja
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const STORAGE_KEY = 'megashop_cliente_vitrine_v10';
+      const SITE_TEXTS_KEY = 'megashop_site_texts_v4';
+      const ADMIN_PASS_KEY = 'megashop_admin_pass_v6';
+      const ADMIN_SESSION_KEY = 'megashop_admin_session_v4';
+      const MIN_SOLD = 1001;
+      const DEFAULT_ADMIN_PASS = 'Msb@2026#Admin!';
+      const ITEMS_PER_PAGE = 15;
+
+      const CATEGORIES = [
+        'Todos',
+        'Roupas Masculinas',
+        'Roupas Femininas',
+        'Roupas Infantil',
+        'Roupas Infantil Feminino',
+        'Roupas Infantil Masculino',
+        'Sapatos e Calçados',
+        'Calçados Infantil',
+        'Tênis Masculino',
+        'Tênis Feminino',
+        'Celulares',
+        'Acessórios Celular',
+        'Smartwatch',
+        'Tecnologia',
+        'Eletrônicos',
+        'Games & Jogos',
+        'Filmes & Entretenimento',
+        'Acessórios',
+        'Acessórios Feminino',
+        'Acessórios Masculino',
+        'Acessórios Infantil',
+        'Bijuterias',
+        'Academia & Fitness',
+        'Cosméticos',
+        'Cuidados Pessoais',
+        'Beleza & Saúde',
+        'Suplementos & Emagrecimento',
+        'Brinquedos',
+        'Cursos de Especialização',
+        'Info-produtos',
+        'Ferramentas de Trabalho',
+        'Casa',
+        'Casa & Cozinha',
+        'Cama, Mesa & Banho',
+        'Eletro',
+        'Produtos Diversos',
+      ];
+
+      const TEXT_FIELD_LABELS = {
+        brand_title: 'Nome Principal da Loja (Topo)',
+        brand_subtitle: 'Slogan da Loja (Topo)',
+        shipping_notice_left: 'Aviso de Frete Grátis',
+        shipping_notice_right: 'Aviso de Frete Fixo',
+        suppliers_banner_text: 'Banner de Fornecedores e Prazo',
+        vitrine_heading: 'Título da Vitrine',
+        faq_title: 'Título Perguntas Frequentes',
+        faq_subtitle: 'Subtítulo Perguntas Frequentes',
+        faq_q1: 'FAQ Pergunta 1',
+        faq_a1: 'FAQ Resposta 1',
+        faq_q2: 'FAQ Pergunta 2',
+        faq_a2: 'FAQ Resposta 2',
+        faq_q3: 'FAQ Pergunta 3',
+        faq_a3: 'FAQ Resposta 3',
+        faq_q4: 'FAQ Pergunta 4',
+        faq_a4: 'FAQ Resposta 4',
+        about_title: 'Título Sobre a Empresa',
+        about_subtitle: 'Subtítulo Sobre a Empresa',
+        about_badge: 'Selo Sobre a Empresa',
+        about_description: 'Texto Institucional da Empresa',
+        pillar_1_title: 'Pilar 1 — Título',
+        pillar_1_desc: 'Pilar 1 — Descrição',
+        pillar_2_title: 'Pilar 2 — Título',
+        pillar_2_desc: 'Pilar 2 — Descrição',
+        pillar_3_title: 'Pilar 3 — Título',
+        pillar_3_desc: 'Pilar 3 — Descrição',
+        footer_brand_line: 'Rodapé — Nome da Marca',
+        footer_area_line: 'Rodapé — Texto Área do Cliente',
+        politica_privacidade: 'Política de Privacidade e Responsabilidades',
+      };
+
+      const LIVE_SHOPPERS = [
+        { name: 'Mariana Souza', city: 'Vitória do Mearim - MA', item: 'Conjunto Alfaiataria Feminino', ago: 'agora mesmo' },
+        { name: 'Carlos Eduardo', city: 'Marabá - PA', item: 'Smartphone Android 256GB 5G', ago: 'há 1 min' },
+        { name: 'Fernanda Lima', city: 'São Paulo - SP', item: 'Tênis Feminino Casual Plataforma', ago: 'há 2 min' },
+        { name: 'Rafael Oliveira', city: 'Rio de Janeiro - RJ', item: 'Tênis Masculino Running Pro', ago: 'há 3 min' },
+        { name: 'Juliana Costa', city: 'Vitória do Mearim - MA', item: 'Fritadeira Elétrica Air Fryer 4L', ago: 'há 4 min' },
+        { name: 'Lucas Mendes', city: 'Marabá - PA', item: 'Smartwatch Ultra Série 9 Amoled', ago: 'há 5 min' },
+        { name: 'Camila Rodrigues', city: 'São Paulo - SP', item: 'Vestido Midi Floral Leve', ago: 'há 6 min' },
+        { name: 'Bruno Almeida', city: 'Rio de Janeiro - RJ', item: 'Camiseta Masculina Algodão Premium', ago: 'há 7 min' },
+        { name: 'Patrícia Santos', city: 'Vitória do Mearim - MA', item: 'Kit 4 Peças Roupas de Cama Casal', ago: 'há 8 min' },
+        { name: 'Diego Ferreira', city: 'Marabá - PA', item: 'Jaqueta Corta-Vento Masculina', ago: 'há 9 min' },
+      ];
+
+      const INITIAL_PRODUCTS = [
+        {
+          id: 'prod-1',
+          name: 'Camiseta Masculina Algodão Premium Slim Fit',
+          category: 'Roupas Masculinas',
+          price: 59.90,
+          oldPrice: 89.90,
+          rating: 4.8,
+          sold: 1420,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'Mercado Pago',
+          linkMode: 'normal',
+          paymentLink: '',
+          description: 'Camiseta masculina confeccionada em malha 100% algodão penteado de toque macio, modelagem slim fit moderna e costura reforçada para alta durabilidade no dia a dia.',
+          image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=640&q=80',
+          comments: [
+            { author: 'Rodrigo M.', rating: 5, text: 'Tecido muito macio e caimento excelente no corpo.', date: '2026-02-12' },
+          ],
+        },
+        {
+          id: 'prod-2',
+          name: 'Jaqueta Corta-Vento Masculina Impermeável',
+          category: 'Roupas Masculinas',
+          price: 139.90,
+          oldPrice: 199.90,
+          rating: 4.9,
+          sold: 1185,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'PicPay',
+          linkMode: 'externo',
+          paymentLink: '',
+          description: 'Jaqueta corta-vento leve com proteção resistente à chuva fina, capuz ajustável, bolsos laterais com zíper e acabamento interno respirável.',
+          image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=640&q=80',
+          comments: [],
+        },
+        {
+          id: 'prod-3',
+          name: 'Vestido Midi Floral Leve Elegante Verão',
+          category: 'Roupas Femininas',
+          price: 119.90,
+          oldPrice: 169.90,
+          rating: 4.9,
+          sold: 1840,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'Nubank',
+          linkMode: 'normal',
+          paymentLink: '',
+          description: 'Vestido midi feminino com estampa floral delicada, tecido fluido e fresco, cintura marcada e caimento confortável ideal para passeios e eventos.',
+          image: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=640&q=80',
+          comments: [],
+        },
+        {
+          id: 'prod-4',
+          name: 'Conjunto Alfaiataria Feminino Blazer e Calça',
+          category: 'Roupas Femininas',
+          price: 189.90,
+          oldPrice: 259.90,
+          rating: 4.8,
+          sold: 1290,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'Mercado Pago',
+          linkMode: 'normal',
+          paymentLink: '',
+          description: 'Conjunto feminino em alfaiataria estruturada composto por blazer acinturado e calça de corte reto, perfeito para ambiente profissional e ocasiões sociais.',
+          image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=640&q=80',
+          comments: [],
+        },
+        {
+          id: 'prod-5',
+          name: 'Tênis Masculino Running Pro Amortecimento',
+          category: 'Tênis Masculino',
+          price: 199.90,
+          oldPrice: 289.90,
+          rating: 4.9,
+          sold: 2310,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'PagBank / Pagando',
+          linkMode: 'externo',
+          paymentLink: '',
+          description: 'Tênis esportivo masculino com cabedal em mesh respirável, entressola em EVA de alto retorno de energia e solado emborrachado antiderrapante.',
+          image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=640&q=80',
+          comments: [],
+        },
+        {
+          id: 'prod-6',
+          name: 'Tênis Masculino Casual Couro Urbano Branco',
+          category: 'Tênis Masculino',
+          price: 169.90,
+          oldPrice: 229.90,
+          rating: 4.7,
+          sold: 1510,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'Outro Banco',
+          linkMode: 'normal',
+          paymentLink: '',
+          description: 'Tênis casual masculino versátil em material sintético premium fácil de limpar, palmilha anatômica macia e visual minimalista.',
+          image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=640&q=80',
+          comments: [],
+        },
+        {
+          id: 'prod-7',
+          name: 'Tênis Feminino Casual Plataforma Conforto',
+          category: 'Tênis Feminino',
+          price: 159.90,
+          oldPrice: 219.90,
+          rating: 4.9,
+          sold: 1960,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'Mercado Pago',
+          linkMode: 'normal',
+          paymentLink: '',
+          description: 'Tênis feminino com solado plataforma leve, interior acolchoado e design moderno que combina com vestidos, jeans e looks casuais.',
+          image: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=640&q=80',
+          comments: [],
+        },
+        {
+          id: 'prod-8',
+          name: 'Tênis Feminino Esportivo Leve Academia Caminhada',
+          category: 'Tênis Feminino',
+          price: 149.90,
+          oldPrice: 199.90,
+          rating: 4.8,
+          sold: 1730,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'PicPay',
+          linkMode: 'normal',
+          paymentLink: '',
+          description: 'Calçado feminino ultraleve desenvolvido para caminhadas, treinos na academia e rotina ativa com máxima ventilação e flexibilidade.',
+          image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=640&q=80',
+          comments: [],
+        },
+        {
+          id: 'prod-9',
+          name: 'Smartphone Android 256GB 8GB RAM Câmera Tripla 5G',
+          category: 'Celulares',
+          price: 1399.00,
+          oldPrice: 1799.00,
+          rating: 4.9,
+          sold: 3120,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'Mercado Pago',
+          linkMode: 'externo',
+          paymentLink: '',
+          description: 'Smartphone 5G de alto desempenho com tela AMOLED de 6,6 polegadas 120Hz, 256GB de armazenamento, 8GB de RAM e bateria de 5000mAh com carregamento rápido.',
+          image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=640&q=80',
+          comments: [],
+        },
+        {
+          id: 'prod-10',
+          name: 'Celular Dual Chip 128GB Tela HD+ Bateria 5000mAh',
+          category: 'Celulares',
+          price: 789.90,
+          oldPrice: 999.00,
+          rating: 4.7,
+          sold: 1640,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'Nubank',
+          linkMode: 'normal',
+          paymentLink: '',
+          description: 'Celular dual chip equilibrado para uso diário, redes sociais e trabalho, com leitor biométrico lateral e bateria de longa duração.',
+          image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=640&q=80',
+          comments: [],
+        },
+        {
+          id: 'prod-11',
+          name: 'Smartwatch Ultra Série 9 Amoled GPS e Chamadas',
+          category: 'Smartwatch',
+          price: 249.90,
+          oldPrice: 349.90,
+          rating: 4.9,
+          sold: 2890,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'Mercado Pago',
+          linkMode: 'normal',
+          paymentLink: '',
+          description: 'Relógio inteligente com tela AMOLED de alta definição, atendimento de chamadas via Bluetooth, monitoramento cardíaco, oxímetro e modos esportivos.',
+          image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=640&q=80',
+          comments: [],
+        },
+        {
+          id: 'prod-12',
+          name: 'Smartwatch Esportivo Resistente à Água IP68',
+          category: 'Smartwatch',
+          price: 169.90,
+          oldPrice: 239.90,
+          rating: 4.8,
+          sold: 1475,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'PagBank / Pagando',
+          linkMode: 'normal',
+          paymentLink: '',
+          description: 'Smartwatch esportivo leve com certificação IP68, notificações inteligentes de mensagens, controle de música e bateria para até 10 dias.',
+          image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=640&q=80',
+          comments: [],
+        },
+        {
+          id: 'prod-13',
+          name: 'Kit 4 Peças Roupas de Cama Casal Microfibra Macia',
+          category: 'Casa',
+          price: 89.90,
+          oldPrice: 129.90,
+          rating: 4.8,
+          sold: 1580,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'Outro Banco',
+          linkMode: 'normal',
+          paymentLink: '',
+          description: 'Jogo de cama casal completo com lençol de elástico, sobre-lençol e duas fronhas em microfibra toque de pêssego que não amassa com facilidade.',
+          image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=640&q=80',
+          comments: [],
+        },
+        {
+          id: 'prod-14',
+          name: 'Luminária de Mesa LED Articulada Touch Escritório',
+          category: 'Casa',
+          price: 64.90,
+          oldPrice: 94.90,
+          rating: 4.7,
+          sold: 1245,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'PicPay',
+          linkMode: 'normal',
+          paymentLink: '',
+          description: 'Luminária de mesa LED com 3 temperaturas de cor, controle touch de intensidade e haste flexível 360 graus para leitura e home office.',
+          image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=640&q=80',
+          comments: [],
+        },
+        {
+          id: 'prod-15',
+          name: 'Fritadeira Elétrica Sem Óleo Air Fryer 4L Inox',
+          category: 'Eletro',
+          price: 279.90,
+          oldPrice: 389.90,
+          rating: 4.9,
+          sold: 3450,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'Mercado Pago',
+          linkMode: 'normal',
+          paymentLink: '',
+          description: 'Fritadeira elétrica Air Fryer de 4 litros com cesto antiaderente removível, timer de 60 minutos e controle de temperatura até 200°C.',
+          image: 'https://images.unsplash.com/photo-1585515320310-259814833e62?auto=format&fit=crop&w=640&q=80',
+          comments: [],
+        },
+        {
+          id: 'prod-16',
+          name: 'Liquidificador Turbo 1200W Copo Resistente 3L',
+          category: 'Eletro',
+          price: 139.90,
+          oldPrice: 189.90,
+          rating: 4.8,
+          sold: 1890,
+          freeShipping: true,
+          productOrigin: 'normal',
+          paymentType: 'Nubank',
+          linkMode: 'normal',
+          paymentLink: '',
+          description: 'Liquidificador potente de 1200W com 6 lâminas em aço inox, 12 velocidades, função pulsar e jarra de 3 litros com tampa dosadora.',
+          image: 'https://images.unsplash.com/photo-1570222094114-d054a817e56b?auto=format&fit=crop&w=640&q=80',
+          comments: [],
+        },
+      ];
+
+      function normalizeSoldCount(value) {
+        const parsed = parseInt(value, 10);
+        if (Number.isNaN(parsed) || parsed < MIN_SOLD) {
+          return MIN_SOLD;
+        }
+        return parsed;
+      }
+
+      function normalizeProducts(list) {
+        return list.map((item) => ({
+          ...item,
+          sold: normalizeSoldCount(item.sold),
+          productOrigin: item.productOrigin === 'afiliado' ? 'afiliado' : 'normal',
+          paymentType: typeof item.paymentType === 'string' && item.paymentType ? item.paymentType : 'Mercado Pago',
+          linkMode: item.linkMode === 'externo' ? 'externo' : 'normal',
+          paymentLink: typeof item.paymentLink === 'string' ? item.paymentLink : '',
+          description: typeof item.description === 'string' ? item.description : '',
+          comments: Array.isArray(item.comments) ? item.comments : [],
+        }));
+      }
+
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (Array.isArray(parsed.products) && parsed.products.length > 0) {
+              return {
+                products: normalizeProducts(parsed.products),
+                favorites: Array.isArray(parsed.favorites) ? parsed.favorites : [],
+                bag: Array.isArray(parsed.bag) ? parsed.bag : [],
+                customer: parsed.customer || null,
+                orders: Array.isArray(parsed.orders) ? parsed.orders : [],
+                adminNotifications: Array.isArray(parsed.adminNotifications) ? parsed.adminNotifications : [],
+                customerNotifications: Array.isArray(parsed.customerNotifications) ? parsed.customerNotifications : [],
+              };
+            }
+          }
+        } catch (err) {
+          console.warn('Erro ao carregar dados salvos:', err);
+        }
+        return {
+          products: normalizeProducts(INITIAL_PRODUCTS),
+          favorites: [],
+          bag: [],
+          customer: null,
+          orders: [],
+          adminNotifications: [],
+          customerNotifications: [],
+        };
+      }
+
+      const persisted = loadState();
+      const state = {
+        products: persisted.products,
+        favorites: persisted.favorites,
+        bag: persisted.bag,
+        customer: persisted.customer,
+        orders: persisted.orders,
+        adminNotifications: persisted.adminNotifications,
+        customerNotifications: persisted.customerNotifications,
+        selectedCategory: 'Todos',
+        searchQuery: '',
+        currentPage: 1,
+        isAdminAuthenticated: false,
+        isInlineEditMode: false,
+        activeReviewProductId: null,
+        selectedReviewRating: 5,
+        chatOpen: false,
+        chatHandedOverToHuman: false,
+        chatMessages: [
+          {
+            sender: 'bot',
+            text: 'Olá! Sou a assistente virtual da Mega Shop Brasil. Posso ajudar com fretes, prazos de entrega (até 10 dias úteis), trocas ou encaminhar você para um atendente humano.',
+            time: 'Agora',
+          },
+        ],
+      };
+
+      const defaultSiteTexts = {};
+      document.querySelectorAll('[data-editable-key]').forEach((el) => {
+        const key = el.getAttribute('data-editable-key');
+        if (key) {
+          defaultSiteTexts[key] = el.innerHTML.trim();
+        }
+      });
+
+      function loadSiteTexts() {
+        try {
+          const raw = localStorage.getItem(SITE_TEXTS_KEY);
+          if (raw) {
+            return { ...defaultSiteTexts, ...JSON.parse(raw) };
+          }
+        } catch (err) {
+          console.warn('Erro ao carregar textos do site:', err);
+        }
+        return { ...defaultSiteTexts };
+      }
+
+      let siteTexts = loadSiteTexts();
+
+      function applySiteTexts() {
+        document.querySelectorAll('[data-editable-key]').forEach((el) => {
+          const key = el.getAttribute('data-editable-key');
+          if (key && Object.prototype.hasOwnProperty.call(siteTexts, key)) {
+            el.innerHTML = siteTexts[key];
+          }
+        });
+      }
+
+      function saveSiteTexts() {
+        try {
+          localStorage.setItem(SITE_TEXTS_KEY, JSON.stringify(siteTexts));
+        } catch (err) {
+          console.warn('Erro ao salvar textos do site:', err);
+        }
+        saveTextsSupabase(siteTexts);
+      }
+
+      function saveState() {
+        try {
+          localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify({
+              products: state.products,
+              favorites: state.favorites,
+              bag: state.bag,
+              customer: state.customer,
+              orders: state.orders,
+              adminNotifications: state.adminNotifications,
+              customerNotifications: state.customerNotifications,
+            })
+          );
+        } catch (err) {
+          console.warn('Erro ao salvar estado:', err);
+        }
+      }
+
+      function formatBRL(value) {
+        return Number(value || 0).toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL',
+        });
+      }
+
+      function escapeHTML(str) {
+        return String(str ?? '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      function nowTimeLabel() {
+        const d = new Date();
+        return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+      }
+
+      function showToast(message, type = 'info') {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+        const colors = {
+          info: 'bg-gray-900 text-white border-gray-700',
+          success: 'bg-emerald-600 text-white border-emerald-500',
+          warning: 'bg-amber-500 text-gray-950 border-amber-400',
+          danger: 'bg-red-600 text-white border-red-500',
+        };
+        const toast = document.createElement('div');
+        toast.className = `pointer-events-auto px-3.5 py-2.5 rounded-xl border shadow-lg text-xs font-bold flex items-center justify-between gap-2 transition-all duration-200 ${colors[type] || colors.info}`;
+        toast.innerHTML = `<span>${escapeHTML(message)}</span>`;
+        container.appendChild(toast);
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transform = 'translateY(-6px)';
+          setTimeout(() => toast.remove(), 220);
+        }, 3200);
+      }
+
+      // Dispara notificação geral de novo pedido (para todos os produtos) + notificação por tipo de pagamento
+      function registerOrderAndPaymentNotifications(order) {
+        const time = nowTimeLabel();
+        const generalOrderNotif = {
+          id: `notif-ord-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+          scope: 'geral_pedido',
+          paymentType: order.paymentType,
+          linkMode: order.linkMode,
+          text: `Novo pedido #${order.code} (todos os produtos) — "${order.productName}" (${formatBRL(order.price)})`,
+          time,
+        };
+
+        const specificPaymentNotif = {
+          id: `notif-pay-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+          scope: 'por_pagamento',
+          paymentType: order.paymentType,
+          linkMode: order.linkMode,
+          text: `Novo pagamento [${order.paymentType} • ${order.linkMode === 'externo' ? 'Link Externo' : 'Link Normal'}] no pedido #${order.code} — "${order.productName}"`,
+          time,
+        };
+
+        state.adminNotifications.unshift(specificPaymentNotif, generalOrderNotif);
+      }
+
+      function createOrderFromProduct(product, viaLinkClick = false) {
+        const linkMode = product.linkMode === 'externo' ? 'externo' : 'normal';
+        const paymentType = product.paymentType || (linkMode === 'externo' ? 'Link Externo' : 'Mercado Pago');
+        const order = {
+          id: `ord-${Date.now()}-${Math.random().toString(36).slice(2, 5)}`,
+          code: `MSB${String(Date.now()).slice(-6)}`,
+          productId: product.id,
+          productName: product.name,
+          productOrigin: product.productOrigin === 'afiliado' ? 'afiliado' : 'normal',
+          price: Number(product.price || 0),
+          paymentType,
+          linkMode,
+          paymentLink: product.paymentLink || '',
+          clickedExternalLink: Boolean(viaLinkClick && linkMode === 'externo'),
+          customerConfirmedPayment: false,
+          receiptName: '',
+          receiptDataUrl: '',
+          approved: false,
+          statusLabel: viaLinkClick && linkMode === 'externo'
+            ? 'Saiu para Link Externo — Volte em Meus Pedidos para confirmar'
+            : 'Aguardando Pagamento / Confirmação',
+          createdAt: nowTimeLabel(),
+        };
+
+        state.orders.unshift(order);
+        registerOrderAndPaymentNotifications(order);
+        saveState();
+        updateBadges();
+        return order;
+      }
+
+      function hasAdminUrlFlag() {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          return params.get('admin') === '1';
+        } catch (e) {
+          return false;
+        }
+      }
+
+      function updateAdminVisibility() {
+        const topBtn = document.getElementById('admin-access-btn');
+        const label = document.getElementById('admin-btn-label');
+        if (topBtn) {
+          if (hasAdminUrlFlag() || state.isAdminAuthenticated) {
+            topBtn.classList.remove('hidden');
+          } else {
+            topBtn.classList.add('hidden');
+          }
+        }
+        if (label) {
+          label.textContent = state.isAdminAuthenticated ? 'Painel Admin' : 'Admin';
+        }
+      }
+
+      function renderLiveShoppers() {
+        const track = document.getElementById('live-shoppers-track');
+        if (!track) return;
+        const doubled = [...LIVE_SHOPPERS, ...LIVE_SHOPPERS];
+        track.innerHTML = doubled
+          .map(
+            (s) => `
+            <span class="inline-flex items-center gap-2 text-gray-200 whitespace-nowrap">
+              <i class="fa-solid fa-bag-shopping text-ml-yellow text-[11px]"></i>
+              <strong class="text-white font-bold">${escapeHTML(s.name)}</strong>
+              <span class="text-gray-400">(${escapeHTML(s.city)})</span>
+              <span>comprou</span>
+              <span class="text-amber-300 font-semibold">${escapeHTML(s.item)}</span>
+              <span class="text-[10px] text-emerald-400">• ${escapeHTML(s.ago)}</span>
+            </span>
+          `
+          )
+          .join('');
+      }
+
+      function renderCategories() {
+        const container = document.getElementById('category-pills');
+        if (!container) return;
+        container.innerHTML = CATEGORIES.map((cat) => {
+          const active = state.selectedCategory === cat;
+          return `
+            <button
+              type="button"
+              data-category="${escapeHTML(cat)}"
+              class="category-pill-btn px-3.5 py-2 rounded-full text-xs font-extrabold whitespace-nowrap cursor-pointer transition shrink-0 ${
+                active
+                  ? 'bg-ml-text text-white shadow-2xs'
+                  : 'bg-white hover:bg-gray-100 text-ml-text border border-gray-200'
+              }"
+            >
+              ${escapeHTML(cat)}
+            </button>
+          `;
+        }).join('');
+      }
+
+      function getFilteredProducts() {
+        const q = state.searchQuery.trim().toLowerCase();
+        return state.products.filter((p) => {
+          const matchCat = state.selectedCategory === 'Todos' || p.category === state.selectedCategory;
+          const matchQuery =
+            !q ||
+            p.name.toLowerCase().includes(q) ||
+            p.category.toLowerCase().includes(q) ||
+            (p.description && p.description.toLowerCase().includes(q));
+          return matchCat && matchQuery;
+        });
+      }
+
+      function renderStarsHTML(rating) {
+        const full = Math.round(Number(rating) || 5);
+        let html = '';
+        for (let i = 1; i <= 5; i++) {
+          html += `<i class="fa-solid fa-star ${i <= full ? 'text-amber-400' : 'text-gray-300'} text-[11px]"></i>`;
+        }
+        return html;
+      }
+
+      function renderProducts() {
+        const grid = document.getElementById('products-grid');
+        const emptyState = document.getElementById('empty-state');
+        const countBadge = document.getElementById('vitrine-count');
+        const paginationNav = document.getElementById('pagination-controls');
+        if (!grid) return;
+
+        const filtered = getFilteredProducts();
+        const totalItems = filtered.length;
+        if (countBadge) {
+          countBadge.textContent = `${totalItems} ${totalItems === 1 ? 'produto' : 'produtos'}`;
+        }
+
+        if (totalItems === 0) {
+          grid.innerHTML = '';
+          if (emptyState) emptyState.classList.remove('hidden');
+          if (paginationNav) paginationNav.classList.add('hidden');
+          return;
+        }
+
+        if (emptyState) emptyState.classList.add('hidden');
+
+        const totalPages = Math.max(1, Math.ceil(totalItems / ITEMS_PER_PAGE));
+        if (state.currentPage > totalPages) {
+          state.currentPage = totalPages;
+        }
+        const startIdx = (state.currentPage - 1) * ITEMS_PER_PAGE;
+        const pageItems = filtered.slice(startIdx, startIdx + ITEMS_PER_PAGE);
+
+        grid.innerHTML = pageItems
+          .map((product) => {
+            const isFav = state.favorites.includes(product.id);
+            const hasOld = product.oldPrice && Number(product.oldPrice) > Number(product.price);
+            const discountPct = hasOld
+              ? Math.round(((Number(product.oldPrice) - Number(product.price)) / Number(product.oldPrice)) * 100)
+              : 0;
+            const commentsCount = Array.isArray(product.comments) ? product.comments.length : 0;
+
+            return `
+              <article class="product-card bg-white rounded-2xl border border-gray-200 overflow-hidden flex flex-col justify-between shadow-2xs">
+                <div>
+                  <div class="relative aspect-square bg-gray-100 overflow-hidden">
+                    <img
+                      src="${escapeHTML(product.image)}"
+                      alt="${escapeHTML(product.name)}"
+                      loading="lazy"
+                      onerror="this.onerror=null;this.src='https://placehold.co/600x600/f3f4f6/6b7280?text=Mega+Shop+Brasil';"
+                      class="w-full h-full object-cover"
+                    />
+                    ${
+                      discountPct > 0
+                        ? `<span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-lg bg-shopee-orange text-white text-[10px] font-extrabold shadow-2xs">-${discountPct}% OFF</span>`
+                        : ''
+                    }
+                    ${
+                      state.isAdminAuthenticated && product.productOrigin === 'afiliado'
+                        ? `<span class="absolute bottom-2 left-2 px-2 py-0.5 rounded-md bg-purple-900/90 text-white text-[9px] font-extrabold">AFILIADO (ADMIN)</span>`
+                        : ''
+                    }
+                    <button
+                      type="button"
+                      data-fav-id="${escapeHTML(product.id)}"
+                      aria-label="${isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}"
+                      class="toggle-fav-btn absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/95 hover:bg-white shadow-md flex items-center justify-center cursor-pointer transition ${
+                        isFav ? 'text-shopee-orange' : 'text-gray-400 hover:text-shopee-orange'
+                      }"
+                    >
+                      <i class="${isFav ? 'fa-solid' : 'fa-regular'} fa-heart text-sm"></i>
+                    </button>
+                  </div>
+
+                  <div class="p-3 sm:p-3.5 space-y-1.5">
+                    <span class="inline-block px-2 py-0.5 rounded-md bg-gray-100 text-ml-muted text-[10px] font-bold">
+                      ${escapeHTML(product.category)}
+                    </span>
+                    <h2 class="font-bold text-xs sm:text-sm text-ml-text line-clamp-2 leading-snug min-h-[2.4rem]">
+                      ${escapeHTML(product.name)}
+                    </h2>
+
+                    <div class="flex flex-wrap items-center gap-1.5 text-[11px]">
+                      <div class="flex items-center gap-0.5">${renderStarsHTML(product.rating)}</div>
+                      <span class="font-extrabold text-ml-text">${Number(product.rating).toFixed(1)}</span>
+                      <span class="text-gray-400">|</span>
+                      <span class="text-ml-muted font-semibold">+${product.sold} vendidos</span>
+                    </div>
+
+                    <div class="pt-1">
+                      ${
+                        hasOld
+                          ? `<span class="block text-[11px] text-gray-400 line-through">${formatBRL(product.oldPrice)}</span>`
+                          : ''
+                      }
+                      <span class="font-display font-extrabold text-base sm:text-lg text-ml-text block leading-tight">
+                        ${formatBRL(product.price)}
+                      </span>
+                      <span class="text-[10px] font-bold text-emerald-700 block mt-0.5">
+                        ${product.freeShipping ? 'Frete grátis / Destaque' : 'Frete fixo R$ 19,90'}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-3 sm:p-3.5 pt-0 space-y-1.5">
+                  <button
+                    type="button"
+                    data-buy-id="${escapeHTML(product.id)}"
+                    class="buy-product-btn w-full py-2.5 px-3 rounded-xl bg-ml-blue hover:bg-ml-blueDark text-white text-xs font-extrabold cursor-pointer transition flex items-center justify-center gap-1.5"
+                  >
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span>Comprar Agora</span>
+                  </button>
+
+                  <div class="grid grid-cols-2 gap-1.5">
+                    <button
+                      type="button"
+                      data-bag-id="${escapeHTML(product.id)}"
+                      class="add-bag-btn py-2 px-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-ml-blue text-[11px] font-extrabold cursor-pointer transition flex items-center justify-center gap-1"
+                    >
+                      <i class="fa-solid fa-cart-plus"></i>
+                      <span>Sacola</span>
+                    </button>
+                    <button
+                      type="button"
+                      data-review-id="${escapeHTML(product.id)}"
+                      class="open-review-btn py-2 px-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-ml-text text-[11px] font-bold cursor-pointer transition flex items-center justify-center gap-1"
+                    >
+                      <i class="fa-regular fa-comment-dots text-amber-500"></i>
+                      <span>Avaliar (${commentsCount})</span>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            `;
+          })
+          .join('');
+
+        if (paginationNav) {
+          if (totalPages > 1) {
+            paginationNav.classList.remove('hidden');
+            paginationNav.innerHTML = `
+              <span class="text-xs font-semibold text-ml-muted">
+                Página <strong>${state.currentPage}</strong> de <strong>${totalPages}</strong> (${totalItems} produtos)
+              </span>
+              <div class="flex items-center gap-2">
+                <button
+                  type="button"
+                  id="prev-page-btn"
+                  ${state.currentPage <= 1 ? 'disabled' : ''}
+                  class="px-3 py-1.5 rounded-xl border border-gray-300 text-xs font-bold ${
+                    state.currentPage <= 1 ? 'opacity-40 cursor-not-allowed' : 'hover:bg-gray-100 cursor-pointer'
+                  }"
+                >
+                  Anterior
+                </button>
+                <button
+                  type="button"
+                  id="next-page-btn"
+                  ${state.currentPage >= totalPages ? 'disabled' : ''}
+                  class="px-3 py-1.5 rounded-xl bg-ml-blue text-white text-xs font-bold ${
+                    state.currentPage >= totalPages ? 'opacity-40 cursor-not-allowed' : 'hover:bg-ml-blueDark cursor-pointer'
+                  }"
+                >
+                  Próxima
+                </button>
+              </div>
+            `;
+          } else {
+            paginationNav.classList.add('hidden');
+          }
+        }
+      }
+
+      function updateBadges() {
+        const favBadge = document.getElementById('fav-badge');
+        const bagBadge = document.getElementById('bag-badge');
+        const ordersBadge = document.getElementById('orders-badge');
+        if (favBadge) favBadge.textContent = String(state.favorites.length);
+        if (bagBadge) bagBadge.textContent = String(state.bag.length);
+        if (ordersBadge) ordersBadge.textContent = String(state.orders.length);
+      }
+
+      function updateCustomerUI() {
+        const label = document.getElementById('customer-auth-label');
+        const summaryBox = document.getElementById('customer-active-summary');
+        const logoutBtn = document.getElementById('customer-logout-btn');
+
+        if (state.customer && state.customer.name) {
+          const firstName = state.customer.name.trim().split(' ')[0];
+          if (label) label.textContent = `Olá, ${firstName}`;
+          if (summaryBox) {
+            summaryBox.classList.remove('hidden');
+            document.getElementById('summary-customer-name').textContent = state.customer.name;
+            document.getElementById('summary-customer-email').textContent = state.customer.email;
+            document.getElementById('summary-customer-location').textContent = `${state.customer.city} - ${state.customer.state}`;
+          }
+          if (logoutBtn) logoutBtn.classList.remove('hidden');
+        } else {
+          if (label) label.textContent = 'Entrar / Cadastrar';
+          if (summaryBox) summaryBox.classList.add('hidden');
+          if (logoutBtn) logoutBtn.classList.add('hidden');
+        }
+      }
+
+      function openModal(id) {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('hidden');
+      }
+
+      function closeModal(id) {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      }
+
+      function renderFavoritesModal() {
+        const body = document.getElementById('favorites-modal-body');
+        const countEl = document.getElementById('modal-fav-count');
+        if (!body) return;
+        const favProducts = state.products.filter((p) => state.favorites.includes(p.id));
+        if (countEl) countEl.textContent = String(favProducts.length);
+
+        if (favProducts.length === 0) {
+          body.innerHTML = `
+            <div class="text-center py-8 text-xs text-ml-muted space-y-2">
+              <i class="fa-regular fa-heart text-3xl text-gray-300"></i>
+              <p class="font-bold text-ml-text">Sua lista de favoritos está vazia</p>
+              <p>Clique no coração nos produtos da vitrine para salvar aqui.</p>
+            </div>
+          `;
+          return;
+        }
+
+        body.innerHTML = favProducts
+          .map(
+            (p) => `
+            <div class="flex items-center justify-between gap-3 p-3 rounded-xl bg-gray-50 border border-gray-200">
+              <div class="flex items-center gap-3 min-w-0">
+                <img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}" class="w-14 h-14 rounded-xl object-cover shrink-0 border border-gray-200" />
+                <div class="min-w-0">
+                  <p class="font-bold text-xs text-ml-text truncate">${escapeHTML(p.name)}</p>
+                  <p class="font-display font-extrabold text-sm text-ml-blue mt-0.5">${formatBRL(p.price)}</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5 shrink-0">
+                <button
+                  type="button"
+                  data-buy-id="${escapeHTML(p.id)}"
+                  class="buy-product-btn px-3 py-2 rounded-xl bg-ml-blue hover:bg-ml-blueDark text-white text-[11px] font-extrabold cursor-pointer"
+                >
+                  Comprar
+                </button>
+                <button
+                  type="button"
+                  data-fav-id="${escapeHTML(p.id)}"
+                  aria-label="Remover favorito"
+                  class="toggle-fav-btn w-8 h-8 rounded-xl bg-white hover:bg-red-50 text-red-600 border border-gray-200 flex items-center justify-center cursor-pointer"
+                >
+                  <i class="fa-solid fa-trash text-xs"></i>
+                </button>
+              </div>
+            </div>
+          `
+          )
+          .join('');
+      }
+
+      function openPurchaseModal(product) {
+        const body = document.getElementById('purchase-modal-body');
+        if (!body || !product) return;
+        const hasLink = product.paymentLink && product.paymentLink.trim().startsWith('http');
+        const isExternal = product.linkMode === 'externo';
+        const payLabel = product.paymentType || 'Mercado Pago';
+
+        body.innerHTML = `
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-gray-50 border border-gray-200">
+            <img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.name)}" class="w-16 h-16 rounded-xl object-cover shrink-0 border border-gray-200" />
+            <div class="min-w-0">
+              <span class="text-[10px] font-bold text-ml-muted">${escapeHTML(product.category)} • ${escapeHTML(payLabel)}</span>
+              <h4 class="font-bold text-xs sm:text-sm text-ml-text leading-snug">${escapeHTML(product.name)}</h4>
+              <p class="font-display font-extrabold text-base text-ml-blue mt-1">${formatBRL(product.price)}</p>
+            </div>
+          </div>
+
+          <p class="text-xs text-ml-muted leading-relaxed">
+            ${escapeHTML(product.description || 'Produto selecionado com entrega garantida em até 10 dias úteis em todo o Brasil.')}
+          </p>
+
+          <div class="p-3 rounded-xl bg-amber-50 border border-amber-300 text-xs text-gray-900 space-y-1">
+            <p class="font-extrabold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-info text-shopee-orange"></i> Aviso de Pagamento e Confirmação
+            </p>
+            <p>
+              Tipo de pagamento configurado: <strong>${escapeHTML(payLabel)}</strong> (${isExternal ? 'Link Externo' : 'Link Normal'}).
+              Após concluir o pagamento, volte em <strong>Meus Pedidos</strong> dentro do site e confirme o pagamento deste produto (de preferência anexando o comprovante).
+            </p>
+          </div>
+
+          ${
+            hasLink
+              ? `<button
+                  type="button"
+                  id="pay-via-link-btn"
+                  data-product-id="${escapeHTML(product.id)}"
+                  class="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-extrabold flex items-center justify-center gap-2 cursor-pointer transition"
+                >
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  <span>Pagar via Link (${escapeHTML(payLabel)})</span>
+                </button>`
+              : `<button
+                  type="button"
+                  id="confirm-direct-order-btn"
+                  data-product-id="${escapeHTML(product.id)}"
+                  class="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-extrabold flex items-center justify-center gap-2 cursor-pointer transition"
+                >
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Gerar Pedido (${escapeHTML(payLabel)} • ${formatBRL(product.price)})</span>
+                </button>`
+          }
+        `;
+        openModal('purchase-modal');
+      }
+
+      function renderMyOrdersModal() {
+        const body = document.getElementById('my-orders-modal-body');
+        if (!body) return;
+
+        const approvedOrders = state.orders.filter((o) => o.approved);
+        const custNotifsHTML =
+          state.customerNotifications.length > 0
+            ? `<div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 space-y-1.5">
+                <p class="font-extrabold text-emerald-900 flex items-center gap-1.5">
+                  <i class="fa-solid fa-bell"></i> Notificações do Cliente (Pagamentos Aprovados)
+                </p>
+                ${state.customerNotifications
+                  .slice(0, 8)
+                  .map(
+                    (n) => `
+                    <p class="text-[11px] text-emerald-950 font-semibold">
+                      • ${escapeHTML(n.text)} <span class="text-emerald-700">(${escapeHTML(n.time)})</span>
+                    </p>
+                  `
+                  )
+                  .join('')}
+              </div>`
+            : '';
+
+        const approvedSectionHTML = `
+          <div class="p-3.5 rounded-xl bg-blue-50/70 border border-blue-200 space-y-2">
+            <h4 class="font-display font-extrabold text-xs sm:text-sm text-gray-950 flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check text-emerald-600"></i> Pedidos de Pagamento Aprovado (${approvedOrders.length})
+            </h4>
+            ${
+              approvedOrders.length === 0
+                ? `<p class="text-[11px] text-ml-muted">Nenhum pedido com pagamento aprovado ainda.</p>`
+                : approvedOrders
+                    .map(
+                      (o) => `
+                      <div class="p-2.5 rounded-xl bg-white border border-emerald-200 flex flex-wrap items-center justify-between gap-2">
+                        <div>
+                          <p class="font-bold text-xs text-ml-text">#${escapeHTML(o.code)} — ${escapeHTML(o.productName)}</p>
+                          <p class="text-[10px] text-emerald-700 font-extrabold">Pagamento Aprovado • ${escapeHTML(o.paymentType)} • ${formatBRL(o.price)}</p>
+                        </div>
+                        <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-extrabold">APROVADO</span>
+                      </div>
+                    `
+                    )
+                    .join('')
+            }
+          </div>
+        `;
+
+        const ordersListHTML =
+          state.orders.length === 0
+            ? `<div class="text-center py-6 text-ml-muted space-y-1">
+                <p class="font-bold text-ml-text">Você ainda não realizou nenhum pedido.</p>
+                <p>Clique em "Comprar Agora" em algum produto para gerar um pedido e acompanhar a confirmação.</p>
+              </div>`
+            : state.orders
+                .map((ord) => {
+                  const isExt = ord.linkMode === 'externo';
+                  return `
+                    <div class="p-3.5 rounded-2xl bg-gray-50 border border-gray-200 space-y-2.5">
+                      <div class="flex flex-wrap items-start justify-between gap-2">
+                        <div>
+                          <span class="font-display font-extrabold text-xs text-gray-950">Pedido #${escapeHTML(ord.code)}</span>
+                          <span class="ml-2 px-2 py-0.5 rounded-md bg-gray-200 text-gray-800 text-[10px] font-bold">
+                            ${escapeHTML(ord.paymentType)}
+                          </span>
+                          <span class="ml-1 px-2 py-0.5 rounded-md ${
+                            isExt ? 'bg-amber-100 text-amber-900' : 'bg-blue-100 text-blue-900'
+                          } text-[10px] font-bold">
+                            ${isExt ? 'Link Externo' : 'Link Normal'}
+                          </span>
+                          <p class="font-bold text-xs text-ml-text mt-1">${escapeHTML(ord.productName)} — <span class="text-ml-blue">${formatBRL(ord.price)}</span></p>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold ${
+                          ord.approved
+                            ? 'bg-emerald-600 text-white'
+                            : ord.customerConfirmedPayment
+                            ? 'bg-amber-400 text-gray-950'
+                            : 'bg-gray-200 text-gray-800'
+                        }">
+                          ${ord.approved ? 'Pagamento Aprovado' : ord.customerConfirmedPayment ? 'Confirmado pelo Cliente' : 'Pendente'}
+                        </span>
+                      </div>
+
+                      ${
+                        isExt && !ord.approved
+                          ? `<div class="p-2.5 rounded-xl bg-amber-50 border border-amber-300 text-[11px] text-amber-950">
+                              <strong>Aviso de Link Externo:</strong> Após concluir o pagamento na página externa, volte aqui em <strong>Meus Pedidos</strong> e confirme que você fez o pagamento de <strong>${escapeHTML(ord.productName)}</strong>.
+                            </div>`
+                          : ''
+                      }
+
+                      <div class="p-2.5 rounded-xl bg-white border border-gray-200 space-y-2">
+                        <p class="text-[11px] text-ml-muted">
+                          Após confirmar o pagamento, você pode anexar o <strong>comprovante ou foto do comprovante</strong> (opcional, mas preferencial).
+                        </p>
+                        <div class="flex flex-wrap items-center gap-2">
+                          <label class="px-3 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-ml-text font-bold text-[11px] cursor-pointer inline-flex items-center gap-1.5">
+                            <i class="fa-solid fa-receipt text-ml-blue"></i>
+                            <span>Anexar Comprovante / Foto (Opcional)</span>
+                            <input
+                              type="file"
+                              accept="image/*,application/pdf,.pdf"
+                              data-receipt-order-id="${escapeHTML(ord.id)}"
+                              class="order-receipt-input hidden"
+                            />
+                          </label>
+                          <span class="text-[11px] font-semibold text-gray-600">
+                            ${ord.receiptName ? `Comprovante: ${escapeHTML(ord.receiptName)}` : 'Nenhum comprovante anexado'}
+                          </span>
+                        </div>
+
+                        <button
+                          type="button"
+                          data-confirm-pay-order-id="${escapeHTML(ord.id)}"
+                          class="confirm-customer-payment-btn w-full py-2 px-3 rounded-xl ${
+                            ord.customerConfirmedPayment
+                              ? 'bg-emerald-100 text-emerald-900 border border-emerald-300'
+                              : 'bg-ml-blue hover:bg-ml-blueDark text-white'
+                          } font-extrabold text-xs cursor-pointer transition flex items-center justify-center gap-1.5"
+                        >
+                          <i class="fa-solid fa-check"></i>
+                          <span>${
+                            ord.customerConfirmedPayment
+                              ? 'Pagamento Confirmado por Você (Atualizar Comprovante)'
+                              : 'Confirmar que Fiz o Pagamento'
+                          }</span>
+                        </button>
+                      </div>
+                    </div>
+                  `;
+                })
+                .join('');
+
+        body.innerHTML = `${custNotifsHTML}${approvedSectionHTML}<div class="space-y-2.5">${ordersListHTML}</div>`;
+      }
+
+      function openBagSummaryModal() {
+        const body = document.getElementById('purchase-modal-body');
+        const title = document.getElementById('purchase-modal-title');
+        if (!body) return;
+        if (title) title.textContent = 'Minha Sacola';
+
+        if (state.bag.length === 0) {
+          body.innerHTML = `
+            <div class="text-center py-6 text-xs text-ml-muted space-y-2">
+              <i class="fa-solid fa-cart-shopping text-3xl text-gray-300"></i>
+              <p class="font-bold text-ml-text">Sua sacola está vazia</p>
+              <p>Adicione produtos pela vitrine para visualizar aqui.</p>
+            </div>
+          `;
+          openModal('purchase-modal');
+          return;
+        }
+
+        const items = state.bag
+          .map((id) => state.products.find((p) => p.id === id))
+          .filter(Boolean);
+        const total = items.reduce((acc, p) => acc + Number(p.price), 0);
+
+        body.innerHTML = `
+          <div class="space-y-2 max-h-60 overflow-y-auto">
+            ${items
+              .map(
+                (p, idx) => `
+                <div class="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs">
+                  <span class="font-bold text-ml-text truncate">${escapeHTML(p.name)}</span>
+                  <div class="flex items-center gap-2 shrink-0">
+                    <span class="font-extrabold text-ml-blue">${formatBRL(p.price)}</span>
+                    <button type="button" data-remove-bag-idx="${idx}" class="remove-bag-item-btn text-red-500 hover:text-red-700 cursor-pointer">
+                      <i class="fa-solid fa-xmark"></i>
+                    </button>
+                  </div>
+                </div>
+              `
+              )
+              .join('')}
+          </div>
+          <div class="pt-2 border-t border-gray-200 flex items-center justify-between font-display font-extrabold text-sm">
+            <span>Total estimado:</span>
+            <span class="text-emerald-700">${formatBRL(total)}</span>
+          </div>
+          <button
+            type="button"
+            id="checkout-bag-btn"
+            class="w-full py-2.5 px-4 rounded-xl bg-ml-blue hover:bg-ml-blueDark text-white text-xs sm:text-sm font-extrabold cursor-pointer transition"
+          >
+            Finalizar Pedido da Sacola
+          </button>
+        `;
+        openModal('purchase-modal');
+      }
+
+      function openReviewModal(productId) {
+        const product = state.products.find((p) => p.id === productId);
+        if (!product) return;
+        state.activeReviewProductId = productId;
+        state.selectedReviewRating = 5;
+
+        const header = document.getElementById('review-product-header');
+        if (header) {
+          header.innerHTML = `
+            <img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.name)}" class="w-12 h-12 rounded-xl object-cover shrink-0 border border-gray-200" />
+            <div class="min-w-0">
+              <p class="font-bold text-xs text-ml-text truncate">${escapeHTML(product.name)}</p>
+              <p class="text-[11px] text-ml-muted">Nota média atual: <strong>${Number(product.rating).toFixed(1)} / 5</strong></p>
+            </div>
+          `;
+        }
+
+        const authorInput = document.getElementById('review-author-input');
+        if (authorInput && state.customer && state.customer.name && !authorInput.value) {
+          authorInput.value = state.customer.name;
+        }
+
+        updateStarSelectorUI();
+        renderReviewComments(product);
+        openModal('review-modal');
+      }
+
+      function updateStarSelectorUI() {
+        const label = document.getElementById('review-rating-label');
+        if (label) {
+          label.textContent = `Nota: ${state.selectedReviewRating}.0 / 5`;
+        }
+        document.querySelectorAll('.star-choice-btn').forEach((btn) => {
+          const val = Number(btn.getAttribute('data-rating-value'));
+          if (val <= state.selectedReviewRating) {
+            btn.classList.add('text-amber-400', 'border-amber-400', 'bg-amber-50');
+            btn.classList.remove('text-gray-300');
+          } else {
+            btn.classList.remove('text-amber-400', 'border-amber-400', 'bg-amber-50');
+            btn.classList.add('text-gray-300');
+          }
+        });
+      }
+
+      function renderReviewComments(product) {
+        const list = document.getElementById('review-comments-list');
+        if (!list) return;
+        const comments = Array.isArray(product.comments) ? product.comments : [];
+        if (comments.length === 0) {
+          list.innerHTML = `<p class="text-ml-muted text-[11px]">Ainda não há comentários escritos para este produto. Seja o primeiro a avaliar!</p>`;
+          return;
+        }
+        list.innerHTML = comments
+          .map(
+            (c) => `
+            <div class="p-3 rounded-xl bg-gray-50 border border-gray-200 space-y-1">
+              <div class="flex items-center justify-between">
+                <strong class="text-ml-text">${escapeHTML(c.author)}</strong>
+                <span class="text-amber-500 font-bold">${'★'.repeat(Number(c.rating) || 5)}</span>
+              </div>
+              <p class="text-ml-muted leading-relaxed">${escapeHTML(c.text)}</p>
+            </div>
+          `
+          )
+          .join('');
+      }
+
+      function renderChatMessages() {
+        const container = document.getElementById('robot-chat-messages');
+        if (!container) return;
+        container.innerHTML = state.chatMessages
+          .map((msg) => {
+            const isUser = msg.sender === 'user';
+            return `
+              <div class="flex flex-col ${isUser ? 'items-end' : 'items-start'}">
+                <div class="max-w-[85%] px-3 py-2 rounded-2xl text-xs leading-relaxed ${
+                  isUser
+                    ? 'bg-ml-blue text-white rounded-br-sm'
+                    : 'bg-white border border-gray-200 text-ml-text rounded-bl-sm shadow-2xs'
+                }">
+                  ${escapeHTML(msg.text)}
+                </div>
+                <span class="text-[9px] text-gray-400 mt-0.5 px-1">${escapeHTML(msg.time || 'Agora')}</span>
+              </div>
+            `;
+          })
+          .join('');
+        container.scrollTop = container.scrollHeight;
+      }
+
+      function addChatMessage(sender, text) {
+        const now = new Date();
+        const time = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        state.chatMessages.push({ sender, text, time });
+        renderChatMessages();
+      }
+
+      function handleBotReply(userText) {
+        const lower = userText.toLowerCase();
+        if (lower.includes('humano') || lower.includes('atendente') || lower.includes('pessoa')) {
+          state.chatHandedOverToHuman = true;
+          const status = document.getElementById('chat-header-status');
+          if (status) {
+            status.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block"></span><span>Conectado com atendente humano</span>`;
+          }
+          addChatMessage('bot', 'Transferindo seu atendimento para um especialista humano da Mega Shop Brasil. Pode enviar sua dúvida ou número do pedido aqui mesmo!');
+          return;
+        }
+        if (state.chatHandedOverToHuman) {
+          addChatMessage('bot', 'Atendente humano recebeu sua mensagem e já está analisando seu atendimento. Obrigado por aguardar!');
+          return;
+        }
+        if (lower.includes('frete')) {
+          addChatMessage('bot', 'Temos frete grátis em diversos produtos selecionados e frete fixo garantido de R$ 19,90 para qualquer cidade do Brasil!');
+        } else if (lower.includes('entrega') || lower.includes('prazo')) {
+          addChatMessage('bot', 'Nossas entregas são realizadas pelos melhores fornecedores do Brasil com prazo de até 10 dias úteis após a confirmação.');
+        } else if (lower.includes('troca') || lower.includes('fornecedor')) {
+          addChatMessage('bot', 'Para trocas, nossa equipe orienta a postagem de retorno ao fornecedor parceiro e envia a reposição dentro do prazo logístico de até 10 dias úteis.');
+        } else {
+          addChatMessage('bot', 'Entendi! Posso ajudar com informações sobre fretes, entregas, trocas ou você pode clicar em "Atendente Humano" acima para falar diretamente com nossa equipe.');
+        }
+      }
+
+      function populateAdminCategorySelects() {
+        const availableCats = CATEGORIES.filter((c) => c !== 'Todos');
+        const editCatSelect = document.getElementById('admin-edit-category');
+        const newCatSelect = document.getElementById('admin-new-category');
+        const optionsHTML = availableCats
+          .map((cat) => `<option value="${escapeHTML(cat)}">${escapeHTML(cat)}</option>`)
+          .join('');
+        if (editCatSelect) editCatSelect.innerHTML = optionsHTML;
+        if (newCatSelect) newCatSelect.innerHTML = optionsHTML;
+      }
+
+      function renderAdminTextsEditor() {
+        const container = document.getElementById('admin-site-texts-fields');
+        if (!container) return;
+        container.innerHTML = Object.keys(TEXT_FIELD_LABELS)
+          .map((key) => {
+            const label = TEXT_FIELD_LABELS[key];
+            const val = siteTexts[key] || '';
+            return `
+              <div class="bg-white p-2.5 rounded-xl border border-gray-200">
+                <label class="block text-[10px] font-extrabold text-ml-muted mb-1">${escapeHTML(label)}</label>
+                <textarea
+                  data-admin-text-key="${escapeHTML(key)}"
+                  rows="2"
+                  class="w-full px-2.5 py-1.5 rounded-lg border border-gray-300 text-xs text-ml-text focus:outline-none focus:border-ml-blue resize-y"
+                >${escapeHTML(val)}</textarea>
+              </div>
+            `;
+          })
+          .join('');
+      }
+
+      function renderAdminNotificationsAndApprovals() {
+        const feedEl = document.getElementById('admin-notifications-feed');
+        const ordersEl = document.getElementById('admin-orders-approval-list');
+        const filterVal = document.getElementById('admin-filter-payment-type')?.value || 'Todos';
+
+        if (feedEl) {
+          const filteredNotifs = state.adminNotifications.filter((n) => {
+            if (filterVal === 'Todos') return true;
+            if (filterVal === 'Link Normal' || filterVal === 'Link Externo') {
+              return (filterVal === 'Link Externo' && n.linkMode === 'externo') ||
+                (filterVal === 'Link Normal' && n.linkMode !== 'externo');
+            }
+            return n.paymentType === filterVal;
+          });
+
+          if (filteredNotifs.length === 0) {
+            feedEl.innerHTML = `<p class="text-[11px] text-gray-600">Nenhuma notificação registrada para este filtro.</p>`;
+          } else {
+            feedEl.innerHTML = filteredNotifs
+              .slice(0, 12)
+              .map(
+                (n) => `
+                <div class="p-2 rounded-xl bg-white border border-amber-200 flex items-center justify-between gap-2 text-[11px]">
+                  <span class="font-semibold text-gray-900">${escapeHTML(n.text)}</span>
+                  <span class="text-[10px] text-gray-500 shrink-0">${escapeHTML(n.time)}</span>
+                </div>
+              `
+              )
+              .join('');
+          }
+        }
+
+        if (ordersEl) {
+          if (state.orders.length === 0) {
+            ordersEl.innerHTML = `<p class="text-[11px] text-gray-600">Nenhum pedido criado ainda.</p>`;
+          } else {
+            ordersEl.innerHTML = state.orders
+              .map(
+                (o) => `
+                <div class="p-3 rounded-xl bg-white border border-gray-200 flex flex-wrap items-center justify-between gap-2">
+                  <div class="space-y-0.5 min-w-0">
+                    <p class="font-bold text-xs text-gray-950">
+                      #${escapeHTML(o.code)} — ${escapeHTML(o.productName)} (${formatBRL(o.price)})
+                    </p>
+                    <p class="text-[10px] text-gray-600 font-semibold">
+                      Tipo Pagamento: <strong>${escapeHTML(o.paymentType)}</strong> • Link: <strong>${o.linkMode === 'externo' ? 'Externo' : 'Normal'}</strong> •
+                      Cliente confirmou: <strong>${o.customerConfirmedPayment ? 'Sim' : 'Não'}</strong>
+                      ${o.receiptName ? ` • Comprovante: <strong>${escapeHTML(o.receiptName)}</strong>` : ''}
+                    </p>
+                  </div>
+
+                  <button
+                    type="button"
+                    data-exclusive-approve-order-id="${escapeHTML(o.id)}"
+                    class="exclusive-approve-payment-btn px-3 py-2 rounded-xl ${
+                      o.approved
+                        ? 'bg-emerald-100 text-emerald-900 border border-emerald-300'
+                        : 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                    } font-extrabold text-[11px] cursor-pointer transition shrink-0 flex items-center gap-1.5"
+                  >
+                    <i class="fa-solid fa-shield-check"></i>
+                    <span>${o.approved ? 'Pagamento Aprovado ✓' : 'Aprovar Pagamento'}</span>
+                  </button>
+                </div>
+              `
+              )
+              .join('');
+          }
+        }
+      }
+
+      function fillAdminEditForm(productId) {
+        const product = state.products.find((p) => p.id === productId) || state.products[0];
+        if (!product) return;
+        document.getElementById('admin-edit-select').value = product.id;
+        document.getElementById('admin-edit-name').value = product.name;
+        document.getElementById('admin-edit-category').value = product.category;
+        document.getElementById('admin-edit-price').value = product.price;
+        document.getElementById('admin-edit-old-price').value = product.oldPrice || '';
+        document.getElementById('admin-edit-product-origin').value = product.productOrigin || 'normal';
+        document.getElementById('admin-edit-payment-type').value = product.paymentType || 'Mercado Pago';
+        document.getElementById('admin-edit-link-mode').value = product.linkMode || 'normal';
+        document.getElementById('admin-edit-payment-link').value = product.paymentLink || '';
+        document.getElementById('admin-edit-description').value = product.description || '';
+        document.getElementById('admin-edit-image').value = product.image || '';
+        document.getElementById('admin-edit-free-shipping').checked = Boolean(product.freeShipping);
+
+        const preview = document.getElementById('admin-edit-preview');
+        const statusEl = document.getElementById('admin-edit-file-status');
+        if (statusEl) {
+          statusEl.textContent = product.image ? 'Foto atual carregada (clique em Upload para trocar)' : 'Selecione uma foto';
+        }
+        if (preview && product.image) {
+          preview.src = product.image;
+          preview.classList.remove('hidden');
+        }
+      }
+
+      function populateAdminPanel() {
+        populateAdminCategorySelects();
+        renderAdminTextsEditor();
+        renderAdminNotificationsAndApprovals();
+
+        const badge = document.getElementById('admin-products-total-badge');
+        if (badge) {
+          badge.textContent = `${state.products.length} produtos`;
+        }
+
+        const listEl = document.getElementById('admin-products-list');
+        if (listEl) {
+          listEl.innerHTML = state.products
+            .map(
+              (p) => `
+              <div class="p-2.5 flex items-center justify-between gap-2 hover:bg-gray-50">
+                <div class="flex items-center gap-2.5 min-w-0">
+                  <img src="${escapeHTML(p.image)}" alt="" class="w-9 h-9 rounded-lg object-cover shrink-0 border border-gray-200" />
+                  <div class="min-w-0">
+                    <p class="font-bold text-ml-text truncate">${escapeHTML(p.name)}</p>
+                    <p class="text-[10px] text-ml-muted">
+                      ${escapeHTML(p.category)} • ${formatBRL(p.price)} •
+                      <strong>${p.productOrigin === 'afiliado' ? 'Afiliado' : 'Normal'}</strong> •
+                      <strong>${escapeHTML(p.paymentType || 'Mercado Pago')}</strong>
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  data-admin-pick-id="${escapeHTML(p.id)}"
+                  class="admin-pick-product-btn px-2.5 py-1 rounded-lg bg-blue-50 hover:bg-blue-100 text-ml-blue font-bold text-[11px] cursor-pointer shrink-0"
+                >
+                  Editar
+                </button>
+              </div>
+            `
+            )
+            .join('');
+        }
+
+        const selectEl = document.getElementById('admin-edit-select');
+        if (selectEl) {
+          const currentVal = selectEl.value;
+          selectEl.innerHTML = state.products
+            .map((p) => `<option value="${escapeHTML(p.id)}">${escapeHTML(p.name)} (${escapeHTML(p.category)})</option>`)
+            .join('');
+          const targetId = state.products.some((p) => p.id === currentVal)
+            ? currentVal
+            : state.products[0]?.id;
+          if (targetId) {
+            fillAdminEditForm(targetId);
+          }
+        }
+      }
+
+      function openAdminModal() {
+        const loginForm = document.getElementById('admin-login-form');
+        const panelContent = document.getElementById('admin-panel-content');
+        const logoutBtn = document.getElementById('admin-logout-btn');
+
+        if (state.isAdminAuthenticated) {
+          if (loginForm) loginForm.classList.add('hidden');
+          if (panelContent) panelContent.classList.remove('hidden');
+          if (logoutBtn) logoutBtn.classList.remove('hidden');
+          populateAdminPanel();
+        } else {
+          if (loginForm) loginForm.classList.remove('hidden');
+          if (panelContent) panelContent.classList.add('hidden');
+          if (logoutBtn) logoutBtn.classList.add('hidden');
+        }
+        openModal('admin-modal');
+      }
+
+      function toggleInlineEditMode(forceState) {
+        state.isInlineEditMode = typeof forceState === 'boolean' ? forceState : !state.isInlineEditMode;
+        const banner = document.getElementById('inline-edit-banner');
+        const btnLabel = document.getElementById('inline-edit-btn-label');
+
+        if (state.isInlineEditMode) {
+          document.body.classList.add('inline-edit-active');
+          if (banner) banner.classList.remove('hidden');
+          if (btnLabel) btnLabel.textContent = 'Desativar Edição na Tela';
+          document.querySelectorAll('[data-editable-key]').forEach((el) => {
+            el.setAttribute('contenteditable', 'true');
+          });
+          closeModal('admin-modal');
+          showToast('Clique em qualquer texto destacado na página para editar.', 'info');
+        } else {
+          document.body.classList.remove('inline-edit-active');
+          if (banner) banner.classList.add('hidden');
+          if (btnLabel) btnLabel.textContent = 'Editar Direto na Tela';
+          document.querySelectorAll('[data-editable-key]').forEach((el) => {
+            const key = el.getAttribute('data-editable-key');
+            if (key) {
+              siteTexts[key] = el.innerHTML.trim();
+            }
+            el.removeAttribute('contenteditable');
+          });
+          saveSiteTexts();
+          showToast('Textos salvos com sucesso!', 'success');
+        }
+      }
+
+      function readImageFileAsDataURL(file, onSuccess) {
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function (ev) {
+          if (ev.target && typeof ev.target.result === 'string') {
+            onSuccess(ev.target.result);
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function bindEvents() {
+        const logoReset = document.getElementById('logo-reset');
+        if (logoReset) {
+          logoReset.addEventListener('click', () => {
+            state.selectedCategory = 'Todos';
+            state.searchQuery = '';
+            state.currentPage = 1;
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) searchInput.value = '';
+            renderCategories();
+            renderProducts();
+          });
+        }
+
+        // Modal de Política de Privacidade
+        document.getElementById('open-privacy-policy-btn')?.addEventListener('click', () => {
+          openModal('privacy-policy-modal');
+        });
+        document.getElementById('close-privacy-policy-btn')?.addEventListener('click', () => {
+          closeModal('privacy-policy-modal');
+        });
+
+        // Modal Meus Pedidos
+        document.getElementById('open-my-orders-btn')?.addEventListener('click', () => {
+          renderMyOrdersModal();
+          openModal('my-orders-modal');
+        });
+        document.getElementById('close-my-orders-btn')?.addEventListener('click', () => {
+          closeModal('my-orders-modal');
+        });
+
+        // Upload de comprovante nos pedidos do cliente
+        document.addEventListener('change', (e) => {
+          const receiptInput = e.target.closest('.order-receipt-input');
+          if (receiptInput) {
+            const orderId = receiptInput.getAttribute('data-receipt-order-id');
+            const file = receiptInput.files?.[0];
+            const order = state.orders.find((o) => o.id === orderId);
+            if (order && file) {
+              readImageFileAsDataURL(file, (dataUrl) => {
+                order.receiptName = file.name;
+                order.receiptDataUrl = dataUrl;
+                saveState();
+                renderMyOrdersModal();
+                showToast(`Comprovante "${file.name}" anexado ao pedido #${order.code}.`, 'success');
+              });
+            }
+          }
+        });
+
+        // Busca
+        const searchInput = document.getElementById('search-input');
+        const clearSearchBtn = document.getElementById('clear-search-btn');
+        if (searchInput) {
+          searchInput.addEventListener('input', (e) => {
+            state.searchQuery = e.target.value;
+            state.currentPage = 1;
+            if (clearSearchBtn) {
+              clearSearchBtn.classList.toggle('hidden', !state.searchQuery);
+            }
+            renderProducts();
+          });
+        }
+        if (clearSearchBtn) {
+          clearSearchBtn.addEventListener('click', () => {
+            state.searchQuery = '';
+            state.currentPage = 1;
+            if (searchInput) searchInput.value = '';
+            clearSearchBtn.classList.add('hidden');
+            renderProducts();
+          });
+        }
+
+        const resetFiltersBtn = document.getElementById('reset-filters-btn');
+        if (resetFiltersBtn) {
+          resetFiltersBtn.addEventListener('click', () => {
+            state.selectedCategory = 'Todos';
+            state.searchQuery = '';
+            state.currentPage = 1;
+            if (searchInput) searchInput.value = '';
+            if (clearSearchBtn) clearSearchBtn.classList.add('hidden');
+            renderCategories();
+            renderProducts();
+          });
+        }
+
+        document.addEventListener('click', (e) => {
+          const catBtn = e.target.closest('.category-pill-btn');
+          if (catBtn) {
+            state.selectedCategory = catBtn.getAttribute('data-category') || 'Todos';
+            state.currentPage = 1;
+            renderCategories();
+            renderProducts();
+            return;
+          }
+
+          const favBtn = e.target.closest('.toggle-fav-btn');
+          if (favBtn) {
+            const id = favBtn.getAttribute('data-fav-id');
+            if (!id) return;
+            const idx = state.favorites.indexOf(id);
+            if (idx >= 0) {
+              state.favorites.splice(idx, 1);
+              showToast('Removido dos favoritos.', 'info');
+            } else {
+              state.favorites.push(id);
+              showToast('Adicionado aos favoritos!', 'success');
+            }
+            saveState();
+            updateBadges();
+            renderProducts();
+            renderFavoritesModal();
+            return;
+          }
+
+          const buyBtn = e.target.closest('.buy-product-btn');
+          if (buyBtn) {
+            const id = buyBtn.getAttribute('data-buy-id');
+            const product = state.products.find((p) => p.id === id);
+            if (product) {
+              closeModal('favorites-modal');
+              const title = document.getElementById('purchase-modal-title');
+              if (title) title.textContent = 'Comprar Produto';
+              openPurchaseModal(product);
+            }
+            return;
+          }
+
+          const payLinkBtn = e.target.closest('#pay-via-link-btn');
+          if (payLinkBtn) {
+            const prodId = payLinkBtn.getAttribute('data-product-id');
+            const product = state.products.find((p) => p.id === prodId);
+            if (product) {
+              const order = createOrderFromProduct(product, true);
+              closeModal('purchase-modal');
+              if (product.linkMode === 'externo') {
+                showToast(
+                  `Pedido #${order.code} criado. Após pagar no link externo, volte em Meus Pedidos e confirme o pagamento de "${product.name}".`,
+                  'warning'
+                );
+              } else {
+                showToast(
+                  `Pedido #${order.code} criado (${product.paymentType}). Confirme o pagamento em Meus Pedidos.`,
+                  'success'
+                );
+              }
+              if (product.paymentLink && product.paymentLink.trim().startsWith('http')) {
+                window.open(product.paymentLink.trim(), '_blank', 'noopener,noreferrer');
+              }
+            }
+            return;
+          }
+
+          const confirmDirectOrderBtn = e.target.closest('#confirm-direct-order-btn');
+          if (confirmDirectOrderBtn) {
+            const prodId = confirmDirectOrderBtn.getAttribute('data-product-id');
+            const product = state.products.find((p) => p.id === prodId);
+            if (product) {
+              const order = createOrderFromProduct(product, false);
+              closeModal('purchase-modal');
+              showToast(`Pedido #${order.code} registrado! Acesse Meus Pedidos para confirmar o pagamento.`, 'success');
+            }
+            return;
+          }
+
+          const confirmCustPayBtn = e.target.closest('.confirm-customer-payment-btn');
+          if (confirmCustPayBtn) {
+            const ordId = confirmCustPayBtn.getAttribute('data-confirm-pay-order-id');
+            const order = state.orders.find((o) => o.id === ordId);
+            if (order) {
+              order.customerConfirmedPayment = true;
+              order.statusLabel = 'Pagamento Confirmado pelo Cliente (Aguardando Aprovação)';
+              state.adminNotifications.unshift({
+                id: `notif-conf-${Date.now()}`,
+                scope: 'por_pagamento',
+                paymentType: order.paymentType,
+                linkMode: order.linkMode,
+                text: `Cliente confirmou pagamento [${order.paymentType}] no pedido #${order.code} — "${order.productName}"${
+                  order.receiptName ? ` (Comprovante: ${order.receiptName})` : ' (Sem comprovante anexado)'
+                }`,
+                time: nowTimeLabel(),
+              });
+              saveState();
+              renderMyOrdersModal();
+              if (state.isAdminAuthenticated) {
+                renderAdminNotificationsAndApprovals();
+              }
+              showToast(`Pagamento do pedido #${order.code} confirmado!`, 'success');
+            }
+            return;
+          }
+
+          // Botão Exclusivo do Administrador para Aprovar Pagamento
+          const exclusiveApproveBtn = e.target.closest('.exclusive-approve-payment-btn');
+          if (exclusiveApproveBtn) {
+            if (!state.isAdminAuthenticated) {
+              showToast('Apenas o administrador autenticado pode aprovar pagamentos.', 'danger');
+              return;
+            }
+            const ordId = exclusiveApproveBtn.getAttribute('data-exclusive-approve-order-id');
+            const order = state.orders.find((o) => o.id === ordId);
+            if (order) {
+              order.approved = true;
+              order.statusLabel = 'Pagamento Aprovado';
+              state.customerNotifications.unshift({
+                id: `cnotif-${Date.now()}`,
+                text: `Pagamento APROVADO para o pedido #${order.code} ("${order.productName}" • ${order.paymentType}).`,
+                time: nowTimeLabel(),
+              });
+              state.adminNotifications.unshift({
+                id: `anotif-app-${Date.now()}`,
+                scope: 'por_pagamento',
+                paymentType: order.paymentType,
+                linkMode: order.linkMode,
+                text: `Pagamento APROVADO pelo admin via botão exclusivo — Pedido #${order.code} (${order.paymentType}).`,
+                time: nowTimeLabel(),
+              });
+              saveState();
+              renderAdminNotificationsAndApprovals();
+              showToast(`Pagamento do pedido #${order.code} aprovado e notificação enviada ao cliente!`, 'success');
+            }
+            return;
+          }
+
+          const bagBtn = e.target.closest('.add-bag-btn');
+          if (bagBtn) {
+            const id = bagBtn.getAttribute('data-bag-id');
+            if (id) {
+              state.bag.push(id);
+              saveState();
+              updateBadges();
+              showToast('Produto adicionado à sacola!', 'success');
+            }
+            return;
+          }
+
+          const reviewBtn = e.target.closest('.open-review-btn');
+          if (reviewBtn) {
+            const id = reviewBtn.getAttribute('data-review-id');
+            if (id) openReviewModal(id);
+            return;
+          }
+
+          const starChoice = e.target.closest('.star-choice-btn');
+          if (starChoice) {
+            state.selectedReviewRating = Number(starChoice.getAttribute('data-rating-value')) || 5;
+            updateStarSelectorUI();
+            return;
+          }
+
+          const removeBagBtn = e.target.closest('.remove-bag-item-btn');
+          if (removeBagBtn) {
+            const idx = Number(removeBagBtn.getAttribute('data-remove-bag-idx'));
+            if (!Number.isNaN(idx)) {
+              state.bag.splice(idx, 1);
+              saveState();
+              updateBadges();
+              openBagSummaryModal();
+            }
+            return;
+          }
+
+          if (e.target.closest('#checkout-bag-btn')) {
+            const items = state.bag.map((id) => state.products.find((p) => p.id === id)).filter(Boolean);
+            items.forEach((p) => createOrderFromProduct(p, false));
+            state.bag = [];
+            saveState();
+            updateBadges();
+            closeModal('purchase-modal');
+            showToast('Pedido da sacola finalizado e notificações registradas!', 'success');
+            return;
+          }
+
+          const adminPickBtn = e.target.closest('.admin-pick-product-btn');
+          if (adminPickBtn) {
+            const id = adminPickBtn.getAttribute('data-admin-pick-id');
+            if (id) {
+              fillAdminEditForm(id);
+              document.getElementById('admin-edit-product-form')?.scrollIntoView({ behavior: 'smooth' });
+            }
+            return;
+          }
+        });
+
+        document.getElementById('admin-filter-payment-type')?.addEventListener('change', () => {
+          renderAdminNotificationsAndApprovals();
+        });
+
+        document.getElementById('admin-clear-notifications-btn')?.addEventListener('click', () => {
+          state.adminNotifications = [];
+          saveState();
+          renderAdminNotificationsAndApprovals();
+          showToast('Notificações do administrador limpas.', 'info');
+        });
+
+        const paginationNav = document.getElementById('pagination-controls');
+        if (paginationNav) {
+          paginationNav.addEventListener('click', (e) => {
+            if (e.target.closest('#prev-page-btn') && state.currentPage > 1) {
+              state.currentPage--;
+              renderProducts();
+              document.getElementById('vitrine')?.scrollIntoView({ behavior: 'smooth' });
+            } else if (e.target.closest('#next-page-btn')) {
+              state.currentPage++;
+              renderProducts();
+              document.getElementById('vitrine')?.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+        }
+
+        document.getElementById('open-favorites-btn')?.addEventListener('click', () => {
+          renderFavoritesModal();
+          openModal('favorites-modal');
+        });
+        document.getElementById('close-favorites-btn')?.addEventListener('click', () => closeModal('favorites-modal'));
+        document.getElementById('open-cart-summary-btn')?.addEventListener('click', openBagSummaryModal);
+        document.getElementById('close-purchase-btn')?.addEventListener('click', () => closeModal('purchase-modal'));
+
+        document.getElementById('close-review-modal-btn')?.addEventListener('click', () => closeModal('review-modal'));
+        document.getElementById('review-submit-form')?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const product = state.products.find((p) => p.id === state.activeReviewProductId);
+          if (!product) return;
+          const author = document.getElementById('review-author-input').value.trim();
+          const text = document.getElementById('review-comment-input').value.trim();
+          if (!author || !text) return;
+
+          product.comments.unshift({
+            author,
+            rating: state.selectedReviewRating,
+            text,
+            date: new Date().toISOString().slice(0, 10),
+          });
+          const totalRatings = product.comments.reduce((acc, c) => acc + Number(c.rating), Number(product.rating));
+          product.rating = Math.min(5, Math.max(1, totalRatings / (product.comments.length + 1)));
+
+          saveState();
+          renderProducts();
+          renderReviewComments(product);
+          document.getElementById('review-comment-input').value = '';
+          showToast('Avaliação publicada com sucesso!', 'success');
+        });
+
+        document.getElementById('open-customer-auth-btn')?.addEventListener('click', () => {
+          if (state.customer) {
+            document.getElementById('customer-full-name').value = state.customer.name || '';
+            document.getElementById('customer-email').value = state.customer.email || '';
+            document.getElementById('customer-city').value = state.customer.city || '';
+            document.getElementById('customer-state').value = state.customer.state || '';
+          }
+          openModal('customer-modal');
+        });
+        document.getElementById('close-customer-btn')?.addEventListener('click', () => closeModal('customer-modal'));
+        document.getElementById('customer-auth-form')?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          state.customer = {
+            name: document.getElementById('customer-full-name').value.trim(),
+            email: document.getElementById('customer-email').value.trim(),
+            city: document.getElementById('customer-city').value.trim(),
+            state: document.getElementById('customer-state').value,
+          };
+          saveState();
+          updateCustomerUI();
+          closeModal('customer-modal');
+          showToast(`Bem-vindo(a), ${state.customer.name}!`, 'success');
+        });
+        document.getElementById('customer-logout-btn')?.addEventListener('click', () => {
+          state.customer = null;
+          saveState();
+          updateCustomerUI();
+          closeModal('customer-modal');
+          showToast('Você saiu da conta de cliente.', 'info');
+        });
+
+        document.getElementById('open-work-with-us-btn')?.addEventListener('click', () => openModal('work-with-us-modal'));
+        document.getElementById('close-work-modal-btn')?.addEventListener('click', () => closeModal('work-with-us-modal'));
+        document.getElementById('candidate-resume-file')?.addEventListener('change', (e) => {
+          const file = e.target.files?.[0];
+          const label = document.getElementById('candidate-resume-filename');
+          if (label) {
+            label.textContent = file ? file.name : 'Nenhum PDF selecionado';
+          }
+        });
+        document.getElementById('work-with-us-form')?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const file = document.getElementById('candidate-resume-file')?.files?.[0];
+          if (!file) {
+            showToast('Selecione o seu currículo em PDF antes de enviar.', 'warning');
+            return;
+          }
+          e.target.reset();
+          document.getElementById('candidate-resume-filename').textContent = 'Nenhum PDF selecionado';
+          closeModal('work-with-us-modal');
+          showToast('Currículo enviado com sucesso para nossa equipe!', 'success');
+        });
+
+        document.getElementById('toggle-robot-chat-btn')?.addEventListener('click', () => {
+          state.chatOpen = !state.chatOpen;
+          document.getElementById('robot-chat-window')?.classList.toggle('hidden', !state.chatOpen);
+          if (state.chatOpen) renderChatMessages();
+        });
+        document.getElementById('close-robot-chat-btn')?.addEventListener('click', () => {
+          state.chatOpen = false;
+          document.getElementById('robot-chat-window')?.classList.add('hidden');
+        });
+        document.querySelectorAll('.bot-quick-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const topic = btn.textContent.trim();
+            addChatMessage('user', topic);
+            handleBotReply(topic);
+          });
+        });
+        document.getElementById('transfer-to-human-btn')?.addEventListener('click', () => {
+          addChatMessage('user', 'Falar com atendente humano');
+          handleBotReply('humano');
+        });
+        document.getElementById('robot-chat-form')?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const input = document.getElementById('robot-chat-input');
+          const text = input?.value.trim();
+          if (!text) return;
+          input.value = '';
+          addChatMessage('user', text);
+          setTimeout(() => handleBotReply(text), 250);
+        });
+
+        document.getElementById('footer-admin-btn')?.addEventListener('click', openAdminModal);
+        document.getElementById('admin-access-btn')?.addEventListener('click', openAdminModal);
+        document.getElementById('close-admin-btn')?.addEventListener('click', () => closeModal('admin-modal'));
+
+        document.addEventListener('keydown', (e) => {
+          if (e.ctrlKey && e.shiftKey && e.key.toUpperCase() === 'A') {
+            e.preventDefault();
+            openAdminModal();
+          }
+        });
+
+        document.getElementById('admin-login-form')?.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const emailInput = document.getElementById('admin-email-input');
+          const passInput = document.getElementById('admin-password-input');
+          const msgEl = document.getElementById('admin-lockout-msg');
+          const submitBtn = document.getElementById('admin-login-submit-btn');
+          const email = (emailInput?.value || '').trim();
+          const password = (passInput?.value || '').trim();
+          const client = getSupabaseClient();
+
+          if (!client || !client.auth) {
+            if (msgEl) {
+              msgEl.textContent = 'Cliente Supabase indisponível no momento.';
+              msgEl.classList.remove('hidden');
+            }
+            showToast('Erro ao conectar com autenticação Supabase.', 'danger');
+            return;
+          }
+
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Autenticando...';
+          }
+
+          try {
+            const { data, error } = await client.auth.signInWithPassword({
+              email,
+              password,
+            });
+
+            if (!error && data?.session) {
+              state.isAdminAuthenticated = true;
+              sessionStorage.setItem(ADMIN_SESSION_KEY, 'true');
+              if (passInput) passInput.value = '';
+              if (msgEl) msgEl.classList.add('hidden');
+              updateAdminVisibility();
+              renderProducts();
+              openAdminModal();
+              showToast('Acesso administrativo autenticado via Supabase!', 'success');
+            } else {
+              state.isAdminAuthenticated = false;
+              sessionStorage.removeItem(ADMIN_SESSION_KEY);
+              if (msgEl) {
+                msgEl.textContent = 'E-mail ou senha inválidos no Supabase Auth.';
+                msgEl.classList.remove('hidden');
+              }
+              showToast('Credenciais de administrador incorretas.', 'danger');
+            }
+          } catch (err) {
+            if (msgEl) {
+              msgEl.textContent = 'Falha de conexão ao autenticar no Supabase.';
+              msgEl.classList.remove('hidden');
+            }
+            showToast('Erro de rede ao tentar fazer login.', 'danger');
+          } finally {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Acessar Painel Administrativo';
+            }
+          }
+        });
+
+        document.getElementById('admin-logout-btn')?.addEventListener('click', async () => {
+          const client = getSupabaseClient();
+          if (client?.auth) {
+            try {
+              await client.auth.signOut();
+            } catch (e) {}
+          }
+          state.isAdminAuthenticated = false;
+          sessionStorage.removeItem(ADMIN_SESSION_KEY);
+          if (state.isInlineEditMode) toggleInlineEditMode(false);
+          updateAdminVisibility();
+          renderProducts();
+          closeModal('admin-modal');
+          showToast('Sessão administrativa encerrada.', 'info');
+        });
+
+        document.getElementById('admin-change-password-form')?.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const p1 = document.getElementById('admin-new-pass-input').value.trim();
+          const p2 = document.getElementById('admin-confirm-pass-input').value.trim();
+          if (p1.length < 6) {
+            showToast('A nova senha deve ter pelo menos 6 caracteres.', 'warning');
+            return;
+          }
+          if (p1 !== p2) {
+            showToast('As senhas digitadas não coincidem.', 'danger');
+            return;
+          }
+          const client = getSupabaseClient();
+          if (!client?.auth) {
+            showToast('Cliente Supabase não disponível.', 'danger');
+            return;
+          }
+          const { error } = await client.auth.updateUser({ password: p1 });
+          if (error) {
+            showToast(`Erro ao atualizar senha no Supabase: ${error.message}`, 'danger');
+            return;
+          }
+          e.target.reset();
+          showToast('Senha do administrador atualizada no Supabase!', 'success');
+        });
+
+        document.getElementById('admin-toggle-inline-edit-btn')?.addEventListener('click', () => {
+          toggleInlineEditMode();
+        });
+        document.getElementById('finish-inline-edit-btn')?.addEventListener('click', () => {
+          toggleInlineEditMode(false);
+        });
+        document.getElementById('admin-save-all-texts-btn')?.addEventListener('click', () => {
+          document.querySelectorAll('[data-admin-text-key]').forEach((textarea) => {
+            const key = textarea.getAttribute('data-admin-text-key');
+            if (key) {
+              siteTexts[key] = textarea.value;
+            }
+          });
+          saveSiteTexts();
+          applySiteTexts();
+          showToast('Todos os textos do site foram atualizados!', 'success');
+        });
+        document.getElementById('admin-reset-texts-btn')?.addEventListener('click', () => {
+          siteTexts = { ...defaultSiteTexts };
+          localStorage.removeItem(SITE_TEXTS_KEY);
+          applySiteTexts();
+          renderAdminTextsEditor();
+          showToast('Textos originais restaurados.', 'info');
+        });
+
+        document.getElementById('admin-edit-select')?.addEventListener('change', (e) => {
+          fillAdminEditForm(e.target.value);
+        });
+
+        document.getElementById('admin-edit-file')?.addEventListener('change', (e) => {
+          const file = e.target.files?.[0];
+          readImageFileAsDataURL(file, (dataUrl) => {
+            document.getElementById('admin-edit-image').value = dataUrl;
+            const statusEl = document.getElementById('admin-edit-file-status');
+            if (statusEl && file) {
+              statusEl.textContent = `Nova foto selecionada: ${file.name}`;
+            }
+            const prev = document.getElementById('admin-edit-preview');
+            if (prev) {
+              prev.src = dataUrl;
+              prev.classList.remove('hidden');
+            }
+          });
+        });
+
+        document.getElementById('admin-new-file')?.addEventListener('change', (e) => {
+          const file = e.target.files?.[0];
+          readImageFileAsDataURL(file, (dataUrl) => {
+            document.getElementById('admin-new-image').value = dataUrl;
+            const statusEl = document.getElementById('admin-new-file-status');
+            if (statusEl && file) {
+              statusEl.textContent = `Foto selecionada: ${file.name}`;
+            }
+            const prev = document.getElementById('admin-new-preview');
+            if (prev) {
+              prev.src = dataUrl;
+              prev.classList.remove('hidden');
+            }
+          });
+        });
+
+        document.getElementById('admin-edit-product-form')?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const id = document.getElementById('admin-edit-select').value;
+          const product = state.products.find((p) => p.id === id);
+          if (!product) return;
+
+          const updatedImage = document.getElementById('admin-edit-image').value.trim() || product.image;
+          if (!updatedImage) {
+            showToast('Faça o upload da foto do produto antes de salvar.', 'warning');
+            return;
+          }
+
+          product.name = document.getElementById('admin-edit-name').value.trim();
+          product.category = document.getElementById('admin-edit-category').value;
+          product.price = parseFloat(document.getElementById('admin-edit-price').value) || 0;
+          const oldVal = parseFloat(document.getElementById('admin-edit-old-price').value);
+          product.oldPrice = !Number.isNaN(oldVal) && oldVal > 0 ? oldVal : null;
+          product.productOrigin = document.getElementById('admin-edit-product-origin').value === 'afiliado' ? 'afiliado' : 'normal';
+          product.paymentType = document.getElementById('admin-edit-payment-type').value;
+          product.linkMode = document.getElementById('admin-edit-link-mode').value === 'externo' ? 'externo' : 'normal';
+          product.paymentLink = document.getElementById('admin-edit-payment-link').value.trim();
+          product.description = document.getElementById('admin-edit-description').value.trim();
+          product.image = updatedImage;
+          product.freeShipping = document.getElementById('admin-edit-free-shipping').checked;
+
+          saveState();
+          upsertProductSupabase(product);
+          renderProducts();
+          populateAdminPanel();
+          showToast('Alterações do produto salvas!', 'success');
+        });
+
+        document.getElementById('admin-delete-product-btn')?.addEventListener('click', () => {
+          if (state.products.length <= 1) {
+            showToast('A loja precisa manter pelo menos 1 produto.', 'warning');
+            return;
+          }
+          const id = document.getElementById('admin-edit-select').value;
+          state.products = state.products.filter((p) => p.id !== id);
+          state.favorites = state.favorites.filter((fid) => fid !== id);
+          state.bag = state.bag.filter((bid) => bid !== id);
+          saveState();
+          deleteProductSupabase(id);
+          updateBadges();
+          renderProducts();
+          populateAdminPanel();
+          showToast('Produto excluído da vitrine.', 'info');
+        });
+
+        document.getElementById('admin-create-product-form')?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const uploadedImage = document.getElementById('admin-new-image').value.trim();
+          if (!uploadedImage) {
+            showToast('Selecione uma foto pelo botão "Upload de Foto" antes de cadastrar.', 'warning');
+            return;
+          }
+
+          const oldVal = parseFloat(document.getElementById('admin-new-old-price').value);
+          const newProduct = {
+            id: `prod-${Date.now()}`,
+            name: document.getElementById('admin-new-name').value.trim(),
+            category: document.getElementById('admin-new-category').value,
+            price: parseFloat(document.getElementById('admin-new-price').value) || 0,
+            oldPrice: !Number.isNaN(oldVal) && oldVal > 0 ? oldVal : null,
+            rating: 5.0,
+            sold: MIN_SOLD,
+            freeShipping: document.getElementById('admin-new-free-shipping').checked,
+            productOrigin: document.getElementById('admin-new-product-origin').value === 'afiliado' ? 'afiliado' : 'normal',
+            paymentType: document.getElementById('admin-new-payment-type').value,
+            linkMode: document.getElementById('admin-new-link-mode').value === 'externo' ? 'externo' : 'normal',
+            paymentLink: document.getElementById('admin-new-payment-link').value.trim(),
+            description: document.getElementById('admin-new-description').value.trim(),
+            image: uploadedImage,
+            comments: [],
+          };
+
+          state.products.unshift(newProduct);
+          state.currentPage = 1;
+          saveState();
+          upsertProductSupabase(newProduct);
+          renderProducts();
+          populateAdminPanel();
+          e.target.reset();
+          document.getElementById('admin-new-image').value = '';
+          const statusEl = document.getElementById('admin-new-file-status');
+          if (statusEl) statusEl.textContent = 'Nenhuma foto selecionada';
+          document.getElementById('admin-new-preview')?.classList.add('hidden');
+          showToast('Novo produto cadastrado na vitrine!', 'success');
+        });
+      }
+
+      // Integração Supabase — Mega Shop Brasil
+      const SUPABASE_URL = 'https://ejseyrnqxfnmrsqkhcub.supabase.co';
+      const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_ZDNb3lbleljDjdLhFMTwTQ_8nZxwDKZ';
+      const SUPABASE_PRODUCTS_TABLE = 'produtos_loja';
+      const SUPABASE_TEXTS_TABLE = 'textos_site';
+
+      let _supabaseClientInstance = null;
+      let _detectedFreeShippingCol = null;
+
+      function getSupabaseClient() {
+        if (_supabaseClientInstance) return _supabaseClientInstance;
+        if (window.supabase && typeof window.supabase.createClient === 'function') {
+          _supabaseClientInstance = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+        }
+        return _supabaseClientInstance;
+      }
+
+      function resolveFreeShippingColumn(sampleRow) {
+        if (_detectedFreeShippingCol) return _detectedFreeShippingCol;
+        if (sampleRow && typeof sampleRow === 'object') {
+          if (Object.prototype.hasOwnProperty.call(sampleRow, 'free_shipping')) {
+            _detectedFreeShippingCol = 'free_shipping';
+            return _detectedFreeShippingCol;
+          }
+          if (Object.prototype.hasOwnProperty.call(sampleRow, 'free_shepping')) {
+            _detectedFreeShippingCol = 'free_shepping';
+            return _detectedFreeShippingCol;
+          }
+        }
+        return 'free_shipping';
+      }
+
+      function explainSupabaseError(err) {
+        if (!err) return 'Erro desconhecido';
+        const code = err.code || '';
+        const msg = String(err.message || '').toLowerCase();
+        if (code === '42501' || msg.includes('row-level security') || msg.includes('policy')) {
+          return 'Bloqueado por RLS no Supabase (verifique as políticas de acesso da tabela)';
+        }
+        if (code === 'PGRST204' || msg.includes('column') || msg.includes('schema cache')) {
+          return `Coluna não encontrada no esquema da tabela (${err.message || code})`;
+        }
+        if (code === '42P01' || msg.includes('does not exist') || msg.includes('not found')) {
+          return `Tabela não encontrada no Supabase (${err.message || code})`;
+        }
+        if (msg.includes('fetch') || msg.includes('network') || msg.includes('failed')) {
+          return 'Falha de rede ao conectar ao Supabase';
+        }
+        return err.message || 'Erro na operação Supabase';
+      }
+
+      async function syncWithSupabase(showFeedback = false) {
+        const client = getSupabaseClient();
+        if (!client) return;
+        try {
+          const { data: rows, error: prodErr } = await client
+            .from(SUPABASE_PRODUCTS_TABLE)
+            .select('*');
+
+          if (prodErr) {
+            if (showFeedback) {
+              showToast(`Supabase (${SUPABASE_PRODUCTS_TABLE}): ${explainSupabaseError(prodErr)}`, 'warning');
+            }
+          } else if (Array.isArray(rows)) {
+            if (rows.length > 0) {
+              resolveFreeShippingColumn(rows[0]);
+              const mapped = rows.map((r, idx) => ({
+                id: String(r.id || `prod-sb-${idx + 1}`),
+                name: r.name || 'Produto',
+                category: r.category || 'Produtos Diversos',
+                price: Number(r.price || 0),
+                oldPrice: r.old_price != null ? Number(r.old_price) : (r.oldPrice != null ? Number(r.oldPrice) : null),
+                rating: r.rating != null ? Number(r.rating) : 5.0,
+                sold: normalizeSoldCount(r.sold),
+                freeShipping: Boolean(r.free_shipping ?? r.free_shepping ?? r.freeShipping ?? true),
+                productOrigin: r.product_origin === 'afiliado' || r.productOrigin === 'afiliado' ? 'afiliado' : 'normal',
+                paymentType: r.payment_type || r.paymentType || 'Mercado Pago',
+                linkMode: r.link_mode === 'externo' || r.linkMode === 'externo' ? 'externo' : 'normal',
+                paymentLink: r.payment_link || r.paymentLink || '',
+                description: r.description || '',
+                image: r.image || 'https://placehold.co/600x600/f3f4f6/6b7280?text=Mega+Shop+Brasil',
+                comments: Array.isArray(r.comments) ? r.comments : [],
+              }));
+              state.products = normalizeProducts(mapped);
+              saveState();
+              renderProducts();
+              if (state.isAdminAuthenticated) {
+                populateAdminPanel();
+              }
+              if (showFeedback) {
+                showToast(`Sincronizado com Supabase (${rows.length} produto(s)).`, 'success');
+              }
+            } else if (showFeedback) {
+              showToast('Tabela produtos_loja vazia no Supabase; exibindo catálogo local/exemplo.', 'info');
+            }
+          }
+
+          const { data: textRows, error: txtErr } = await client
+            .from(SUPABASE_TEXTS_TABLE)
+            .select('*');
+          if (!txtErr && Array.isArray(textRows) && textRows.length > 0) {
+            let updatedAnyText = false;
+            textRows.forEach((row) => {
+              const key = row.chave || row.key;
+              const val = row.valor ?? row.value;
+              if (key && typeof val === 'string' && Object.prototype.hasOwnProperty.call(defaultSiteTexts, key)) {
+                siteTexts[key] = val;
+                updatedAnyText = true;
+              }
+            });
+            if (updatedAnyText) {
+              try {
+                localStorage.setItem(SITE_TEXTS_KEY, JSON.stringify(siteTexts));
+              } catch (e) {}
+              applySiteTexts();
+              if (state.isAdminAuthenticated) {
+                renderAdminTextsEditor();
+              }
+            }
+          }
+        } catch (err) {
+          if (showFeedback) {
+            showToast(`Erro ao sincronizar: ${explainSupabaseError(err)}`, 'warning');
+          }
+        }
+      }
+
+      async function upsertProductSupabase(product) {
+        const client = getSupabaseClient();
+        if (!client) return;
+        const primaryCol = _detectedFreeShippingCol || 'free_shipping';
+        const fallbackCol = primaryCol === 'free_shipping' ? 'free_shepping' : 'free_shipping';
+
+        const buildPayload = (colName) => ({
+          id: product.id,
+          name: product.name,
+          category: product.category,
+          price: product.price,
+          old_price: product.oldPrice,
+          rating: product.rating,
+          sold: product.sold,
+          [colName]: product.freeShipping,
+          payment_link: product.paymentLink,
+          description: product.description,
+          image: product.image,
+          comments: product.comments,
+        });
+
+        try {
+          let { error } = await client
+            .from(SUPABASE_PRODUCTS_TABLE)
+            .upsert(buildPayload(primaryCol));
+
+          if (error && (error.code === 'PGRST204' || String(error.message || '').toLowerCase().includes('column'))) {
+            const retry = await client
+              .from(SUPABASE_PRODUCTS_TABLE)
+              .upsert(buildPayload(fallbackCol));
+            if (!retry.error) {
+              _detectedFreeShippingCol = fallbackCol;
+              error = null;
+            } else {
+              error = retry.error;
+            }
+          } else if (!error) {
+            _detectedFreeShippingCol = primaryCol;
+          }
+
+          if (error) {
+            showToast(`Salvo localmente. Supabase: ${explainSupabaseError(error)}`, 'warning');
+          }
+        } catch (err) {
+          showToast(`Salvo localmente. ${explainSupabaseError(err)}`, 'warning');
+        }
+      }
+
+      async function deleteProductSupabase(productId) {
+        const client = getSupabaseClient();
+        if (!client || !productId) return;
+        try {
+          const { error } = await client
+            .from(SUPABASE_PRODUCTS_TABLE)
+            .delete()
+            .eq('id', productId);
+          if (error) {
+            showToast(`Removido localmente. Supabase: ${explainSupabaseError(error)}`, 'warning');
+          }
+        } catch (err) {
+          showToast(`Removido localmente. ${explainSupabaseError(err)}`, 'warning');
+        }
+      }
+
+      async function saveTextsSupabase(textsObj) {
+        const client = getSupabaseClient();
+        if (!client) return;
+        try {
+          const entries = Object.keys(textsObj).map((chave) => ({
+            chave,
+            valor: textsObj[chave],
+          }));
+          if (entries.length > 0) {
+            const { error } = await client
+              .from(SUPABASE_TEXTS_TABLE)
+              .upsert(entries, { onConflict: 'chave' });
+            if (error) {
+              showToast(`Textos salvos localmente. Supabase: ${explainSupabaseError(error)}`, 'warning');
+            }
+          }
+        } catch (err) {
+          showToast(`Textos salvos localmente. ${explainSupabaseError(err)}`, 'warning');
+        }
+      }
+
+      async function restoreSupabaseAdminSession() {
+        const client = getSupabaseClient();
+        if (!client?.auth) return;
+        try {
+          const { data } = await client.auth.getSession();
+          const hasSession = Boolean(data?.session);
+          state.isAdminAuthenticated = hasSession;
+          if (hasSession) {
+            sessionStorage.setItem(ADMIN_SESSION_KEY, 'true');
+          } else {
+            sessionStorage.removeItem(ADMIN_SESSION_KEY);
+          }
+          updateAdminVisibility();
+          renderProducts();
+        } catch (e) {}
+      }
+
+      applySiteTexts();
+      renderLiveShoppers();
+      renderCategories();
+      renderProducts();
+      updateBadges();
+      updateCustomerUI();
+      updateAdminVisibility();
+      bindEvents();
+      restoreSupabaseAdminSession();
+      syncWithSupabase(false);
+    })();
+  </script>
+</body>
+</html>
