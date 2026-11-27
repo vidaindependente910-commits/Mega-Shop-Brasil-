@@ -153,11 +153,12 @@
           <button
             type="button"
             id="open-my-orders-btn"
-            class="px-2 sm:px-2.5 py-1.5 rounded-xl bg-amber-100 hover:bg-amber-200 text-gray-950 text-[11px] font-extrabold flex items-center gap-1 shadow-2xs border border-amber-400 cursor-pointer transition shrink-0"
+            class="px-2 sm:px-2.5 py-1.5 rounded-xl bg-amber-100 hover:bg-amber-200 text-gray-950 text-[11px] font-extrabold flex items-center gap-1 shadow-2xs border border-amber-400 cursor-pointer transition shrink-0 relative"
           >
             <i class="fa-solid fa-box-open text-shopee-orange"></i>
             <span class="hidden lg:inline">Meus Pedidos</span>
             <span id="orders-badge" class="px-1.5 py-0.5 rounded-full bg-gray-950 text-ml-yellow text-[10px] font-extrabold">0</span>
+            <span id="pending-return-dot" class="hidden w-2.5 h-2.5 rounded-full bg-red-600 animate-ping absolute -top-1 -right-1"></span>
           </button>
 
           <button
@@ -244,7 +245,7 @@
     <div id="category-pills" class="flex items-center gap-2 overflow-x-auto pb-1"></div>
   </section>
 
-  <!-- Aviso de frete atualizado -->
+  <!-- Aviso de frete -->
   <section aria-label="Condições de frete da loja" class="max-w-7xl w-full mx-auto px-3 sm:px-6 pt-3">
     <div class="rounded-xl bg-white border border-gray-200 px-4 py-2.5 shadow-2xs flex items-center gap-2.5 text-xs text-ml-text">
       <i class="fa-solid fa-truck-fast text-emerald-700 shrink-0 text-sm"></i>
@@ -375,7 +376,7 @@
         </div>
       </section>
 
-      <!-- Biografia e SEO Institucional com fundo verde claro transparente -->
+      <!-- Biografia e SEO Institucional -->
       <section aria-labelledby="sobre-empresa-heading" class="rounded-2xl bg-emerald-50/85 backdrop-blur-xs border border-emerald-300/80 p-4 sm:p-6 space-y-3 shadow-sm">
         <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-emerald-200/80">
           <div class="flex items-center gap-2">
@@ -430,7 +431,7 @@
         </div>
       </section>
 
-      <!-- Barra escura com Política de Privacidade e botão disfarçado "Site Seguro" (Acesso Admin) -->
+      <!-- Barra escura com Política de Privacidade e botão Site Seguro -->
       <div class="rounded-2xl bg-gray-950 text-white px-4 py-3.5 flex flex-wrap items-center justify-between gap-3 shadow-sm">
         <div class="flex items-center gap-2.5">
           <span class="px-2.5 py-1 rounded-lg bg-ml-yellow text-gray-950 font-display font-black text-xs tracking-wider">
@@ -492,11 +493,12 @@
         </div>
       </div>
 
-      <!-- Formas de Pagamento e Segurança / Credibilidade Profissional -->
+      <!-- Formas de Pagamento (SVGs embutidos que nunca quebram) e Segurança / Credibilidade -->
       <section
         aria-label="Formas de pagamento e selos de segurança"
-        class="pt-4 border-t border-yellow-500/50 grid grid-cols-1 lg:grid-cols-12 gap-4 items-center bg-white/95 rounded-2xl p-4 shadow-sm"
+        class="pt-4 border-t border-yellow-500/50 grid grid-cols-1 lg:grid-cols-12 gap-4 items-start bg-white/95 rounded-2xl p-4 shadow-sm"
       >
+        <!-- Bandeiras e Métodos de Pagamento -->
         <div class="lg:col-span-6 space-y-2.5">
           <div class="flex items-center justify-between gap-2">
             <h3 class="font-display font-extrabold text-xs sm:text-sm text-ml-text flex items-center gap-1.5">
@@ -508,19 +510,79 @@
             </span>
           </div>
 
-          <div class="p-3 rounded-xl bg-white border border-gray-200 shadow-2xs flex items-center justify-center">
-            <img
-              src="formas-pagamento.png"
-              alt="Bandeiras de pagamento aceitas: Visa, Mastercard, Maestro, Elo, Alelo, American Express, Hipercard, Diners Club e Visa Electron"
-              class="max-h-20 w-auto max-w-full object-contain"
-              onerror="this.style.display='none'; document.getElementById('payment-fallback-text').classList.remove('hidden');"
-            />
-            <span id="payment-fallback-text" class="hidden text-xs font-bold text-ml-muted">
-              Visa • Mastercard • Elo • Amex • Hipercard • Pix • Boleto
-            </span>
+          <div class="p-3 rounded-xl bg-gray-50 border border-gray-200 grid grid-cols-3 sm:grid-cols-5 gap-2">
+            <!-- VISA -->
+            <div class="h-11 rounded-lg bg-white border border-gray-200 flex items-center justify-center px-2 shadow-2xs" title="Visa">
+              <svg viewBox="0 0 80 28" class="h-5 w-auto"><text x="40" y="21" text-anchor="middle" fill="#1A1F71" font-family="Arial, sans-serif" font-weight="900" font-style="italic" font-size="20">VISA</text></svg>
+            </div>
+            <!-- MASTERCARD -->
+            <div class="h-11 rounded-lg bg-white border border-gray-200 flex items-center justify-center px-2 shadow-2xs" title="Mastercard">
+              <svg viewBox="0 0 80 34" class="h-6 w-auto">
+                <circle cx="32" cy="14" r="10" fill="#EB001B"/>
+                <circle cx="48" cy="14" r="10" fill="#F79E1B" fill-opacity="0.88"/>
+                <text x="40" y="31" text-anchor="middle" fill="#222" font-family="Arial, sans-serif" font-weight="700" font-size="7.5">mastercard</text>
+              </svg>
+            </div>
+            <!-- MAESTRO -->
+            <div class="h-11 rounded-lg bg-white border border-gray-200 flex items-center justify-center px-2 shadow-2xs" title="Maestro">
+              <svg viewBox="0 0 80 34" class="h-6 w-auto">
+                <circle cx="32" cy="14" r="10" fill="#EB001B"/>
+                <circle cx="48" cy="14" r="10" fill="#00A2E5" fill-opacity="0.88"/>
+                <text x="40" y="31" text-anchor="middle" fill="#222" font-family="Arial, sans-serif" font-weight="700" font-size="7.5">maestro</text>
+              </svg>
+            </div>
+            <!-- ELO -->
+            <div class="h-11 rounded-lg bg-gray-950 border border-gray-800 flex items-center justify-center px-2 shadow-2xs" title="Elo">
+              <svg viewBox="0 0 80 28" class="h-5 w-auto">
+                <circle cx="22" cy="14" r="6" fill="none" stroke="#FFCB05" stroke-width="3"/>
+                <text x="49" y="20" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-weight="900" font-size="16">elo</text>
+              </svg>
+            </div>
+            <!-- ALELO -->
+            <div class="h-11 rounded-lg bg-white border border-gray-200 flex items-center justify-center px-2 shadow-2xs" title="Alelo">
+              <svg viewBox="0 0 80 28" class="h-5 w-auto">
+                <circle cx="17" cy="14" r="5" fill="#78BE20"/>
+                <text x="47" y="19" text-anchor="middle" fill="#007A33" font-family="Arial, sans-serif" font-weight="900" font-size="15">alelo</text>
+              </svg>
+            </div>
+            <!-- AMEX -->
+            <div class="h-11 rounded-lg bg-[#006FCF] border border-blue-700 flex items-center justify-center px-2 shadow-2xs" title="American Express">
+              <svg viewBox="0 0 80 28" class="h-5 w-auto">
+                <text x="40" y="13" text-anchor="middle" fill="#FFF" font-family="Arial, sans-serif" font-weight="900" font-size="8.5">AMERICAN</text>
+                <text x="40" y="23" text-anchor="middle" fill="#FFF" font-family="Arial, sans-serif" font-weight="900" font-size="8.5">EXPRESS</text>
+              </svg>
+            </div>
+            <!-- HIPERCARD -->
+            <div class="h-11 rounded-lg bg-[#B3131B] border border-red-800 flex items-center justify-center px-2 shadow-2xs" title="Hipercard">
+              <svg viewBox="0 0 84 28" class="h-5 w-auto">
+                <text x="42" y="19" text-anchor="middle" fill="#FFF" font-family="Arial, sans-serif" font-weight="800" font-style="italic" font-size="12.5">Hipercard</text>
+              </svg>
+            </div>
+            <!-- DINERS -->
+            <div class="h-11 rounded-lg bg-white border border-gray-200 flex items-center justify-center px-2 shadow-2xs" title="Diners Club">
+              <svg viewBox="0 0 84 28" class="h-5 w-auto">
+                <circle cx="18" cy="14" r="7" fill="none" stroke="#0079BE" stroke-width="2.5"/>
+                <text x="52" y="18" text-anchor="middle" fill="#0079BE" font-family="Arial, sans-serif" font-weight="800" font-size="10">Diners</text>
+              </svg>
+            </div>
+            <!-- PIX -->
+            <div class="h-11 rounded-lg bg-white border border-teal-200 flex items-center justify-center px-2 shadow-2xs" title="Pix">
+              <svg viewBox="0 0 84 28" class="h-5 w-auto">
+                <rect x="13" y="8" width="11" height="11" rx="2" transform="rotate(45 18.5 13.5)" fill="#32BCAD"/>
+                <text x="50" y="19" text-anchor="middle" fill="#1F2937" font-family="Arial, sans-serif" font-weight="900" font-size="14">pix</text>
+              </svg>
+            </div>
+            <!-- BOLETO -->
+            <div class="h-11 rounded-lg bg-white border border-gray-200 flex items-center justify-center px-2 shadow-2xs" title="Boleto Bancário">
+              <div class="flex items-center gap-1 text-gray-800 font-extrabold text-[10px]">
+                <i class="fa-solid fa-barcode text-sm"></i>
+                <span>Boleto</span>
+              </div>
+            </div>
           </div>
         </div>
 
+        <!-- Segurança e Credibilidade -->
         <div class="lg:col-span-6 space-y-2.5">
           <h3 class="font-display font-extrabold text-xs sm:text-sm text-ml-text flex items-center gap-1.5">
             <i class="fa-solid fa-shield-halved text-emerald-600"></i>
@@ -528,9 +590,10 @@
           </h3>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <!-- Compra Segura -->
             <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center gap-3 shadow-2xs">
-              <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-2xs">
-                <i class="fa-solid fa-lock text-xl"></i>
+              <div class="w-11 h-11 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-2xs">
+                <i class="fa-solid fa-lock text-lg"></i>
               </div>
               <div class="leading-tight">
                 <strong class="block text-xs font-extrabold text-emerald-950">Compra Segura</strong>
@@ -538,6 +601,7 @@
               </div>
             </div>
 
+            <!-- Proteção ao Cliente -->
             <div class="p-3 rounded-xl bg-blue-50 border border-blue-200 flex items-center gap-3 shadow-2xs">
               <div class="w-11 h-11 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-2xs">
                 <i class="fa-solid fa-user-shield text-lg"></i>
@@ -548,9 +612,10 @@
               </div>
             </div>
 
+            <!-- Loja Verificada -->
             <div class="p-3 rounded-xl bg-amber-50 border border-amber-200 flex items-center gap-3 shadow-2xs">
               <div class="w-11 h-11 rounded-xl bg-blue-700 text-white flex items-center justify-center shrink-0 shadow-2xs">
-                <i class="fa-solid fa-shield-check text-lg"></i>
+                <i class="fa-solid fa-circle-check text-xl"></i>
               </div>
               <div class="leading-tight">
                 <strong class="block text-xs font-extrabold text-amber-950">Loja Verificada</strong>
@@ -560,6 +625,7 @@
               </div>
             </div>
 
+            <!-- Entrega em Todo o Brasil -->
             <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-3 shadow-2xs">
               <div class="w-11 h-11 rounded-xl bg-shopee-orange text-white flex items-center justify-center shrink-0 shadow-2xs">
                 <i class="fa-solid fa-truck-fast text-lg"></i>
@@ -572,28 +638,88 @@
           </div>
         </div>
 
+        <!-- Selos Inferiores Vetoriais (Compra 100% Segura, SSL, Verified, Pix BC, Loja Verificada) -->
         <div class="lg:col-span-12 pt-3 border-t border-gray-200">
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 items-stretch">
-            <div class="rounded-xl bg-gray-950 border border-gray-800 p-2.5 flex items-center justify-center shadow-2xs">
-              <img src="compra-100-segura.png" alt="Compra 100% Segura" class="h-14 w-auto object-contain rounded-lg" />
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 items-stretch">
+            <!-- Selo 1: Compra 100% Segura -->
+            <div class="rounded-xl bg-gray-950 border border-emerald-500/40 px-3 py-2.5 flex items-center gap-2.5 text-white shadow-2xs">
+              <div class="w-9 h-9 rounded-lg bg-emerald-500/20 border border-emerald-400/50 flex items-center justify-center text-emerald-400 shrink-0">
+                <i class="fa-solid fa-shield-halved text-base"></i>
+              </div>
+              <div class="leading-tight">
+                <span class="block text-[9px] font-bold uppercase tracking-wider text-emerald-400">Compra</span>
+                <strong class="block text-xs font-black text-white">100% SEGURA</strong>
+              </div>
             </div>
-            <div class="rounded-xl bg-gray-950 border border-gray-800 p-2.5 flex items-center justify-center shadow-2xs">
-              <img src="certificado-ssl.jpg" alt="Seguro Certificado SSL" class="h-14 w-auto object-contain rounded-lg" />
+
+            <!-- Selo 2: Seguro Certificado SSL -->
+            <div class="rounded-xl bg-gray-950 border border-amber-400/40 px-3 py-2.5 flex items-center gap-2.5 text-white shadow-2xs">
+              <div class="w-9 h-9 rounded-lg bg-amber-400/20 border border-amber-300/50 flex items-center justify-center text-amber-300 shrink-0">
+                <i class="fa-solid fa-lock text-base"></i>
+              </div>
+              <div class="leading-tight">
+                <span class="block text-[9px] font-bold uppercase tracking-wider text-amber-300">Seguro</span>
+                <strong class="block text-xs font-black text-white">CERTIFICADO SSL</strong>
+              </div>
             </div>
-            <div class="rounded-xl bg-white border border-gray-200 p-2.5 flex items-center justify-center shadow-2xs">
-              <img src="verified.jpg" alt="Verified" class="h-14 w-auto object-contain rounded-lg" />
+
+            <!-- Selo 3: Verified -->
+            <div class="rounded-xl bg-white border border-blue-200 px-3 py-2.5 flex items-center gap-2.5 shadow-2xs">
+              <div class="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-certificate text-base"></i>
+              </div>
+              <div class="leading-tight">
+                <strong class="block text-xs font-black text-blue-900">VERIFIED</strong>
+                <span class="block text-[10px] font-semibold text-blue-600">Autenticidade Garantida</span>
+              </div>
             </div>
-            <div class="rounded-xl bg-gray-50 border border-gray-200 p-2.5 flex items-center justify-center shadow-2xs">
-              <img src="pix.png" alt="Pix powered by Banco Central" class="h-14 w-auto object-contain rounded-lg" />
+
+            <!-- Selo 4: Pix powered by Banco Central -->
+            <div class="rounded-xl bg-white border border-teal-200 px-3 py-2.5 flex items-center gap-2.5 shadow-2xs">
+              <div class="w-9 h-9 rounded-lg bg-teal-50 border border-teal-200 flex items-center justify-center shrink-0">
+                <svg viewBox="0 0 24 24" class="w-5 h-5">
+                  <rect x="6.5" y="6.5" width="11" height="11" rx="2" transform="rotate(45 12 12)" fill="#32BCAD"/>
+                </svg>
+              </div>
+              <div class="leading-tight">
+                <strong class="block text-xs font-black text-gray-900">PIX</strong>
+                <span class="block text-[9.5px] font-semibold text-gray-500">powered by Banco Central</span>
+              </div>
             </div>
-            <div class="rounded-xl bg-gray-950 border border-gray-800 p-2.5 flex items-center justify-center shadow-2xs col-span-2 sm:col-span-1">
-              <img src="loja-verificada.png" alt="Loja Verificada" class="h-14 w-auto object-contain rounded-lg" />
+
+            <!-- Selo 5: Loja Verificada -->
+            <div class="rounded-xl bg-gray-950 border border-blue-400/40 px-3 py-2.5 flex items-center gap-2.5 text-white shadow-2xs col-span-2 sm:col-span-1">
+              <div class="w-9 h-9 rounded-lg bg-blue-500/20 border border-blue-400/50 flex items-center justify-center text-blue-400 shrink-0">
+                <i class="fa-solid fa-circle-check text-base"></i>
+              </div>
+              <div class="leading-tight">
+                <span class="block text-[9px] font-bold uppercase tracking-wider text-blue-300">Selo Oficial</span>
+                <strong class="block text-xs font-black text-white">LOJA VERIFICADA</strong>
+              </div>
             </div>
           </div>
         </div>
       </section>
     </div>
   </footer>
+
+  <!-- Modal Automático ao Retornar de Link Externo: "Você comprou este produto?" -->
+  <div id="external-return-modal" role="dialog" aria-modal="true" aria-labelledby="external-return-title" class="hidden fixed inset-0 z-[92] bg-black/70 backdrop-blur-2xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border-2 border-ml-blue">
+      <div class="px-5 py-3.5 bg-gray-950 text-white flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-bell text-ml-yellow"></i>
+          <h3 id="external-return-title" class="font-display font-extrabold text-sm sm:text-base">
+            Confirmação de Compra
+          </h3>
+        </div>
+        <button type="button" id="close-external-return-btn" aria-label="Fechar" class="w-8 h-8 rounded-lg hover:bg-white/10 text-gray-200 flex items-center justify-center cursor-pointer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="external-return-body" class="p-5 space-y-4 text-xs"></div>
+    </div>
+  </div>
 
   <!-- Botão Flutuante e Janela de Suporte Online -->
   <div id="robot-chat-widget" class="fixed bottom-4 right-4 z-[70] flex flex-col items-end gap-2.5">
@@ -664,14 +790,14 @@
     </button>
   </div>
 
-  <!-- Modal: Meus Pedidos -->
+  <!-- Modal: Meus Pedidos e Notificações -->
   <div id="my-orders-modal" role="dialog" aria-modal="true" aria-labelledby="my-orders-modal-title" class="hidden fixed inset-0 z-[78] bg-black/60 backdrop-blur-2xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
     <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full overflow-hidden border border-gray-200 my-auto">
       <div class="px-5 py-3.5 bg-gray-950 text-white border-b border-gray-800 flex items-center justify-between">
         <div class="flex items-center gap-2">
           <i class="fa-solid fa-box-open text-ml-yellow"></i>
           <h3 id="my-orders-modal-title" class="font-display font-extrabold text-sm sm:text-base">
-            Meus Pedidos, Confirmação e Pagamentos Aprovados
+            Meus Pedidos, Notificações e Pagamentos Aprovados
           </h3>
         </div>
         <button type="button" id="close-my-orders-btn" aria-label="Fechar janela Meus Pedidos" class="w-8 h-8 rounded-lg hover:bg-white/10 text-gray-200 flex items-center justify-center cursor-pointer">
@@ -900,10 +1026,10 @@
           <div class="flex flex-wrap items-center justify-between gap-2">
             <div>
               <h4 class="font-display font-extrabold text-sm text-gray-950 flex items-center gap-1.5">
-                <i class="fa-solid fa-bell text-shopee-orange"></i> Notificações de Pedidos, Pagamentos e Aprovação Exclusiva
+                <i class="fa-solid fa-bell text-shopee-orange"></i> Notificações de Pedidos (Aprovação Automática Ativa)
               </h4>
               <p class="text-[11px] text-gray-700">
-                Receba avisos internos se o cliente confirmou via Link Externo (Tradicional) ou Link Preferencial / Afiliado (Exclusiva).
+                Todos os pedidos e confirmações de retorno externo são aprovados automaticamente para o cliente.
               </p>
             </div>
             <div class="flex items-center gap-1.5">
@@ -924,7 +1050,7 @@
           </div>
           <div id="admin-notifications-feed" class="space-y-2 max-h-40 overflow-y-auto"></div>
           <div class="pt-2 border-t border-amber-200 space-y-2">
-            <h5 class="font-extrabold text-xs text-gray-950">Pedidos e Confirmações de Pagamento (Botão Exclusivo de Aprovação)</h5>
+            <h5 class="font-extrabold text-xs text-gray-950">Histórico de Pedidos Aprovados Automaticamente</h5>
             <div id="admin-orders-approval-list" class="space-y-2.5 max-h-64 overflow-y-auto"></div>
           </div>
         </div>
@@ -1193,9 +1319,10 @@
     (function () {
       'use strict';
 
-      const STORAGE_KEY = 'megashop_cliente_vitrine_v11';
+      const STORAGE_KEY = 'megashop_cliente_vitrine_v12';
       const SITE_TEXTS_KEY = 'megashop_site_texts_v5';
       const ADMIN_SESSION_KEY = 'megashop_admin_session_v4';
+      const PENDING_EXTERNAL_KEY = 'megashop_pending_external_click_v1';
       const MIN_SOLD = 1001;
       const ITEMS_PER_PAGE = 15;
       const MAX_PHOTOS = 10;
@@ -1334,6 +1461,7 @@
                 orders: Array.isArray(parsed.orders) ? parsed.orders : [],
                 adminNotifications: Array.isArray(parsed.adminNotifications) ? parsed.adminNotifications : [],
                 customerNotifications: Array.isArray(parsed.customerNotifications) ? parsed.customerNotifications : [],
+                pendingExternalPrompt: parsed.pendingExternalPrompt || null,
               };
             }
           }
@@ -1346,6 +1474,7 @@
           orders: [],
           adminNotifications: [],
           customerNotifications: [],
+          pendingExternalPrompt: null,
         };
       }
 
@@ -1358,6 +1487,7 @@
         orders: persisted.orders,
         adminNotifications: persisted.adminNotifications,
         customerNotifications: persisted.customerNotifications,
+        pendingExternalPrompt: persisted.pendingExternalPrompt,
         selectedCategory: 'Todos',
         searchQuery: '',
         currentPage: 1,
@@ -1418,6 +1548,7 @@
               orders: state.orders,
               adminNotifications: state.adminNotifications,
               customerNotifications: state.customerNotifications,
+              pendingExternalPrompt: state.pendingExternalPrompt,
             })
           );
         } catch (err) {}
@@ -1460,57 +1591,143 @@
         }, 3200);
       }
 
-      function registerOrderAndPaymentNotifications(order) {
+      // Criação de pedido com APROVAÇÃO AUTOMÁTICA
+      function createAutoApprovedOrder(product, viaExternalLink = false) {
         const time = nowTimeLabel();
-        const internalChannel = order.customerChoice === 'exclusiva' ? 'Link Preferencial / Afiliado' : 'Link Externo';
-        state.adminNotifications.unshift(
-          {
-            id: `notif-pay-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
-            scope: 'por_pagamento',
-            paymentType: order.paymentType,
-            linkMode: order.linkMode,
-            text: `Novo pagamento [${internalChannel}] no pedido #${order.code} — "${order.productName}"`,
-            time,
-          },
-          {
-            id: `notif-ord-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
-            scope: 'geral_pedido',
-            paymentType: order.paymentType,
-            linkMode: order.linkMode,
-            text: `Novo pedido #${order.code} — "${order.productName}" (${formatBRL(order.price)})`,
-            time,
-          }
-        );
-      }
-
-      function createOrderFromProduct(product, viaLinkClick = false) {
         const linkMode = product.linkMode === 'externo' ? 'externo' : 'normal';
         const paymentType = product.paymentType || 'Mercado Pago';
         const defaultChoice = linkMode === 'externo' ? 'tradicional' : 'exclusiva';
+        const internalChannel = defaultChoice === 'exclusiva' ? 'Link Preferencial / Afiliado' : 'Link Externo';
+
         const order = {
           id: `ord-${Date.now()}-${Math.random().toString(36).slice(2, 5)}`,
           code: `MSB${String(Date.now()).slice(-6)}`,
           productId: product.id,
           productName: product.name,
+          productImage: product.image,
           productOrigin: product.productOrigin === 'afiliado' ? 'afiliado' : 'normal',
           price: Number(product.price || 0),
           paymentType,
           linkMode,
           paymentLink: product.paymentLink || '',
           customerChoice: defaultChoice,
-          clickedExternalLink: Boolean(viaLinkClick && linkMode === 'externo'),
-          customerConfirmedPayment: false,
+          clickedExternalLink: Boolean(viaExternalLink),
+          customerConfirmedPayment: true,
           receiptName: '',
           receiptDataUrl: '',
-          approved: false,
-          statusLabel: 'Aguardando Pagamento / Confirmação',
-          createdAt: nowTimeLabel(),
+          approved: true, // APROVAÇÃO AUTOMÁTICA ATIVA
+          statusLabel: 'Pagamento Aprovado Automaticamente',
+          createdAt: time,
         };
+
         state.orders.unshift(order);
-        registerOrderAndPaymentNotifications(order);
+
+        state.adminNotifications.unshift({
+          id: `notif-auto-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+          scope: 'por_pagamento',
+          paymentType: order.paymentType,
+          linkMode: order.linkMode,
+          text: `Pedido #${order.code} APROVADO AUTOMATICAMENTE [${internalChannel}] — "${order.productName}" (${formatBRL(order.price)})`,
+          time,
+        });
+
+        state.customerNotifications.unshift({
+          id: `cnotif-auto-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+          text: `Pedido #${order.code} ("${order.productName}") confirmado e APROVADO automaticamente!`,
+          time,
+        });
+
         saveState();
         updateBadges();
         return order;
+      }
+
+      // Registra saída para link externo para perguntar na volta: "Você comprou este produto?"
+      function trackExternalRedirect(product) {
+        const payload = {
+          productId: product.id,
+          productName: product.name,
+          productImage: product.image,
+          productPrice: Number(product.price || 0),
+          paymentLink: product.paymentLink || '',
+          leftAt: Date.now(),
+          answered: false,
+        };
+        state.pendingExternalPrompt = payload;
+        try {
+          localStorage.setItem(PENDING_EXTERNAL_KEY, JSON.stringify(payload));
+        } catch (e) {}
+        saveState();
+        updateBadges();
+      }
+
+      function getPendingExternalReturn() {
+        if (state.pendingExternalPrompt && !state.pendingExternalPrompt.answered) {
+          return state.pendingExternalPrompt;
+        }
+        try {
+          const raw = localStorage.getItem(PENDING_EXTERNAL_KEY);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (parsed && !parsed.answered) {
+              state.pendingExternalPrompt = parsed;
+              return parsed;
+            }
+          }
+        } catch (e) {}
+        return null;
+      }
+
+      function clearPendingExternalReturn() {
+        state.pendingExternalPrompt = null;
+        try {
+          localStorage.removeItem(PENDING_EXTERNAL_KEY);
+        } catch (e) {}
+        saveState();
+        updateBadges();
+      }
+
+      function showExternalReturnPromptIfNeeded() {
+        const pending = getPendingExternalReturn();
+        if (!pending) return;
+
+        const body = document.getElementById('external-return-body');
+        if (!body) return;
+
+        body.innerHTML = `
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-gray-50 border border-gray-200">
+            <img src="${escapeHTML(pending.productImage)}" alt="${escapeHTML(pending.productName)}" class="w-16 h-16 rounded-xl object-cover shrink-0 border border-gray-200" />
+            <div class="min-w-0">
+              <span class="inline-block px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 text-[10px] font-extrabold mb-1">Você acessou o link externo</span>
+              <p class="font-bold text-xs sm:text-sm text-ml-text leading-snug">${escapeHTML(pending.productName)}</p>
+              <p class="font-display font-extrabold text-sm text-ml-blue mt-0.5">${formatBRL(pending.productPrice)}</p>
+            </div>
+          </div>
+
+          <p class="font-display font-extrabold text-sm sm:text-base text-gray-950 text-center">
+            Você comprou este produto?
+          </p>
+
+          <div class="grid grid-cols-2 gap-2.5">
+            <button
+              type="button"
+              id="confirm-external-bought-yes-btn"
+              class="py-3 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm cursor-pointer transition flex items-center justify-center gap-1.5"
+            >
+              <i class="fa-solid fa-check"></i>
+              <span>Sim, comprei</span>
+            </button>
+            <button
+              type="button"
+              id="confirm-external-bought-no-btn"
+              class="py-3 px-3 rounded-xl bg-gray-100 hover:bg-gray-200 text-ml-text font-extrabold text-xs sm:text-sm cursor-pointer transition"
+            >
+              Não comprei
+            </button>
+          </div>
+        `;
+
+        openModal('external-return-modal');
       }
 
       function hasAdminUrlFlag() {
@@ -1704,6 +1921,10 @@
         document.getElementById('fav-badge').textContent = String(state.favorites.length);
         document.getElementById('bag-badge').textContent = String(state.bag.length);
         document.getElementById('orders-badge').textContent = String(state.orders.length);
+        const pendingDot = document.getElementById('pending-return-dot');
+        if (pendingDot) {
+          pendingDot.classList.toggle('hidden', !getPendingExternalReturn());
+        }
       }
 
       function updateCustomerUI() {
@@ -1819,7 +2040,7 @@
               Forma de Pagamento
             </p>
             <p>
-              Após concluir o pagamento, volte em <strong>Meus Pedidos</strong> dentro do site e confirme o pagamento deste produto (de preferência anexando o comprovante).
+              Após concluir o pagamento, volte em <strong>Meus Pedidos</strong> dentro do site e confirme a compra deste produto. A aprovação do pedido ocorre automaticamente.
             </p>
           </div>
 
@@ -1840,11 +2061,36 @@
         const body = document.getElementById('my-orders-modal-body');
         if (!body) return;
 
+        const pendingExt = getPendingExternalReturn();
+        const pendingReturnCardHTML = pendingExt
+          ? `<div class="p-3.5 rounded-2xl bg-amber-50 border-2 border-amber-400 space-y-2.5">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></span>
+                <p class="font-display font-extrabold text-xs sm:text-sm text-gray-950">Notificação Pendente: Você comprou este produto?</p>
+              </div>
+              <div class="flex items-center gap-3 p-2.5 rounded-xl bg-white border border-amber-200">
+                <img src="${escapeHTML(pendingExt.productImage)}" alt="${escapeHTML(pendingExt.productName)}" class="w-12 h-12 rounded-lg object-cover shrink-0" />
+                <div class="min-w-0">
+                  <p class="font-bold text-xs text-ml-text truncate">${escapeHTML(pendingExt.productName)}</p>
+                  <p class="font-extrabold text-xs text-ml-blue">${formatBRL(pendingExt.productPrice)}</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <button type="button" id="orders-modal-confirm-yes-btn" class="py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs cursor-pointer">
+                  Sim, comprei este produto
+                </button>
+                <button type="button" id="orders-modal-confirm-no-btn" class="py-2 px-3 rounded-xl bg-white hover:bg-gray-100 text-ml-text border border-gray-300 font-bold text-xs cursor-pointer">
+                  Não comprei
+                </button>
+              </div>
+            </div>`
+          : '';
+
         const approvedOrders = state.orders.filter((o) => o.approved);
         const custNotifsHTML =
           state.customerNotifications.length > 0
             ? `<div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 space-y-1.5">
-                <p class="font-extrabold text-emerald-900 flex items-center gap-1.5"><i class="fa-solid fa-bell"></i> Notificações do Cliente (Pagamentos Aprovados)</p>
+                <p class="font-extrabold text-emerald-900 flex items-center gap-1.5"><i class="fa-solid fa-bell"></i> Notificações de Pagamentos Aprovados</p>
                 ${state.customerNotifications.slice(0, 8).map((n) => `<p class="text-[11px] text-emerald-950 font-semibold">• ${escapeHTML(n.text)} <span class="text-emerald-700">(${escapeHTML(n.time)})</span></p>`).join('')}
               </div>`
             : '';
@@ -1852,20 +2098,20 @@
         const approvedSectionHTML = `
           <div class="p-3.5 rounded-xl bg-blue-50/70 border border-blue-200 space-y-2">
             <h4 class="font-display font-extrabold text-xs sm:text-sm text-gray-950 flex items-center gap-1.5">
-              <i class="fa-solid fa-circle-check text-emerald-600"></i> Pedidos de Pagamento Aprovado (${approvedOrders.length})
+              <i class="fa-solid fa-circle-check text-emerald-600"></i> Pedidos Aprovados Automaticamente (${approvedOrders.length})
             </h4>
             ${
               approvedOrders.length === 0
-                ? `<p class="text-[11px] text-ml-muted">Nenhum pedido com pagamento aprovado ainda.</p>`
+                ? `<p class="text-[11px] text-ml-muted">Nenhum pedido aprovado ainda.</p>`
                 : approvedOrders
                     .map(
                       (o) => `
                       <div class="p-2.5 rounded-xl bg-white border border-emerald-200 flex flex-wrap items-center justify-between gap-2">
                         <div>
                           <p class="font-bold text-xs text-ml-text">#${escapeHTML(o.code)} — ${escapeHTML(o.productName)}</p>
-                          <p class="text-[10px] text-emerald-700 font-extrabold">Pagamento Aprovado • ${formatBRL(o.price)}</p>
+                          <p class="text-[10px] text-emerald-700 font-extrabold">Pagamento Aprovado Automaticamente • ${formatBRL(o.price)}</p>
                         </div>
-                        <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-extrabold">APROVADO</span>
+                        <span class="px-2 py-0.5 rounded-full bg-emerald-600 text-white text-[10px] font-extrabold">APROVADO</span>
                       </div>
                     `
                     )
@@ -1887,14 +2133,8 @@
                           <span class="font-display font-extrabold text-xs text-gray-950">Pedido #${escapeHTML(ord.code)}</span>
                           <p class="font-bold text-xs text-ml-text mt-1">${escapeHTML(ord.productName)} — <span class="text-ml-blue">${formatBRL(ord.price)}</span></p>
                         </div>
-                        <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold ${
-                          ord.approved
-                            ? 'bg-emerald-600 text-white'
-                            : ord.customerConfirmedPayment
-                            ? 'bg-amber-400 text-gray-950'
-                            : 'bg-gray-200 text-gray-800'
-                        }">
-                          ${ord.approved ? 'Pagamento Aprovado' : ord.customerConfirmedPayment ? 'Confirmado pelo Cliente' : 'Pendente'}
+                        <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-emerald-600 text-white">
+                          Pagamento Aprovado
                         </span>
                       </div>
 
@@ -1929,38 +2169,22 @@
                           </div>
                         </div>
 
-                        <p class="text-[11px] text-ml-muted">
-                          Após confirmar o pagamento, você pode anexar o <strong>comprovante ou foto do comprovante</strong> (opcional, mas preferencial).
-                        </p>
                         <div class="flex flex-wrap items-center gap-2">
                           <label class="px-3 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-ml-text font-bold text-[11px] cursor-pointer inline-flex items-center gap-1.5">
-                            <i class="fa-solid fa-receipt text-ml-blue"></i><span>Anexar Comprovante / Foto</span>
+                            <i class="fa-solid fa-receipt text-ml-blue"></i><span>Anexar Comprovante / Foto (opcional)</span>
                             <input type="file" accept="image/*,application/pdf,.pdf" data-receipt-order-id="${escapeHTML(ord.id)}" class="order-receipt-input hidden" />
                           </label>
                           <span class="text-[11px] font-semibold text-gray-600">
                             ${ord.receiptName ? `Comprovante: ${escapeHTML(ord.receiptName)}` : 'Nenhum comprovante anexado'}
                           </span>
                         </div>
-
-                        <button
-                          type="button"
-                          data-confirm-pay-order-id="${escapeHTML(ord.id)}"
-                          class="confirm-customer-payment-btn w-full py-2 px-3 rounded-xl ${
-                            ord.customerConfirmedPayment
-                              ? 'bg-emerald-100 text-emerald-900 border border-emerald-300'
-                              : 'bg-ml-blue hover:bg-ml-blueDark text-white'
-                          } font-extrabold text-xs cursor-pointer transition flex items-center justify-center gap-1.5"
-                        >
-                          <i class="fa-solid fa-check"></i>
-                          <span>${ord.customerConfirmedPayment ? 'Pagamento Confirmado por Você' : 'Confirmar que Fiz o Pagamento'}</span>
-                        </button>
                       </div>
                     </div>
                   `;
                 })
                 .join('');
 
-        body.innerHTML = `${custNotifsHTML}${approvedSectionHTML}<div class="space-y-2.5">${ordersListHTML}</div>`;
+        body.innerHTML = `${pendingReturnCardHTML}${custNotifsHTML}${approvedSectionHTML}<div class="space-y-2.5">${ordersListHTML}</div>`;
       }
 
       function openBagSummaryModal() {
@@ -2105,14 +2329,13 @@
                         <div class="space-y-0.5 min-w-0">
                           <p class="font-bold text-xs text-gray-950">#${escapeHTML(o.code)} — ${escapeHTML(o.productName)} (${formatBRL(o.price)})</p>
                           <p class="text-[10px] text-gray-700 font-semibold">
-                            Selecionado pelo cliente: <strong>${o.customerChoice === 'exclusiva' ? 'Exclusiva' : 'Tradicional'}</strong> → Notificação interna: <strong>${escapeHTML(internalRoute)}</strong> •
-                            Confirmou: <strong>${o.customerConfirmedPayment ? 'Sim' : 'Não'}</strong>
+                            Selecionado pelo cliente: <strong>${o.customerChoice === 'exclusiva' ? 'Exclusiva' : 'Tradicional'}</strong> → Notificação interna: <strong>${escapeHTML(internalRoute)}</strong>
                             ${o.receiptName ? ` • Comprovante: <strong>${escapeHTML(o.receiptName)}</strong>` : ''}
                           </p>
                         </div>
-                        <button type="button" data-exclusive-approve-order-id="${escapeHTML(o.id)}" class="exclusive-approve-payment-btn px-3 py-2 rounded-xl ${o.approved ? 'bg-emerald-100 text-emerald-900 border border-emerald-300' : 'bg-emerald-600 hover:bg-emerald-700 text-white'} font-extrabold text-[11px] cursor-pointer transition shrink-0">
-                          ${o.approved ? 'Pagamento Aprovado ✓' : 'Aprovar Pagamento'}
-                        </button>
+                        <span class="px-3 py-1.5 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300 font-extrabold text-[11px] shrink-0">
+                          Aprovado Automaticamente ✓
+                        </span>
                       </div>
                     `;
                   })
@@ -2242,6 +2465,20 @@
       }
 
       function bindEvents() {
+        // Detecta quando o cliente volta ao site após clicar em um link externo de pagamento
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'visible') {
+            showExternalReturnPromptIfNeeded();
+          }
+        });
+        window.addEventListener('focus', () => {
+          showExternalReturnPromptIfNeeded();
+        });
+
+        document.getElementById('close-external-return-btn')?.addEventListener('click', () => {
+          closeModal('external-return-modal');
+        });
+
         document.getElementById('open-privacy-policy-btn')?.addEventListener('click', () => openModal('privacy-policy-modal'));
         document.getElementById('close-privacy-policy-btn')?.addEventListener('click', () => closeModal('privacy-policy-modal'));
         document.getElementById('open-my-orders-btn')?.addEventListener('click', () => { renderMyOrdersModal(); openModal('my-orders-modal'); });
@@ -2323,13 +2560,13 @@
             return;
           }
 
+          // Clique em Comprar Agora com Link Externo: registra saída e abre o link
           const payLinkBtn = e.target.closest('#pay-via-link-btn');
           if (payLinkBtn) {
             const product = state.products.find((p) => p.id === payLinkBtn.getAttribute('data-product-id'));
             if (product) {
-              const order = createOrderFromProduct(product, true);
+              trackExternalRedirect(product);
               closeModal('purchase-modal');
-              showToast(`Pedido #${order.code} criado. Confirme o pagamento em Meus Pedidos.`, 'success');
               if (product.paymentLink && product.paymentLink.trim().startsWith('http')) {
                 window.open(product.paymentLink.trim(), '_blank', 'noopener,noreferrer');
               }
@@ -2337,13 +2574,45 @@
             return;
           }
 
+          // Confirmação "Sim, comprei" ao retornar do link externo (no popup ou em Meus Pedidos)
+          if (e.target.closest('#confirm-external-bought-yes-btn') || e.target.closest('#orders-modal-confirm-yes-btn')) {
+            const pending = getPendingExternalReturn();
+            if (pending) {
+              const product = state.products.find((p) => p.id === pending.productId) || {
+                id: pending.productId,
+                name: pending.productName,
+                image: pending.productImage,
+                price: pending.productPrice,
+                paymentLink: pending.paymentLink,
+                linkMode: 'externo',
+                paymentType: 'Link Externo',
+              };
+              const order = createAutoApprovedOrder(product, true);
+              clearPendingExternalReturn();
+              closeModal('external-return-modal');
+              renderMyOrdersModal();
+              showToast(`Compra confirmada! Pedido #${order.code} aprovado automaticamente.`, 'success');
+            }
+            return;
+          }
+
+          // Confirmação "Não comprei" ao retornar do link externo
+          if (e.target.closest('#confirm-external-bought-no-btn') || e.target.closest('#orders-modal-confirm-no-btn')) {
+            clearPendingExternalReturn();
+            closeModal('external-return-modal');
+            renderMyOrdersModal();
+            showToast('Ok! O aviso de compra foi removido.', 'info');
+            return;
+          }
+
+          // Compra direta sem link externo -> aprovação automática imediata
           const confirmDirectOrderBtn = e.target.closest('#confirm-direct-order-btn');
           if (confirmDirectOrderBtn) {
             const product = state.products.find((p) => p.id === confirmDirectOrderBtn.getAttribute('data-product-id'));
             if (product) {
-              const order = createOrderFromProduct(product, false);
+              const order = createAutoApprovedOrder(product, false);
               closeModal('purchase-modal');
-              showToast(`Pedido #${order.code} criado! Acesse Meus Pedidos para confirmar.`, 'success');
+              showToast(`Pedido #${order.code} criado e aprovado automaticamente!`, 'success');
             }
             return;
           }
@@ -2366,49 +2635,6 @@
               saveState();
               renderMyOrdersModal();
               if (state.isAdminAuthenticated) renderAdminNotificationsAndApprovals();
-            }
-            return;
-          }
-
-          const confirmCustPayBtn = e.target.closest('.confirm-customer-payment-btn');
-          if (confirmCustPayBtn) {
-            const order = state.orders.find((o) => o.id === confirmCustPayBtn.getAttribute('data-confirm-pay-order-id'));
-            if (order) {
-              order.customerConfirmedPayment = true;
-              const internalLabel = order.customerChoice === 'exclusiva' ? 'Link Preferencial / Afiliado' : 'Link Externo';
-              state.adminNotifications.unshift({
-                id: `notif-conf-${Date.now()}`,
-                scope: 'por_pagamento',
-                paymentType: order.paymentType,
-                linkMode: order.linkMode,
-                text: `Cliente confirmou pagamento [${internalLabel}] no pedido #${order.code} — "${order.productName}"`,
-                time: nowTimeLabel(),
-              });
-              saveState();
-              renderMyOrdersModal();
-              if (state.isAdminAuthenticated) renderAdminNotificationsAndApprovals();
-              showToast(`Pagamento do pedido #${order.code} confirmado!`, 'success');
-            }
-            return;
-          }
-
-          const exclusiveApproveBtn = e.target.closest('.exclusive-approve-payment-btn');
-          if (exclusiveApproveBtn) {
-            if (!state.isAdminAuthenticated) {
-              showToast('Apenas o administrador autenticado pode aprovar pagamentos.', 'danger');
-              return;
-            }
-            const order = state.orders.find((o) => o.id === exclusiveApproveBtn.getAttribute('data-exclusive-approve-order-id'));
-            if (order) {
-              order.approved = true;
-              state.customerNotifications.unshift({
-                id: `cnotif-${Date.now()}`,
-                text: `Pagamento APROVADO para o pedido #${order.code} ("${order.productName}").`,
-                time: nowTimeLabel(),
-              });
-              saveState();
-              renderAdminNotificationsAndApprovals();
-              showToast(`Pagamento do pedido #${order.code} aprovado!`, 'success');
             }
             return;
           }
@@ -2446,12 +2672,12 @@
 
           if (e.target.closest('#checkout-bag-btn')) {
             const items = state.bag.map((id) => state.products.find((p) => p.id === id)).filter(Boolean);
-            items.forEach((p) => createOrderFromProduct(p, false));
+            items.forEach((p) => createAutoApprovedOrder(p, false));
             state.bag = [];
             saveState();
             updateBadges();
             closeModal('purchase-modal');
-            showToast('Pedido da sacola finalizado!', 'success');
+            showToast('Pedido da sacola aprovado automaticamente!', 'success');
             return;
           }
 
@@ -2884,6 +3110,7 @@
       bindEvents();
       restoreSupabaseAdminSession();
       syncWithSupabase();
+      showExternalReturnPromptIfNeeded();
     })();
   </script>
 </body>
