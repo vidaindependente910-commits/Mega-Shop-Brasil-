@@ -4,6 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mega Shop Brasil — Atacado e Varejo</title>
+  <meta name="description" content="Atacado e Varejo, pensou em comprar, pensou Mega. Os melhores fornecedores do Brasil com entrega em até 10 dias úteis." />
+
+  <!-- Ícone nas abas do navegador e favoritos -->
+  <link rel="icon" type="image/jpeg" href="https://mega-shop-brasil.github.io/logo.jpg" />
+  <link rel="shortcut icon" type="image/jpeg" href="https://mega-shop-brasil.github.io/logo.jpg" />
+
+  <!-- Ícone ao salvar como atalho na tela inicial (Android / iPhone) -->
+  <link rel="apple-touch-icon" href="https://mega-shop-brasil.github.io/logo.jpg" />
+
+  <!-- Prévia com logo no WhatsApp, Facebook, Instagram e redes sociais -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mega Shop Brasil" />
+  <meta property="og:url" content="https://mega-shop-brasil.github.io/" />
+  <meta property="og:title" content="Mega Shop Brasil — Atacado e Varejo" />
+  <meta property="og:description" content="Atacado e Varejo, pensou em comprar, pensou Mega. Os melhores fornecedores do Brasil." />
+  <meta property="og:image" content="https://mega-shop-brasil.github.io/logo.jpg" />
+  <meta property="og:image:secure_url" content="https://mega-shop-brasil.github.io/logo.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+
+  <!-- Prévia em outras plataformas -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mega Shop Brasil — Atacado e Varejo" />
+  <meta name="twitter:description" content="Atacado e Varejo, pensou em comprar, pensou Mega. Os melhores fornecedores do Brasil." />
+  <meta name="twitter:image" content="https://mega-shop-brasil.github.io/logo.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
@@ -1591,7 +1616,6 @@
         }, 3200);
       }
 
-      // Criação de pedido com APROVAÇÃO AUTOMÁTICA
       function createAutoApprovedOrder(product, viaExternalLink = false) {
         const time = nowTimeLabel();
         const linkMode = product.linkMode === 'externo' ? 'externo' : 'normal';
@@ -1615,7 +1639,7 @@
           customerConfirmedPayment: true,
           receiptName: '',
           receiptDataUrl: '',
-          approved: true, // APROVAÇÃO AUTOMÁTICA ATIVA
+          approved: true,
           statusLabel: 'Pagamento Aprovado Automaticamente',
           createdAt: time,
         };
@@ -1642,7 +1666,6 @@
         return order;
       }
 
-      // Registra saída para link externo para perguntar na volta: "Você comprou este produto?"
       function trackExternalRedirect(product) {
         const payload = {
           productId: product.id,
@@ -2465,7 +2488,6 @@
       }
 
       function bindEvents() {
-        // Detecta quando o cliente volta ao site após clicar em um link externo de pagamento
         document.addEventListener('visibilitychange', () => {
           if (document.visibilityState === 'visible') {
             showExternalReturnPromptIfNeeded();
@@ -2560,7 +2582,6 @@
             return;
           }
 
-          // Clique em Comprar Agora com Link Externo: registra saída e abre o link
           const payLinkBtn = e.target.closest('#pay-via-link-btn');
           if (payLinkBtn) {
             const product = state.products.find((p) => p.id === payLinkBtn.getAttribute('data-product-id'));
@@ -2574,7 +2595,6 @@
             return;
           }
 
-          // Confirmação "Sim, comprei" ao retornar do link externo (no popup ou em Meus Pedidos)
           if (e.target.closest('#confirm-external-bought-yes-btn') || e.target.closest('#orders-modal-confirm-yes-btn')) {
             const pending = getPendingExternalReturn();
             if (pending) {
@@ -2596,7 +2616,6 @@
             return;
           }
 
-          // Confirmação "Não comprei" ao retornar do link externo
           if (e.target.closest('#confirm-external-bought-no-btn') || e.target.closest('#orders-modal-confirm-no-btn')) {
             clearPendingExternalReturn();
             closeModal('external-return-modal');
@@ -2605,7 +2624,6 @@
             return;
           }
 
-          // Compra direta sem link externo -> aprovação automática imediata
           const confirmDirectOrderBtn = e.target.closest('#confirm-direct-order-btn');
           if (confirmDirectOrderBtn) {
             const product = state.products.find((p) => p.id === confirmDirectOrderBtn.getAttribute('data-product-id'));
